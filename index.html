@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>形意智能 - AI/AR 眼镜 ODM 首页</title>
+  <meta name="description" content="基于设计稿重建的 1920 画布首页，按视口整体等比缩放。">
+  <style>
+    :root {
+      --canvas-width: 1920px;
+      --page-scale: 1;
+      --page-left: 0px;
+      --page-bg: #050216;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.74);
+      --line: rgba(255, 255, 255, 0.05);
+      --purple: #7a28ff;
+      --purple-2: #c19dff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --radius-xl: 34px;
+      --radius-lg: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: var(--page-bg);
+      overflow-x: hidden;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      color: var(--text);
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; }
+
+    .page-stage {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(126, 47, 255, 0.16), transparent 34%),
+        linear-gradient(180deg, #0b0823 0%, #050216 36%, #040112 100%);
+    }
+
+    .page-canvas {
+      position: absolute;
+      top: 0;
+      left: var(--page-left);
+      width: var(--canvas-width);
+      transform: scale(var(--page-scale));
+      transform-origin: top left;
+      will-change: transform;
+    }
+
+    .container {
+      width: 1920px;
+      margin: 0 auto;
+      padding: 0 100px;
+    }
+
+    .section {
+      position: relative;
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn img {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .btn-white {
+      color: #15112a;
+      background: linear-gradient(135deg, #fff, #f1edf9);
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-more {
+      width: 181px;
+      height: 68px;
+      padding: 0 18px 0 20px;
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 32px;
+      font-weight: 250;
+      line-height: 42px;
+      justify-content: space-between;
+    }
+
+    .btn-dark {
+      color: #fff;
+      background: linear-gradient(135deg, #090716, #140d34);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-more span {
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 75px;
+      height: 42px;
+      margin-left: 20px;
+      margin-top: 8px;
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 32px;
+      font-weight: 250;
+      line-height: 42px;
+      color: #fff;
+      flex: 0 0 auto;
+    }
+
+    .btn-purple {
+      color: #fff;
+      background: linear-gradient(135deg, #7a28ff 0%, #9438ff 45%, #c099ff 100%);
+      box-shadow: 0 12px 30px rgba(126, 47, 255, 0.32);
+    }
+
+    .header {
+      position: absolute;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      backdrop-filter: none;
+      background: transparent;
+      border-bottom: 0;
+    }
+
+    .header-inner {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 200px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 0 0 auto;
+    }
+
+    .brand img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .brand span {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: rgba(255, 255, 255, 0.76);
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-weight: 330;
+      font-size: 20px;
+      line-height: 40px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.95));
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .menu-toggle,
+    .mobile-panel {
+      display: none;
+    }
+
+    .hero {
+      height: 1211px;
+      background: url("首页/img_home_bg_top.png") center top / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.02);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: absolute;
+      left: 100px;
+      top: 310px;
+      z-index: 2;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: 100px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero-lead {
+      margin: 16px 0 0;
+      font-size: 32px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .hero-rail {
+      position: absolute;
+      left: 100px;
+      top: 515px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 181px;
+      height: 68px;
+    }
+
+    .hero-cards {
+      position: absolute;
+      left: 110px;
+      bottom: 2px;
+      display: grid;
+      grid-template-columns: repeat(2, 400px);
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .hero-card {
+      width: 400px;
+      height: 400px;
+      padding: 22px 24px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,245,252,0.96));
+      color: #16122b;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .hero-card-top img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .hero-card-bottom {
+      font-size: 30px;
+      letter-spacing: -0.04em;
+    }
+
+    .advantage {
+      padding-top: 0;
+      background: #050216;
+    }
+
+    .adv-stage {
+      width: 100%;
+      margin-top: -2px;
+    }
+
+    .adv-stage img {
+      width: 100%;
+      height: auto;
+    }
+
+    .adv-copy {
+      position: absolute;
+      left: 50%;
+      top: 360px;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 2;
+      width: 980px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 64px;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .section-subtitle {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .adv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      background: #050216;
+    }
+
+    .adv-card {
+      min-height: 310px;
+      padding: 46px 42px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .adv-card img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 24px;
+    }
+
+    .adv-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .adv-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.56);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .section-action {
+      display: flex;
+      justify-content: center;
+      padding: 30px 0 84px;
+    }
+
+    .product {
+      background: #050216;
+      padding-top: 10px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .section-head.left {
+      align-items: flex-start;
+    }
+
+    .section-head .section-title {
+      font-size: 62px;
+    }
+
+    .product-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(145, 73, 255, 0.32), transparent 35%),
+        linear-gradient(180deg, rgba(12, 8, 32, 0.98), rgba(6, 3, 18, 0.98));
+      box-shadow: var(--shadow);
+    }
+
+    .product-shell::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -90px;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 560px;
+      background: url("首页/img_home_product_bg_c100.png") center bottom / cover no-repeat;
+      opacity: 0.82;
+      pointer-events: none;
+    }
+
+    .product-top {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 42px 40px 18px;
+    }
+
+    .product-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 380px;
+    }
+
+    .product-visual-card {
+      width: min(100%, 560px);
+      padding: 18px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,237,248,0.9));
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+    }
+
+    .product-copy {
+      text-align: left;
+    }
+
+    .product-kicker {
+      color: rgba(255,255,255,0.62);
+      font-size: 12px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    .product-title {
+      margin: 10px 0 12px;
+      font-size: 88px;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .product-desc {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .product-meta {
+      display: flex;
+      gap: 26px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .product-stat strong {
+      display: block;
+      font-size: 74px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .product-stat span {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .product-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+    }
+
+    .product-tab {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      border: 0;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      color: rgba(255,255,255,0.66);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .product-tab:last-child { border-right: 0; }
+    .product-tab.active {
+      color: #fff;
+      background: linear-gradient(135deg, #7a28ff 0%, #8f34ff 50%, #c19dff 100%);
+    }
+
+    .product-tab strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .product-tab span {
+      display: block;
+      font-size: 13px;
+      opacity: 0.88;
+    }
+
+    .product-tab img {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+    }
+
+    .cases {
+      background: #050216;
+      padding-top: 80px;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.18);
+    }
+
+    .case-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 44%;
+      background: linear-gradient(180deg, rgba(126,47,255,0.02), rgba(126,47,255,0.62));
+      pointer-events: none;
+    }
+
+    .case-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .case-copy {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      padding: 22px 22px 24px;
+    }
+
+    .case-copy h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .case-copy p {
+      margin: 0;
+      color: rgba(255,255,255,0.76);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .about {
+      background: #050216;
+      padding-top: 90px;
+    }
+
+    .about-head h2 {
+      margin: 0;
+      font-size: 60px;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .about-head p {
+      margin: 16px 0 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 88ch;
+    }
+
+    .about-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(137, 51, 255, 0.35), transparent 34%),
+        linear-gradient(180deg, rgba(9, 5, 24, 0.98), rgba(6, 3, 18, 0.98));
+      box-shadow: var(--shadow);
+      padding: 34px 34px 24px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .about-stat strong {
+      display: block;
+      font-size: 58px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .about-stat span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.62);
+      font-size: 13px;
+    }
+
+    .about-map {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.12);
+    }
+
+    .about-map img {
+      width: 100%;
+      height: auto;
+    }
+
+    .cta {
+      background: #050216;
+      padding-top: 96px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 42px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 56px 28px;
+      background: linear-gradient(180deg, rgba(10, 6, 28, 0.95), rgba(6, 3, 18, 0.98));
+    }
+
+    .cta-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      opacity: 0.95;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 72ch;
+    }
+
+    .cta-content h2 {
+      margin: 0 0 12px;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .cta-content p {
+      margin: 0 0 26px;
+      color: rgba(255,255,255,0.76);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: #050216;
+      padding: 82px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr)) 1.3fr;
+      gap: 26px;
+      align-items: start;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-col h4 {
+      margin: 0 0 14px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      margin: 0 0 10px;
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-col a:hover { color: #fff; }
+
+    .footer-address {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-qr {
+      width: 96px;
+      height: 96px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(223,223,223,0.78));
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+      margin-top: 10px;
+    }
+
+    .footer-legal {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-police {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-police img {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-stage" data-page-stage>
+    <div class="page-canvas" data-page-canvas>
+      <header class="header">
+        <div class="header-inner">
+          <a class="brand" href="#home" aria-label="返回首页">
+            <img src="首页/img_xy_logo.png" alt="形意智能标志" />
+            <span>形意</span>
+          </a>
+
+          <nav class="nav" aria-label="主导航">
+            <div class="nav-links" role="list">
+              <a class="active" href="#home">首页</a>
+              <a href="#products">产品中心</a>
+              <a href="#advantages">技术能力</a>
+              <a href="#cases">服务支持</a>
+              <a href="#about">关于我们</a>
+              <a href="#contact">App下载</a>
+              <a href="#contact">开发者</a>
+            </div>
+          </nav>
+
+          <div class="nav-actions">
+            <a class="btn btn-white" href="#contact">联系我们 <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section hero" id="home">
+          <div class="hero-copy">
+            <h1 class="hero-title">智造视界触手可及</h1>
+            <p class="hero-lead">全球首选 AI / AR 眼镜全栈 ODM 合作伙伴</p>
+          </div>
+
+          <div class="hero-rail">
+            <a class="btn btn-more btn-dark" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
+          </div>
+
+          <div class="hero-cards">
+            <article class="hero-card">
+              <div class="hero-card-top"><span>形意</span><img src="首页/icon_home_arrow_line_44.png" alt="" /></div>
+              <div class="hero-card-bottom">C100</div>
+            </article>
+            <article class="hero-card">
+              <div class="hero-card-top"><span>Mimosa</span><img src="首页/icon_home_arrow_line_44.png" alt="" /></div>
+              <div class="hero-card-bottom">AR99</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section advantage" id="advantages">
+          <div class="adv-stage">
+            <img src="首页/img_home_good_bg.png" alt="AI+AR 核心优势背景" />
+          </div>
+          <div class="adv-copy">
+            <h2 class="section-title">全栈自研 AI+AR 核心优势</h2>
+            <p class="section-subtitle">整合光学显示、算法交互、硬件算力与供应链，提供从设计、验证到量产的一站式服务。</p>
+          </div>
+          <div class="container" style="margin-top:-1000px;">
+            <div class="adv-grid">
+              <article class="adv-card">
+                <img src="首页/icon_light_80.png" alt="" />
+                <h3>光学显示</h3>
+                <p>覆盖 BB、阵列光波导、衍射光波导、自由曲面四大技术路径，兼顾显示效果与量产可行性。</p>
+              </article>
+              <article class="adv-card">
+                <img src="首页/icon_hard_80.png" alt="" />
+                <h3>硬件算力</h3>
+                <p>持 MTK / RK / 高通等主流平台，实现移动端高效稳定实时运算。</p>
+              </article>
+              <article class="adv-card">
+                <img src="首页/icon_byt_80.png" alt="" />
+                <h3>算法交互</h3>
+                <p>提供从行业大模型到专属 AI 算法的端到端定制，形成精准、智能的交互体验。</p>
+              </article>
+              <article class="adv-card">
+                <img src="首页/icon_coop_80.png" alt="" />
+                <h3>软件生态</h3>
+                <p>独家战略合作全球顶级开发者机构，坐拥百万级应用储备，扩展场景更高效。</p>
+              </article>
+              <article class="adv-card">
+                <img src="首页/icon_team_80.png" alt="" />
+                <h3>全链路自研团队</h3>
+                <p>建从爆品设计、研发测试到量产落地的完整自研体系，让需求交付更顺畅。</p>
+              </article>
+              <article class="adv-card">
+                <img src="首页/icon__80.png" alt="" />
+                <h3>硬件微型化</h3>
+                <p>采用非美系芯片方案，全方位保障供应链安全稳定，并在体积和功耗上持续优化。</p>
+              </article>
+            </div>
+            <div class="section-action">
+              <a class="btn btn-more btn-purple" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section product" id="products">
+          <div class="container">
+            <div class="section-head left">
+              <div>
+                <h2 class="section-title">AR + AI 全能智能眼镜</h2>
+                <p class="section-subtitle">双目显示 | 一电一充 | 拍摄 | 音频 | AI 助手 | 导航</p>
+              </div>
+            </div>
+
+            <div class="product-shell">
+              <div class="product-top">
+                <div class="product-visual">
+                  <div class="product-visual-card">
+                    <img id="spotlightImage" src="首页/img_glass_c100.png" alt="形意 C100 产品展示" />
+                  </div>
+                </div>
+
+                <div class="product-copy">
+                  <div class="product-kicker">Product Matrix</div>
+                  <h3 class="product-title" id="spotlightTitle">形意 C100</h3>
+                  <p class="product-desc" id="spotlightDesc">轻量化旗舰方案，兼顾日常佩戴舒适度与稳定续航，适合高频移动场景与品牌定制化合作。</p>
+                  <div class="product-meta">
+                    <div class="product-stat"><strong id="spotlightStatA">40+g</strong><span id="spotlightLabelA">轻盈佩戴</span></div>
+                    <div class="product-stat"><strong id="spotlightStatB">260mAh</strong><span id="spotlightLabelB">可换电源</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-tabs" role="tablist" aria-label="产品选择">
+                <button class="product-tab active" type="button" role="tab" aria-selected="true"
+                  data-image="首页/img_glass_c100.png"
+                  data-title="形意 C100"
+                  data-desc="轻量化旗舰方案，兼顾日常佩戴舒适度与稳定续航，适合高频移动场景与品牌定制化合作。"
+                  data-stat-a="40+g" data-label-a="轻盈佩戴" data-stat-b="260mAh" data-label-b="可换电源">
+                  <span><strong>形意 C100</strong><span>轻量旗舰 · 稳定续航</span></span>
+                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                </button>
+                <button class="product-tab" type="button" role="tab" aria-selected="false"
+                  data-image="首页/img_glass_ar99.png"
+                  data-title="Mimosa AR99"
+                  data-desc="面向沉浸式 AR 交互与 AI 助理体验，强调显示、识别与佩戴舒适的综合平衡。"
+                  data-stat-a="双目显示" data-label-a="增强感知" data-stat-b="AI助手" data-label-b="智能交互">
+                  <span><strong>Mimosa AR99</strong><span>AR 交互 · AI 赋能</span></span>
+                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                </button>
+                <button class="product-tab" type="button" role="tab" aria-selected="false"
+                  data-image="首页/img_product_1.png"
+                  data-title="形意 K900"
+                  data-desc="概念与量产兼容的平台型产品，适合验证外观语言、模组布局和定制化功能拓展。"
+                  data-stat-a="模组化" data-label-a="快速验证" data-stat-b="高适配" data-label-b="场景扩展">
+                  <span><strong>形意 K900</strong><span>概念样机 · 平台化</span></span>
+                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cases" id="cases">
+          <div class="container">
+            <div class="section-head left">
+              <div>
+                <h2 class="section-title">让产品从概念到量产更简单</h2>
+                <p class="section-subtitle">专注 AR + AI 智能消费电子硬件 OEM / ODM，从概念到量产的一站式智造伙伴。</p>
+              </div>
+              <a class="btn btn-more btn-purple" href="#about"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+            </div>
+
+            <div class="cases-grid">
+              <article class="case-card"><img src="首页/img_product_1.png" alt="灵活合作模式" /><div class="case-copy"><h3>灵活合作模式</h3><p>从 ID 设计、结构规划到功能验证，快速完成概念转化与市场预判。</p></div></article>
+              <article class="case-card"><img src="首页/img_product_2.png" alt="一站式服务范围" /><div class="case-copy"><h3>一站式服务范围</h3><p>覆盖工业设计、工程开发、测试优化、供应链协同与量产交付全流程。</p></div></article>
+              <article class="case-card"><img src="首页/img_product_3.png" alt="清晰合作流程" /><div class="case-copy"><h3>清晰合作流程</h3><p>建立从原型、验证到批量出货的标准化路径，让项目推进更透明、更可控。</p></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section about" id="about">
+          <div class="container">
+            <div class="about-head section-head left">
+              <div>
+                <h2>走进形意智能，探索 AR + AI 新境</h2>
+                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AR + AI 赛道，持续打磨国际化的产品、服务与品牌。</p>
+              </div>
+              <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+            </div>
+
+            <div class="about-panel">
+              <div class="about-stats">
+                <div class="about-stat"><strong>2019 年</strong><span>公司创始于</span></div>
+                <div class="about-stat"><strong>300 人</strong><span>现团队规模</span></div>
+                <div class="about-stat"><strong>100+</strong><span>服务行业</span></div>
+                <div class="about-stat"><strong>2000+</strong><span>合作用户</span></div>
+                <div class="about-stat"><strong>60+</strong><span>技术专利</span></div>
+              </div>
+              <div class="about-map"><img src="首页/img_xy_bg.png" alt="全球业务版图" /></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cta" id="contact">
+          <div class="container">
+            <div class="cta-panel">
+              <img src="首页/img_consult_bg.png" alt="" aria-hidden="true" />
+              <div class="cta-content">
+                <h2>共启智能穿戴新时代</h2>
+                <p>从概念到量产，赋能品牌重塑智能穿戴未来。</p>
+                <a class="btn btn-white" href="tel:075523006866">产品咨询</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col"><h4>购买渠道</h4><a href="#contact">京东旗舰店</a><a href="#contact">天猫旗舰店</a></div>
+            <div class="footer-col"><h4>产品中心</h4><a href="#products">Mimosa AR99</a><a href="#products">形意 C100</a><a href="#products">形意 K900</a></div>
+            <div class="footer-col"><h4>技术能力</h4><a href="#advantages">应用下载</a><a href="#advantages">解决方案</a></div>
+            <div class="footer-col"><h4>服务支持</h4><a href="#cases">应用下载</a><a href="#cases">解决方案</a></div>
+            <div class="footer-col"><h4>关于我们</h4><a href="#about">公司介绍</a><a href="#about">形意工厂</a></div>
+            <div class="footer-col"><h4>下载</h4><a href="#contact">应用下载</a><a href="#contact">开发者</a></div>
+            <div class="footer-col footer-address">
+              <h4>公司地址</h4>
+              <p>深圳市宝安区新安街道湖兴环科科技中心 A 栋 901-905</p>
+              <p>0755-23006866</p>
+              <div class="footer-qr" aria-hidden="true"></div>
+              <p>获得实时资讯</p>
+            </div>
+          </div>
+          <div class="footer-legal">
+            <span>Copyright © 深圳形意智能科技有限公司版权所有</span>
+            <span>粤ICP备20029730号</span>
+            <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882 号</span></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const baseWidth = 1920;
+    const pageStage = document.querySelector("[data-page-stage]");
+    const pageCanvas = document.querySelector("[data-page-canvas]");
+
+    function updateScale() {
+      if (!pageStage || !pageCanvas) return;
+      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+      const scale = viewportWidth / baseWidth;
+      const leftOffset = Math.max(0, (viewportWidth - baseWidth * scale) / 2);
+      const canvasHeight = pageCanvas.scrollHeight;
+      document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
+      document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
+      pageStage.style.height = `${canvasHeight * scale}px`;
+    }
+
+    window.addEventListener("resize", updateScale, { passive: true });
+    window.addEventListener("load", updateScale, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateScale);
+    if ("ResizeObserver" in window && pageCanvas) {
+      new ResizeObserver(() => updateScale()).observe(pageCanvas);
+    }
+    requestAnimationFrame(updateScale);
+
+    const spotlight = {
+      image: document.getElementById("spotlightImage"),
+      title: document.getElementById("spotlightTitle"),
+      desc: document.getElementById("spotlightDesc"),
+      statA: document.getElementById("spotlightStatA"),
+      labelA: document.getElementById("spotlightLabelA"),
+      statB: document.getElementById("spotlightStatB"),
+      labelB: document.getElementById("spotlightLabelB"),
+    };
+
+    const tabs = Array.from(document.querySelectorAll(".product-tab"));
+
+    function setSpotlight(tab) {
+      tabs.forEach((item) => {
+        const active = item === tab;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      if (!spotlight.image) return;
+      spotlight.image.style.opacity = "0.35";
+      window.setTimeout(() => {
+        spotlight.image.src = tab.dataset.image;
+        spotlight.image.alt = `${tab.dataset.title} 产品展示`;
+        spotlight.title.textContent = tab.dataset.title;
+        spotlight.desc.textContent = tab.dataset.desc;
+        spotlight.statA.textContent = tab.dataset.statA;
+        spotlight.labelA.textContent = tab.dataset.labelA;
+        spotlight.statB.textContent = tab.dataset.statB;
+        spotlight.labelB.textContent = tab.dataset.labelB;
+        spotlight.image.style.opacity = "1";
+      }, 140);
+    }
+
+    tabs.forEach((tab) => tab.addEventListener("click", () => setSpotlight(tab)));
+
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const trackedSections = ["home", "products", "advantages", "cases", "about", "contact"].map((id) => document.getElementById(id)).filter(Boolean);
+    if ("IntersectionObserver" in window && navLinks.length && trackedSections.length) {
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const activeId = `#${entry.target.id}`;
+          navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === activeId));
+        });
+      }, { threshold: 0.38, rootMargin: "-24% 0px -58% 0px" });
+      trackedSections.forEach((section) => navObserver.observe(section));
+    }
+
+    updateScale();
+  </script>
+</body>
+</html>
