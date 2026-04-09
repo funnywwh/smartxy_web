@@ -35,7 +35,7 @@
 
     body {
       color: var(--text);
-      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: "MiSans";
     }
 
     a { color: inherit; text-decoration: none; }
@@ -100,11 +100,46 @@
       box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
     }
 
+    .btn-contact {
+      width: fit-content;
+      height: fit-content;
+      padding: 5px 5px 5px 20px;
+      border: 0.5px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+      font-family: "MiSans";
+      font-size: 20px;
+      font-weight: 330;
+      line-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-radius: 100px;
+    }
+
+    .btn-contact span {
+      line-height: 40px;
+    }
+
+    .btn-contact .btn-contact-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: rgba(27, 21, 64, 0.5);
+      font-size: 18px;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
     .btn-more {
       width: 181px;
       height: 68px;
       padding: 0 18px 0 20px;
-      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: "MiSans";
       font-size: 32px;
       font-weight: 250;
       line-height: 42px;
@@ -123,9 +158,9 @@
       justify-content: flex-start;
       width: 75px;
       height: 42px;
-      margin-left: 20px;
-      margin-top: 8px;
-      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin-left: 15px;
+      margin-top: -5px;
+      font-family: "MiSans";
       font-size: 32px;
       font-weight: 250;
       line-height: 42px;
@@ -188,7 +223,7 @@
       align-items: center;
       gap: 30px;
       color: rgba(255, 255, 255, 0.76);
-      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: "MiSans";
       font-weight: 330;
       font-size: 20px;
       line-height: 40px;
@@ -225,17 +260,13 @@
 
     .hero {
       height: 1211px;
-      background: url("首页/img_home_bg_top.png") center top / cover no-repeat;
+      background-color: rgba(218, 217, 219, 1);
+      background-image: url("首页/img_home_bg_top.png");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.02);
-      pointer-events: none;
     }
 
     .hero-copy {
@@ -291,26 +322,42 @@
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 12px;
     }
 
     .hero-card-top {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 199px;
+      width: 340px;
+      height: fit-content;
+      flex-shrink: 0;
       font-size: 18px;
       font-weight: 700;
     }
 
     .hero-card-top img {
-      width: 22px;
-      height: 22px;
+      display: block;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .hero-card-media {
+      width: 340px;
+      height: 252px;
+      display: block;
+      object-fit: contain;
+      align-self: flex-start;
+      flex: 0 0 auto;
     }
 
     .hero-card-bottom {
       font-size: 30px;
       letter-spacing: -0.04em;
+      margin-top: auto;
     }
 
     .advantage {
@@ -340,24 +387,31 @@
 
     .section-title {
       margin: 0;
-      font-size: 64px;
-      line-height: 1.05;
-      letter-spacing: -0.05em;
+      font-weight: 600;
+      font-size: 80px;
+      line-height: 106px;
+      text-transform: capitalize;
+      letter-spacing: 0;
     }
 
     .section-subtitle {
       margin: 14px 0 0;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
+      font-family: "MiSans";
+      font-weight: 200;
+      font-size: 28px;
+      line-height: 44px;
+    }
+
+    .adv-panel {
+      border: 1px solid var(--line);
+      background: #050216;
     }
 
     .adv-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-      background: #050216;
+      background: transparent;
     }
 
     .adv-card {
@@ -365,6 +419,14 @@
       padding: 46px 42px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+    }
+
+    .adv-card:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .adv-card:nth-last-child(-n + 3) {
+      border-bottom: 0;
     }
 
     .adv-card img {
@@ -375,26 +437,24 @@
 
     .adv-card h3 {
       margin: 0 0 12px;
-      font-size: 24px;
-      line-height: 1.2;
+      font-weight: 380;
+      font-size: 32px;
+      line-height: 50px;
     }
 
     .adv-card p {
       margin: 0;
       color: rgba(255,255,255,0.56);
-      font-size: 15px;
-      line-height: 1.75;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 38px;
     }
 
     .section-action {
       display: flex;
       justify-content: center;
-      padding: 30px 0 84px;
-    }
-
-    .product {
-      background: #050216;
-      padding-top: 10px;
+      padding: 34px 0 46px;
+      border-top: 1px solid var(--line);
     }
 
     .section-head {
@@ -413,121 +473,83 @@
       font-size: 62px;
     }
 
+    .product {
+      background: #050216;
+      padding-top: 0;
+    }
+
+    .product .container {
+      width: 100%;
+      padding: 0;
+    }
+
     .product-shell {
       position: relative;
       overflow: hidden;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(145, 73, 255, 0.32), transparent 35%),
-        linear-gradient(180deg, rgba(12, 8, 32, 0.98), rgba(6, 3, 18, 0.98));
-      box-shadow: var(--shadow);
+      width: 100%;
+      min-height: 760px;
+      border-radius: 0;
+      border: 0;
+      background: #050216;
+      box-shadow: none;
     }
 
-    .product-shell::before {
+    .product-shell::after {
       content: "";
       position: absolute;
-      left: 50%;
-      bottom: -90px;
-      transform: translateX(-50%);
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5, 2, 22, 0.06) 0%, transparent 26%, transparent 76%, rgba(5, 2, 22, 0.24) 100%),
+        linear-gradient(90deg, rgba(5, 2, 22, 0.03) 0%, transparent 56%, rgba(5, 2, 22, 0.16) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .product-backdrop {
+      position: relative;
       width: 100%;
-      height: 560px;
-      background: url("首页/img_home_product_bg_c100.png") center bottom / cover no-repeat;
-      opacity: 0.82;
+      height: 100%;
       pointer-events: none;
     }
 
-    .product-top {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 28px;
-      align-items: center;
-      padding: 42px 40px 18px;
-    }
-
-    .product-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 380px;
-    }
-
-    .product-visual-card {
-      width: min(100%, 560px);
-      padding: 18px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,237,248,0.9));
-      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
-    }
-
-    .product-copy {
-      text-align: left;
-    }
-
-    .product-kicker {
-      color: rgba(255,255,255,0.62);
-      font-size: 12px;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-    }
-
-    .product-title {
-      margin: 10px 0 12px;
-      font-size: 88px;
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-    }
-
-    .product-desc {
-      margin: 0;
-      color: rgba(255,255,255,0.72);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .product-meta {
-      display: flex;
-      gap: 26px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .product-stat strong {
-      display: block;
-      font-size: 74px;
-      line-height: 1;
-      letter-spacing: -0.05em;
-    }
-
-    .product-stat span {
-      display: block;
-      margin-top: 8px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.62);
+    .product-backdrop img {
+      width: 100%;
+      height: 760px;
+      object-fit: cover;
+      object-position: center center;
+      transition: opacity 0.24s ease;
     }
 
     .product-tabs {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(12px);
+      width: 1520px;
+      height: 100px;
+      border-radius: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(12, 8, 32, 0.5);
+      backdrop-filter: blur(14px);
     }
 
     .product-tab {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 18px 22px;
+      gap: 12px;
+      padding: 0 20px 0 24px;
       border: 0;
       border-right: 1px solid rgba(255,255,255,0.08);
       background: transparent;
       color: rgba(255,255,255,0.66);
       text-align: left;
       cursor: pointer;
+      min-width: 0;
     }
 
     .product-tab:last-child { border-right: 0; }
@@ -536,47 +558,100 @@
       background: linear-gradient(135deg, #7a28ff 0%, #8f34ff 50%, #c19dff 100%);
     }
 
-    .product-tab strong {
-      display: block;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .product-tab > span {
+      display: flex;
+      justify-content: center;
+      min-width: 0;
     }
 
-    .product-tab span {
+    .product-tab strong {
       display: block;
-      font-size: 13px;
-      opacity: 0.88;
+      font-family: "MiSans";
+      font-weight: 380;
+      font-size: 32px;
+      line-height: 50px;
     }
 
     .product-tab img {
-      width: 28px;
-      height: 28px;
+      width: 44px;
+      height: 44px;
       flex: 0 0 auto;
     }
 
     .cases {
       background: #050216;
-      padding-top: 80px;
+      padding-top: 100px;
+    }
+
+    .cases-head {
+      text-align: center;
+      margin: 0 auto 48px;
+      max-width: 1280px;
+    }
+
+    .cases-head .section-title {
+      font-size: 66px;
+      line-height: 1.08;
+    }
+
+    .cases-head .section-subtitle {
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 1.75;
     }
 
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 34px;
     }
 
     .case-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 8px;
+      margin-bottom: 16px;
+    }
+
+    .case-top h3 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+    }
+
+    .case-link {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .case-link img {
+      width: 44px;
+      height: 44px;
+    }
+
+    .case-media {
       position: relative;
       overflow: hidden;
-      min-height: 620px;
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.03);
+      min-height: 620px;
       box-shadow: 0 20px 70px rgba(0,0,0,0.18);
     }
 
-    .case-card::after {
+    .case-media::after {
       content: "";
       position: absolute;
       inset: auto 0 0;
@@ -585,148 +660,242 @@
       pointer-events: none;
     }
 
-    .case-card img {
+    .case-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center center;
     }
 
-    .case-copy {
+    .case-caption {
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 1;
-      padding: 22px 22px 24px;
-    }
-
-    .case-copy h3 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      line-height: 1.2;
-    }
-
-    .case-copy p {
       margin: 0;
-      color: rgba(255,255,255,0.76);
-      font-size: 14px;
-      line-height: 1.75;
+      padding: 18px 22px 16px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    .case-card.bottom-title .case-media {
+      order: 1;
+    }
+
+    .case-card.bottom-title .case-top {
+      order: 2;
+      margin-top: 16px;
+      margin-bottom: 0;
     }
 
     .about {
-      background: #050216;
-      padding-top: 90px;
+      background-color: #050216;
+      background-image: url("首页/img_xy_bg.png");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 1920px auto;
+      padding-top: 86px;
+      padding-bottom: 0;
+    }
+
+    .about-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      max-width: 1560px;
+      margin: 100px 0 26px 100px;
+    }
+
+    .about-copy {
+      flex: 1 1 auto;
+      max-width: 1330px;
+      padding: 0;
+      border: 0;
+      background: transparent;
     }
 
     .about-head h2 {
       margin: 0;
-      font-size: 60px;
-      line-height: 1.02;
-      letter-spacing: -0.05em;
+      font-family: "MiSans";
+      font-weight: 450;
+      font-size: 80px;
+      line-height: 106px;
+      text-transform: capitalize;
+      letter-spacing: 0;
     }
 
     .about-head p {
-      margin: 16px 0 0;
-      color: rgba(255,255,255,0.72);
-      font-size: 16px;
-      line-height: 1.75;
-      max-width: 88ch;
+      margin: 12px 0 0;
+      color: rgba(255,255,255,0.56);
+      font-family: "MiSans";
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 38px;
+      max-width: 1120px;
+    }
+
+    .about-head .btn-more {
+      width: 112px;
+      height: 40px;
+      padding: 0 6px 0 14px;
+      margin-top: 2px;
+      gap: 6px;
+      flex: 0 0 auto;
+      box-shadow: 0 8px 20px rgba(126, 47, 255, 0.22);
+    }
+
+    .about-head .btn-more span {
+      width: auto;
+      height: auto;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 250;
+    }
+
+    .about-head .btn-more img {
+      width: 28px;
+      height: 28px;
     }
 
     .about-panel {
       position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(137, 51, 255, 0.35), transparent 34%),
-        linear-gradient(180deg, rgba(9, 5, 24, 0.98), rgba(6, 3, 18, 0.98));
-      box-shadow: var(--shadow);
-      padding: 34px 34px 24px;
+      max-width: 1560px;
+      margin: 0 auto;
+      min-height: 1120px;
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
     }
 
     .about-stats {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+      justify-content: space-between;
+      gap: 0;
       align-items: start;
-      margin-bottom: 28px;
+      margin: 0;
+      width: 1280px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .about-stat {
+      width: fit-content;
     }
 
     .about-stat strong {
-      display: block;
-      font-size: 58px;
-      line-height: 1;
-      letter-spacing: -0.05em;
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 4px;
+      color: rgba(255, 255, 255, 1);
+      white-space: nowrap;
+      letter-spacing: 0;
     }
 
-    .about-stat span {
+    .about-stat-number {
+      display: inline-block;
+      font-family: "MiSans";
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 64px;
+    }
+
+    .about-stat-unit {
+      display: inline-block;
+      font-family: "MiSans";
+      font-weight: 300;
+      font-size: 24px !important;
+      line-height: 38px !important;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .about-stat-label {
       display: block;
       margin-top: 10px;
-      color: rgba(255,255,255,0.62);
-      font-size: 13px;
-    }
-
-    .about-map {
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.12);
-    }
-
-    .about-map img {
-      width: 100%;
-      height: auto;
+      color: rgba(255,255,255,0.72);
+      font-family: "MiSans";
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 38px;
     }
 
     .cta {
-      background: #050216;
-      padding-top: 96px;
+      background-color: #050216;
+      background-image: url("首页/img_consult_bg.png");
+      background-repeat: no-repeat;
+      background-position: center -120px;
+      background-size: 1920px auto;
+      min-height: 793px;
+      margin-top: -86px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     .cta-panel {
       position: relative;
+      max-width: 1560px;
+      margin: 0 auto;
+      min-height: 520px;
       overflow: hidden;
       border-radius: 42px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      min-height: 350px;
+      border: 0;
+      box-shadow: none;
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 56px 28px;
-      background: linear-gradient(180deg, rgba(10, 6, 28, 0.95), rgba(6, 3, 18, 0.98));
-    }
-
-    .cta-panel img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center bottom;
-      opacity: 0.95;
+      padding: 42px 28px 60px;
+      background: transparent;
     }
 
     .cta-content {
       position: relative;
       z-index: 1;
-      max-width: 72ch;
+      max-width: 84ch;
+      transform: translateY(-8px);
     }
 
     .cta-content h2 {
-      margin: 0 0 12px;
-      font-size: 56px;
-      line-height: 1;
-      letter-spacing: -0.05em;
+      margin: 0 0 10px;
+      font-family: "MiSans";
+      font-weight: 450;
+      font-size: 80px;
+      line-height: 106px;
+      text-transform: capitalize;
+      letter-spacing: 0;
     }
 
     .cta-content p {
-      margin: 0 0 26px;
-      color: rgba(255,255,255,0.76);
-      font-size: 18px;
-      line-height: 1.7;
+      margin: 0 0 22px;
+      color: rgba(255,255,255,0.56);
+      font-size: 24px;
+      line-height: 1.6;
+    }
+
+    .cta .btn-white {
+      min-width: 192px;
+      height: 68px;
+      padding: 0 18px;
+      font-family: "MiSans";
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 38px;
+      box-shadow: none;
     }
 
     .footer {
@@ -740,12 +909,14 @@
       gap: 26px;
       align-items: start;
       padding-top: 12px;
+      padding-left: 100px;
+      padding-right: 100px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .footer-col h4 {
       margin: 0 0 14px;
-      font-size: 14px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.04em;
     }
@@ -755,7 +926,7 @@
       display: block;
       margin: 0 0 10px;
       color: rgba(255,255,255,0.68);
-      font-size: 13px;
+      font-size: 20px;
       line-height: 1.7;
     }
 
@@ -788,7 +959,7 @@
       justify-content: center;
       gap: 18px;
       color: rgba(255,255,255,0.6);
-      font-size: 12px;
+      font-size: 20px;
       text-align: center;
     }
 
@@ -833,7 +1004,7 @@
           </nav>
 
           <div class="nav-actions">
-            <a class="btn btn-white" href="#contact">联系我们 <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+            <a class="btn btn-contact" href="#contact"><span>联系我们</span><span class="btn-contact-icon" aria-hidden="true">↗</span></a>
           </div>
         </div>
       </header>
@@ -851,11 +1022,13 @@
 
           <div class="hero-cards">
             <article class="hero-card">
-              <div class="hero-card-top"><span>形意</span><img src="首页/icon_home_arrow_line_44.png" alt="" /></div>
+              <div class="hero-card-top"><span>形意</span><img src="首页/icon_home_arrow_line_48.png" alt="" /></div>
+              <img class="hero-card-media" src="首页/img_glass_c100.png" alt="形意 C100" />
               <div class="hero-card-bottom">C100</div>
             </article>
             <article class="hero-card">
-              <div class="hero-card-top"><span>Mimosa</span><img src="首页/icon_home_arrow_line_44.png" alt="" /></div>
+              <div class="hero-card-top"><span>Mimosa</span><img src="首页/icon_home_arrow_line_48.png" alt="" /></div>
+              <img class="hero-card-media" src="首页/img_glass_ar99.png" alt="Mimosa AR99" />
               <div class="hero-card-bottom">AR99</div>
             </article>
           </div>
@@ -867,99 +1040,80 @@
           </div>
           <div class="adv-copy">
             <h2 class="section-title">全栈自研 AI+AR 核心优势</h2>
-            <p class="section-subtitle">整合光学显示、算法交互、硬件算力与供应链，提供从设计、验证到量产的一站式服务。</p>
+            <p class="section-subtitle">整合光学显示、算法交互、硬件算力与供应链，提供从一站式服务</p>
           </div>
-          <div class="container" style="margin-top:-1000px;">
-            <div class="adv-grid">
-              <article class="adv-card">
-                <img src="首页/icon_light_80.png" alt="" />
-                <h3>光学显示</h3>
-                <p>覆盖 BB、阵列光波导、衍射光波导、自由曲面四大技术路径，兼顾显示效果与量产可行性。</p>
-              </article>
-              <article class="adv-card">
-                <img src="首页/icon_hard_80.png" alt="" />
-                <h3>硬件算力</h3>
-                <p>持 MTK / RK / 高通等主流平台，实现移动端高效稳定实时运算。</p>
-              </article>
-              <article class="adv-card">
-                <img src="首页/icon_byt_80.png" alt="" />
-                <h3>算法交互</h3>
-                <p>提供从行业大模型到专属 AI 算法的端到端定制，形成精准、智能的交互体验。</p>
-              </article>
-              <article class="adv-card">
-                <img src="首页/icon_coop_80.png" alt="" />
-                <h3>软件生态</h3>
-                <p>独家战略合作全球顶级开发者机构，坐拥百万级应用储备，扩展场景更高效。</p>
-              </article>
-              <article class="adv-card">
-                <img src="首页/icon_team_80.png" alt="" />
-                <h3>全链路自研团队</h3>
-                <p>建从爆品设计、研发测试到量产落地的完整自研体系，让需求交付更顺畅。</p>
-              </article>
-              <article class="adv-card">
-                <img src="首页/icon__80.png" alt="" />
-                <h3>硬件微型化</h3>
-                <p>采用非美系芯片方案，全方位保障供应链安全稳定，并在体积和功耗上持续优化。</p>
-              </article>
-            </div>
-            <div class="section-action">
-              <a class="btn btn-more btn-purple" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+          <div class="container" style="margin-top:-1060px;">
+            <div class="adv-panel">
+              <div class="adv-grid">
+                <article class="adv-card">
+                  <img src="首页/icon_light_80.png" alt="" />
+                  <h3>光学显示</h3>
+                  <p>覆盖 BB、阵列光波导、衍射光波导、自由曲面四大技术路径，兼顾显示效果与量产可行性。</p>
+                </article>
+                <article class="adv-card">
+                  <img src="首页/icon_byt_80.png" alt="" />
+                  <h3>硬件算力</h3>
+                  <p>持 MTK / RK / 高通等主流平台，实现移动端高效稳定实时运算。</p>
+                </article>
+                <article class="adv-card">
+                  <img src="首页/icon__80.png" alt="" />
+                  <h3>算法交互</h3>
+                  <p>提供从行业大模型到专属 AI 算法的端到端定制，形成精准、智能的交互体验。</p>
+                </article>
+                <article class="adv-card">
+                  <img src="首页/icon_coop_80.png" alt="" />
+                  <h3>软件生态</h3>
+                  <p>独家战略合作全球顶级开发者机构，坐拥百万级应用储备，扩展场景更高效。</p>
+                </article>
+                <article class="adv-card">
+                  <img src="首页/icon_team_80.png" alt="" />
+                  <h3>全链路自研团队</h3>
+                  <p>建从爆品设计、研发测试到量产落地的完整自研体系，让需求交付更顺畅。</p>
+                </article>
+                <article class="adv-card">
+                  <img src="首页/icon_hard_80.png" alt="" />
+                  <h3>硬件微型化</h3>
+                  <p>采用非美系芯片方案，全方位保障供应链安全稳定，并在体积和功耗上持续优化。</p>
+                </article>
+              </div>
+              <div class="section-action">
+                <a class="btn btn-more btn-purple" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="section product" id="products">
           <div class="container">
-            <div class="section-head left">
-              <div>
-                <h2 class="section-title">AR + AI 全能智能眼镜</h2>
-                <p class="section-subtitle">双目显示 | 一电一充 | 拍摄 | 音频 | AI 助手 | 导航</p>
-              </div>
-            </div>
-
-            <div class="product-shell">
-              <div class="product-top">
-                <div class="product-visual">
-                  <div class="product-visual-card">
-                    <img id="spotlightImage" src="首页/img_glass_c100.png" alt="形意 C100 产品展示" />
-                  </div>
-                </div>
-
-                <div class="product-copy">
-                  <div class="product-kicker">Product Matrix</div>
-                  <h3 class="product-title" id="spotlightTitle">形意 C100</h3>
-                  <p class="product-desc" id="spotlightDesc">轻量化旗舰方案，兼顾日常佩戴舒适度与稳定续航，适合高频移动场景与品牌定制化合作。</p>
-                  <div class="product-meta">
-                    <div class="product-stat"><strong id="spotlightStatA">40+g</strong><span id="spotlightLabelA">轻盈佩戴</span></div>
-                    <div class="product-stat"><strong id="spotlightStatB">260mAh</strong><span id="spotlightLabelB">可换电源</span></div>
-                  </div>
-                </div>
+            <div class="product-shell" aria-roledescription="carousel" aria-label="产品轮播">
+              <div class="product-backdrop" aria-hidden="true">
+                <img id="productBackdrop" src="首页/img_home_product_bg_c100.png" alt="" />
               </div>
 
               <div class="product-tabs" role="tablist" aria-label="产品选择">
                 <button class="product-tab active" type="button" role="tab" aria-selected="true"
-                  data-image="首页/img_glass_c100.png"
+                  data-image="首页/img_home_product_bg_c100.png"
                   data-title="形意 C100"
                   data-desc="轻量化旗舰方案，兼顾日常佩戴舒适度与稳定续航，适合高频移动场景与品牌定制化合作。"
                   data-stat-a="40+g" data-label-a="轻盈佩戴" data-stat-b="260mAh" data-label-b="可换电源">
-                  <span><strong>形意 C100</strong><span>轻量旗舰 · 稳定续航</span></span>
-                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                  <span><strong>形意 C100</strong></span>
+                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
                 </button>
                 <button class="product-tab" type="button" role="tab" aria-selected="false"
-                  data-image="首页/img_glass_ar99.png"
+                  data-image="首页/img_home_product_bg_ar99.png"
                   data-title="Mimosa AR99"
                   data-desc="面向沉浸式 AR 交互与 AI 助理体验，强调显示、识别与佩戴舒适的综合平衡。"
                   data-stat-a="双目显示" data-label-a="增强感知" data-stat-b="AI助手" data-label-b="智能交互">
-                  <span><strong>Mimosa AR99</strong><span>AR 交互 · AI 赋能</span></span>
-                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                  <span><strong>Mimosa AR99</strong></span>
+                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
                 </button>
                 <button class="product-tab" type="button" role="tab" aria-selected="false"
-                  data-image="首页/img_product_1.png"
+                  data-image="首页/img_home_product_bg_c100.png"
                   data-title="形意 K900"
                   data-desc="概念与量产兼容的平台型产品，适合验证外观语言、模组布局和定制化功能拓展。"
                   data-stat-a="模组化" data-label-a="快速验证" data-stat-b="高适配" data-label-b="场景扩展">
-                  <span><strong>形意 K900</strong><span>概念样机 · 平台化</span></span>
-                  <img src="首页/icon_home_arrow_fill_44_pur.png" alt="" />
+                  <span><strong>形意 K900</strong></span>
+                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
                 </button>
               </div>
             </div>
@@ -968,18 +1122,44 @@
 
         <section class="section cases" id="cases">
           <div class="container">
-            <div class="section-head left">
+            <div class="cases-head">
               <div>
                 <h2 class="section-title">让产品从概念到量产更简单</h2>
                 <p class="section-subtitle">专注 AR + AI 智能消费电子硬件 OEM / ODM，从概念到量产的一站式智造伙伴。</p>
               </div>
-              <a class="btn btn-more btn-purple" href="#about"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
             </div>
 
             <div class="cases-grid">
-              <article class="case-card"><img src="首页/img_product_1.png" alt="灵活合作模式" /><div class="case-copy"><h3>灵活合作模式</h3><p>从 ID 设计、结构规划到功能验证，快速完成概念转化与市场预判。</p></div></article>
-              <article class="case-card"><img src="首页/img_product_2.png" alt="一站式服务范围" /><div class="case-copy"><h3>一站式服务范围</h3><p>覆盖工业设计、工程开发、测试优化、供应链协同与量产交付全流程。</p></div></article>
-              <article class="case-card"><img src="首页/img_product_3.png" alt="清晰合作流程" /><div class="case-copy"><h3>清晰合作流程</h3><p>建立从原型、验证到批量出货的标准化路径，让项目推进更透明、更可控。</p></div></article>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3>灵活合作模式</h3>
+                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
+                </div>
+                <div class="case-media">
+                  <img src="首页/img_product_1.png" alt="灵活合作模式" />
+                  <p class="case-caption">来自形意 OEM / 一站式落地闭环 ODM / 轻量方案协同</p>
+                </div>
+              </article>
+              <article class="case-card bottom-title">
+                <div class="case-top">
+                  <h3>一站式服务范围</h3>
+                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
+                </div>
+                <div class="case-media">
+                  <img src="首页/img_product_2.png" alt="一站式服务范围" />
+                  <p class="case-caption">研发测试 | 供应链协同 | 工程验证 | 量产交付</p>
+                </div>
+              </article>
+              <article class="case-card">
+                <div class="case-top">
+                  <h3>清晰合作流程</h3>
+                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
+                </div>
+                <div class="case-media">
+                  <img src="首页/img_product_3.png" alt="清晰合作流程" />
+                  <p class="case-caption">需求评估 | 方案设计 | 工程开发 | 量产交付</p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -987,22 +1167,21 @@
         <section class="section about" id="about">
           <div class="container">
             <div class="about-head section-head left">
-              <div>
-                <h2>走进形意智能，探索 AR + AI 新境</h2>
-                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AR + AI 赛道，持续打磨国际化的产品、服务与品牌。</p>
+              <div class="about-copy">
+                <h2>走进形意智能，探索AR+AI 新境</h2>
+                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AR+AI 赛道，持续打磨国际化的产品、服务与品牌。为客户，我们创造价值，携手共赢；为行业，我们推动发展、引领风向；对消费者，我们坚守品质、带来“高、尖、新”的智能体验。</p>
               </div>
               <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
             </div>
 
             <div class="about-panel">
               <div class="about-stats">
-                <div class="about-stat"><strong>2019 年</strong><span>公司创始于</span></div>
-                <div class="about-stat"><strong>300 人</strong><span>现团队规模</span></div>
-                <div class="about-stat"><strong>100+</strong><span>服务行业</span></div>
-                <div class="about-stat"><strong>2000+</strong><span>合作用户</span></div>
-                <div class="about-stat"><strong>60+</strong><span>技术专利</span></div>
+                <div class="about-stat"><strong><span class="about-stat-number">2019</span><span class="about-stat-unit">年</span></strong><span class="about-stat-label">公司创始于</span></div>
+                <div class="about-stat"><strong><span class="about-stat-number">300</span><span class="about-stat-unit">人</span></strong><span class="about-stat-label">现团队规模</span></div>
+                <div class="about-stat"><strong><span class="about-stat-number">100</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">服务行业</span></div>
+                <div class="about-stat"><strong><span class="about-stat-number">2000</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">合作用户</span></div>
+                <div class="about-stat"><strong><span class="about-stat-number">60</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">技术专利</span></div>
               </div>
-              <div class="about-map"><img src="首页/img_xy_bg.png" alt="全球业务版图" /></div>
             </div>
           </div>
         </section>
@@ -1010,7 +1189,6 @@
         <section class="section cta" id="contact">
           <div class="container">
             <div class="cta-panel">
-              <img src="首页/img_consult_bg.png" alt="" aria-hidden="true" />
               <div class="cta-content">
                 <h2>共启智能穿戴新时代</h2>
                 <p>从概念到量产，赋能品牌重塑智能穿戴未来。</p>
@@ -1032,7 +1210,7 @@
             <div class="footer-col"><h4>下载</h4><a href="#contact">应用下载</a><a href="#contact">开发者</a></div>
             <div class="footer-col footer-address">
               <h4>公司地址</h4>
-              <p>深圳市宝安区新安街道湖兴环科科技中心 A 栋 901-905</p>
+              <p>深圳市宝安区新安街道稻兴环球科创中心A栋901-905</p>
               <p>0755-23006866</p>
               <div class="footer-qr" aria-hidden="true"></div>
               <p>获得实时资讯</p>
@@ -1072,15 +1250,7 @@
     }
     requestAnimationFrame(updateScale);
 
-    const spotlight = {
-      image: document.getElementById("spotlightImage"),
-      title: document.getElementById("spotlightTitle"),
-      desc: document.getElementById("spotlightDesc"),
-      statA: document.getElementById("spotlightStatA"),
-      labelA: document.getElementById("spotlightLabelA"),
-      statB: document.getElementById("spotlightStatB"),
-      labelB: document.getElementById("spotlightLabelB"),
-    };
+    const productBackdrop = document.getElementById("productBackdrop");
 
     const tabs = Array.from(document.querySelectorAll(".product-tab"));
 
@@ -1090,22 +1260,21 @@
         item.classList.toggle("active", active);
         item.setAttribute("aria-selected", String(active));
       });
-      if (!spotlight.image) return;
-      spotlight.image.style.opacity = "0.35";
+      if (!productBackdrop) return;
+      productBackdrop.style.opacity = "0.45";
       window.setTimeout(() => {
-        spotlight.image.src = tab.dataset.image;
-        spotlight.image.alt = `${tab.dataset.title} 产品展示`;
-        spotlight.title.textContent = tab.dataset.title;
-        spotlight.desc.textContent = tab.dataset.desc;
-        spotlight.statA.textContent = tab.dataset.statA;
-        spotlight.labelA.textContent = tab.dataset.labelA;
-        spotlight.statB.textContent = tab.dataset.statB;
-        spotlight.labelB.textContent = tab.dataset.labelB;
-        spotlight.image.style.opacity = "1";
-      }, 140);
+        productBackdrop.src = tab.dataset.image || "首页/img_home_product_bg_c100.png";
+        productBackdrop.style.opacity = "1";
+      }, 120);
     }
 
-    tabs.forEach((tab) => tab.addEventListener("click", () => setSpotlight(tab)));
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => setSpotlight(tab));
+      tab.addEventListener("mouseenter", () => setSpotlight(tab));
+      tab.addEventListener("pointerenter", () => setSpotlight(tab));
+      tab.addEventListener("mouseover", () => setSpotlight(tab));
+      tab.addEventListener("focus", () => setSpotlight(tab));
+    });
 
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
     const trackedSections = ["home", "products", "advantages", "cases", "about", "contact"].map((id) => document.getElementById(id)).filter(Boolean);
