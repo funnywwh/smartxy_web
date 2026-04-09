@@ -14,8 +14,8 @@
       --text: #ffffff;
       --muted: rgba(255, 255, 255, 0.74);
       --line: rgba(255, 255, 255, 0.05);
-      --purple: #7a28ff;
-      --purple-2: #c19dff;
+      --purple: rgb(113, 31, 254);
+      --purple-2: rgb(113, 31, 254);
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
       --radius-xl: 34px;
       --radius-lg: 28px;
@@ -48,7 +48,7 @@
       min-height: 100vh;
       overflow: hidden;
       background:
-        radial-gradient(circle at 50% 0%, rgba(126, 47, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 0%, rgba(113, 31, 254, 0.16), transparent 34%),
         linear-gradient(180deg, #0b0823 0%, #050216 36%, #040112 100%);
     }
 
@@ -109,7 +109,9 @@
       gap: 10px;
       padding: 5px 5px 5px 20px;
       border-radius: 100px;
-      border: 0.5px solid rgba(255, 255, 255, 1);
+      border-width: 0.5px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 1);
       color: #fff;
       font-family: "MiSans";
       font-size: 20px;
@@ -129,11 +131,16 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: #fff;
       color: rgba(27, 21, 64, 0.5);
       font-size: 18px;
       font-weight: 700;
       flex: 0 0 auto;
+    }
+
+    .btn-contact .btn-contact-icon img {
+      width: 30px;
+      height: 30px;
+      display: block;
     }
 
     .btn-more {
@@ -169,10 +176,16 @@
       flex: 0 0 auto;
     }
 
+    .btn-more img {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+    }
+
     .btn-purple {
       color: #fff;
-      background: linear-gradient(135deg, #7a28ff 0%, #9438ff 45%, #c099ff 100%);
-      box-shadow: 0 12px 30px rgba(126, 47, 255, 0.32);
+      background: rgb(113, 31, 254);
+      box-shadow: 0 12px 30px rgba(113, 31, 254, 0.32);
     }
 
     .header {
@@ -224,9 +237,8 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      color: rgba(255, 255, 255, 0.76);
+      color: #ffffff;
       font-family: "MiSans";
-      font-weight: 330;
       font-size: 20px;
       line-height: 40px;
       white-space: nowrap;
@@ -235,9 +247,15 @@
     .nav-links a {
       position: relative;
       padding: 6px 0;
-      font-weight: 330;
+      opacity: 0.5;
+      font-weight: 200;
       font-size: 20px;
       line-height: 40px;
+    }
+
+    .nav-links a.active {
+      font-weight: 600;
+      opacity: 1;
     }
 
     .nav-links a.active::after {
@@ -246,9 +264,9 @@
       left: 0;
       right: 0;
       bottom: -1px;
-      height: 2px;
+      height: 1px;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.95));
+      background: #ffffff;
     }
 
     .nav-actions {
@@ -369,6 +387,19 @@
       margin-top: auto;
     }
 
+    .hero-note {
+      position: absolute;
+      right: 120px;
+      bottom: 50px;
+      margin: 0;
+      font-weight: 330;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: right;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
     .advantage {
       padding-top: 0;
       background: #050216;
@@ -396,11 +427,12 @@
 
     .section-title {
       margin: 0;
-      font-weight: 500;
+      font-family: MiSans;
+      font-weight: 450;
       font-size: 80px;
       line-height: 106px;
       text-transform: capitalize;
-      letter-spacing: 0;
+      
     }
 
     .section-subtitle {
@@ -533,7 +565,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 0;
+      bottom: -6px;
       z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -542,7 +574,7 @@
       border-radius: 0;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(12, 8, 32, 0.5);
+      background: transparent;
       backdrop-filter: blur(14px);
     }
 
@@ -554,7 +586,7 @@
       padding: 0 20px 0 24px;
       border: 0;
       border-right: 1px solid rgba(255,255,255,0.08);
-      background: transparent;
+      background: rgba(0, 0, 0, 0.6);
       color: rgba(255,255,255,0.66);
       text-align: left;
       cursor: pointer;
@@ -564,7 +596,7 @@
     .product-tab:last-child { border-right: 0; }
     .product-tab.active {
       color: #fff;
-      background: linear-gradient(135deg, #7a28ff 0%, #8f34ff 50%, #c19dff 100%);
+      background: rgb(113, 31, 254);
     }
 
     .product-tab > span {
@@ -599,20 +631,15 @@
     }
 
     .cases-head .section-title {
-      font-size: 66px;
+      font-size: 80px;
+      font-weight: 500;
       line-height: 1.08;
-    }
-
-    .cases-head .section-subtitle {
-      margin-top: 18px;
-      font-size: 16px;
-      line-height: 1.75;
     }
 
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 34px;
+      gap: 50px;
     }
 
     .case-card {
@@ -626,14 +653,18 @@
       justify-content: space-between;
       gap: 20px;
       padding: 0 8px;
-      margin-bottom: 16px;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     .case-top h3 {
       margin: 0;
-      font-weight: 500;
-      font-size: 38px;
-      line-height: 1.16;
+      font-family: "MiSans";
+      font-weight: 380;
+      font-size: 36px;
+      line-height: 48px;
       letter-spacing: -0.03em;
     }
 
@@ -698,8 +729,6 @@
 
     .case-card.bottom-title .case-top {
       order: 2;
-      margin-top: 16px;
-      margin-bottom: 0;
     }
 
     .about {
@@ -749,28 +778,9 @@
       max-width: 1120px;
     }
 
-    .about-head .btn-more {
-      width: 112px;
-      height: 40px;
-      padding: 0 6px 0 14px;
-      margin-top: 2px;
-      gap: 6px;
+    .about-head .btn-more {      
       flex: 0 0 auto;
-      box-shadow: 0 8px 20px rgba(126, 47, 255, 0.22);
-    }
-
-    .about-head .btn-more span {
-      width: auto;
-      height: auto;
-      margin: 0;
-      font-size: 18px;
-      line-height: 1;
-      font-weight: 250;
-    }
-
-    .about-head .btn-more img {
-      width: 28px;
-      height: 28px;
+      box-shadow: 0 8px 20px rgba(113, 31, 254, 0.22);
     }
 
     .about-panel {
@@ -1014,7 +1024,7 @@
           </nav>
 
           <div class="nav-actions">
-            <a class="btn btn-contact" href="#contact"><span>联系我们</span><span class="btn-contact-icon" aria-hidden="true">↗</span></a>
+            <a class="btn btn-contact" href="#contact"><span>联系我们</span><span class="btn-contact-icon" aria-hidden="true"><img src="首页/icon_home_arrow_fill_30.png" alt="" /></span></a>
           </div>
         </div>
       </header>
@@ -1042,6 +1052,8 @@
               <div class="hero-card-bottom">AR99</div>
             </article>
           </div>
+
+          <p class="hero-note">深耕光显、算法、算力全栈核心技术<br />打造高效整合与一站式交付能力</p>
         </section>
 
         <section class="section advantage" id="advantages">
@@ -1087,7 +1099,7 @@
                 </article>
               </div>
               <div class="section-action">
-                <a class="btn btn-more btn-purple" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+                <a class="btn btn-more btn-purple" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
               </div>
             </div>
           </div>
@@ -1115,7 +1127,7 @@
                   data-desc="面向沉浸式 AR 交互与 AI 助理体验，强调显示、识别与佩戴舒适的综合平衡。"
                   data-stat-a="双目显示" data-label-a="增强感知" data-stat-b="AI助手" data-label-b="智能交互">
                   <span><strong>Mimosa AR99</strong></span>
-                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
+                  <img src="首页/icon_home_arrow_line_44.png" alt="" />
                 </button>
                 <button class="product-tab" type="button" role="tab" aria-selected="false"
                   data-image="首页/img_home_product_bg_c100.png"
@@ -1123,7 +1135,7 @@
                   data-desc="概念与量产兼容的平台型产品，适合验证外观语言、模组布局和定制化功能拓展。"
                   data-stat-a="模组化" data-label-a="快速验证" data-stat-b="高适配" data-label-b="场景扩展">
                   <span><strong>形意 K900</strong></span>
-                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
+                  <img src="首页/icon_home_arrow_line_44.png" alt="" />
                 </button>
               </div>
             </div>
@@ -1135,7 +1147,7 @@
             <div class="cases-head">
               <div>
                 <h2 class="section-title">让产品从概念到量产更简单</h2>
-                <p class="section-subtitle">专注 AR + AI 智能消费电子硬件 OEM / ODM，从概念到量产的一站式智造伙伴。</p>
+                <p class="section-subtitle">专注 AR+AI 智能消费电子硬件 OEM/ODM，从概念到量产的一站式智造伙伴</p>
               </div>
             </div>
 
@@ -1147,7 +1159,6 @@
                 </div>
                 <div class="case-media">
                   <img src="首页/img_product_1.png" alt="灵活合作模式" />
-                  <p class="case-caption">来自形意 OEM / 一站式落地闭环 ODM / 轻量方案协同</p>
                 </div>
               </article>
               <article class="case-card bottom-title">
@@ -1157,7 +1168,6 @@
                 </div>
                 <div class="case-media">
                   <img src="首页/img_product_2.png" alt="一站式服务范围" />
-                  <p class="case-caption">研发测试 | 供应链协同 | 工程验证 | 量产交付</p>
                 </div>
               </article>
               <article class="case-card">
@@ -1167,7 +1177,6 @@
                 </div>
                 <div class="case-media">
                   <img src="首页/img_product_3.png" alt="清晰合作流程" />
-                  <p class="case-caption">需求评估 | 方案设计 | 工程开发 | 量产交付</p>
                 </div>
               </article>
             </div>
@@ -1181,7 +1190,7 @@
                 <h2>走进形意智能，探索AR+AI 新境</h2>
                 <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AR+AI 赛道，持续打磨国际化的产品、服务与品牌。为客户，我们创造价值，携手共赢；为行业，我们推动发展、引领风向；对消费者，我们坚守品质、带来“高、尖、新”的智能体验。</p>
               </div>
-              <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_pur.png" alt="" /></a>
+              <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
             </div>
 
             <div class="about-panel">
@@ -1269,6 +1278,10 @@
         const active = item === tab;
         item.classList.toggle("active", active);
         item.setAttribute("aria-selected", String(active));
+        const arrow = item.querySelector("img");
+        if (arrow) {
+          arrow.src = active ? "首页/icon_home_arrow_fill_44_bla.png" : "首页/icon_home_arrow_line_44.png";
+        }
       });
       if (!productBackdrop) return;
       productBackdrop.style.opacity = "0.45";
@@ -1287,13 +1300,18 @@
     });
 
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const setActiveNavLink = (href) => {
+      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === href));
+    };
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setActiveNavLink(link.getAttribute("href")));
+    });
     const trackedSections = ["home", "products", "advantages", "cases", "about", "contact"].map((id) => document.getElementById(id)).filter(Boolean);
     if ("IntersectionObserver" in window && navLinks.length && trackedSections.length) {
       const navObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const activeId = `#${entry.target.id}`;
-          navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === activeId));
+          setActiveNavLink(`#${entry.target.id}`);
         });
       }, { threshold: 0.38, rootMargin: "-24% 0px -58% 0px" });
       trackedSections.forEach((section) => navObserver.observe(section));
