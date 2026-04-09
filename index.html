@@ -6,6 +6,34 @@
   <title>形意智能 - AI/AR 眼镜 ODM 首页</title>
   <meta name="description" content="基于设计稿重建的 1920 画布首页，按视口整体等比缩放。">
   <style>
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Light.woff2") format("woff2");
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Normal.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+
     :root {
       --canvas-width: 1920px;
       --page-scale: 1;
@@ -35,7 +63,7 @@
 
     body {
       color: var(--text);
-      font-family: "MiSans";
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -170,7 +198,7 @@
       margin-top: -5px;
       font-family: "MiSans";
       font-size: 32px;
-      font-weight: 500;
+      font-weight: 200;
       line-height: 42px;
       color: #fff;
       flex: 0 0 auto;
@@ -830,7 +858,7 @@
     .about-stat-number {
       display: inline-block;
       font-family: "MiSans";
-      font-weight: 500;
+      font-weight: 800;
       font-size: 48px;
       line-height: 64px;
     }
@@ -871,6 +899,7 @@
       position: relative;
       max-width: 1560px;
       margin: 0 auto;
+      margin-top: -182px;
       min-height: 520px;
       overflow: hidden;
       border-radius: 42px;
@@ -885,6 +914,7 @@
 
     .cta-content {
       position: relative;
+      margin-top: -280px;
       z-index: 1;
       max-width: 84ch;
       transform: translateY(-8px);
@@ -937,7 +967,7 @@
     .footer-col h4 {
       margin: 0 0 14px;
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.04em;
     }
 
@@ -948,6 +978,7 @@
       color: rgba(255,255,255,0.68);
       font-size: 20px;
       line-height: 1.7;
+      font-weight: 200;
     }
 
     .footer-col a:hover { color: #fff; }
@@ -970,8 +1001,8 @@
     }
 
     .footer-legal {
-      margin-top: 28px;
-      padding-top: 16px;
+      min-height: 84px;
+      padding: 24px 32px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       flex-wrap: wrap;
@@ -981,6 +1012,10 @@
       color: rgba(255,255,255,0.6);
       font-size: 20px;
       text-align: center;
+      background-image: url("首页/img_annotate_bg.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
     }
 
     .footer-police {
@@ -1147,7 +1182,7 @@
             <div class="cases-head">
               <div>
                 <h2 class="section-title">让产品从概念到量产更简单</h2>
-                <p class="section-subtitle">专注 AR+AI 智能消费电子硬件 OEM/ODM，从概念到量产的一站式智造伙伴</p>
+                <p class="section-subtitle">专注 AI+AR 智能消费电子硬件 OEM/ODM，从概念到量产的一站式智造伙伴</p>
               </div>
             </div>
 
@@ -1187,8 +1222,8 @@
           <div class="container">
             <div class="about-head section-head left">
               <div class="about-copy">
-                <h2>走进形意智能，探索AR+AI 新境</h2>
-                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AR+AI 赛道，持续打磨国际化的产品、服务与品牌。为客户，我们创造价值，携手共赢；为行业，我们推动发展、引领风向；对消费者，我们坚守品质、带来“高、尖、新”的智能体验。</p>
+                <h2>走进形意智能，探索AI+AR 新境</h2>
+                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AI+AR 赛道，持续打磨国际化的产品、服务与品牌。为客户，我们创造价值，携手共赢；为行业，我们推动发展、引领风向；对消费者，我们坚守品质、带来“高、尖、新”的智能体验。</p>
               </div>
               <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
             </div>
