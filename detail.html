@@ -439,6 +439,127 @@
       cursor: default;
     }
 
+    .smart-section {
+      background: #05020d;
+    }
+
+    .smart-scroll {
+      position: relative;
+      height: auto;
+    }
+
+    .smart-sticky {
+      position: relative;
+      min-height: 1380px;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      background: #05020d;
+    }
+
+    .smart-title-band {
+      position: relative;
+      flex: 0 0 400px;
+      height: 400px;
+      background: #05020d;
+      z-index: 3;
+    }
+
+    .smart-title {
+      position: absolute;
+      left: 960px;
+      top: 200px;
+      width: 1750px;
+      height: 400px;
+      margin: 0;
+      color: #fff;
+      font-size: 80px;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      transform: translate(-50%, -50%) scale(1);
+      transform-origin: center center;
+      z-index: 3;
+      will-change: opacity, transform;
+    }
+
+    .smart-visual {
+      position: relative;
+      flex: 0 0 980px;
+      width: 1920px;
+      height: 980px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .smart-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .smart-features {
+      position: absolute;
+      left: 184px;
+      right: 184px;
+      top: 1012px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 28px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .smart-feature {
+      width: 100%;
+      color: #fff;
+    }
+
+    .smart-feature-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 34px;
+    }
+
+    .smart-feature-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,0.78);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(140, 104, 255, 0.94) 0 26%, transparent 27% 100%),
+        rgba(255,255,255,0.98);
+      box-shadow: 0 0 18px rgba(126, 45, 255, 0.2);
+    }
+
+    .smart-feature h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .smart-feature p {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -752,39 +873,17 @@
       </div>
     </section>
 
-    <section class="section dark-band" id="perception">
-      <div class="container band-inner">
-        <div class="section-split">
-          <div class="panel-copy">
-            <h2 class="section-heading">让眼镜学会“看懂”和“理解”</h2>
-            <p class="section-subtitle">通过视觉识别、空间理解、语音交互和端侧算法协同，把复杂信息转化为更自然的佩戴体验，让眼镜不仅能看见，还能理解用户正在做什么。</p>
-            <ul class="bullet-list">
-              <li>全局视觉感知：支持图像识别、OCR、目标追踪与场景理解。</li>
-              <li>自然语音交互：支持唤醒、降噪和多轮对话，减少操作负担。</li>
-              <li>端侧智能协同：在低功耗前提下完成更高频的实时推理任务。</li>
-            </ul>
+    <section class="section smart-section" id="perception" data-smart-section>
+      <div class="smart-scroll">
+        <div class="smart-sticky">
+          <div class="smart-title-band">
+            <h2 class="smart-title" data-smart-title>让眼镜学会“看懂”和“理解”</h2>
           </div>
-          <div class="panel-art fade-up" style="animation-delay:0.08s;">
+
+          <div class="smart-visual">
             <img src="skill/img_skill_smart.png" alt="AI 感知与交互示意" />
           </div>
-        </div>
 
-        <div class="feature-grid">
-          <article class="feature">
-            <div class="icon">✦</div>
-            <h4>全模型适配</h4>
-            <p>适配侧端 AI 大模型，通过技术优化实现更高效的本地推理。</p>
-          </article>
-          <article class="feature">
-            <div class="icon">◌</div>
-            <h4>全语音交互</h4>
-            <p>支持唤醒词、实时翻译、降噪通话和定向拾音。</p>
-          </article>
-          <article class="feature">
-            <div class="icon">◈</div>
-            <h4>全场景接入</h4>
-            <p>从导航、拍照到内容理解，逐步扩展到更多高频应用。</p>
-          </article>
         </div>
       </div>
     </section>
@@ -975,6 +1074,39 @@
       setCarouselPosition(false);
       syncCarouselUI();
     }
+
+    const smartTitleBand = document.querySelector(".smart-title-band");
+    const smartTitle = document.querySelector("[data-smart-title]");
+
+    function clamp01(value) {
+      return Math.max(0, Math.min(1, value));
+    }
+
+    function lerp(start, end, progress) {
+      return start + (end - start) * progress;
+    }
+
+    function updateSmartSection() {
+      if (!smartTitle || !smartTitleBand) return;
+      const rect = smartTitleBand.getBoundingClientRect();
+      const bandCenter = rect.top + rect.height / 2;
+      const startCenter = window.innerHeight + rect.height / 2;
+      const endCenter = window.innerHeight / 2;
+      const progress = clamp01((startCenter - bandCenter) / Math.max(1, startCenter - endCenter));
+      const easedProgress = 1 - Math.pow(1 - progress, 2.2);
+
+      const scale = lerp(4, 1, easedProgress);
+      const opacity = lerp(1, 0.98, easedProgress);
+
+      smartTitle.style.opacity = opacity.toFixed(3);
+      smartTitle.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(4)})`;
+    }
+
+    window.addEventListener("scroll", updateSmartSection, { passive: true });
+    window.addEventListener("resize", updateSmartSection, { passive: true });
+    window.addEventListener("load", updateSmartSection, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateSmartSection);
+    requestAnimationFrame(updateSmartSection);
 
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
     const sections = Array.from(document.querySelectorAll("main section[id]"));
