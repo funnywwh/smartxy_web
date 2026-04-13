@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>形意智能 - 服务支持</title>
+  <meta name="description" content="根据参考效果图重建的服务支持页面，采用 1920 画布整体等比缩放展示。">
+  <style>
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Light.woff2") format("woff2");
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Normal.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root {
+      --canvas-width: 1920px;
+      --page-scale: 1;
+      --page-left: 0px;
+      --page-bg: #05020d;
+      --page-deep: #05031a;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.74);
+      --line: rgba(255, 255, 255, 0.16);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: var(--page-bg);
+      overflow-x: hidden;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      color: var(--text);
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; }
+
+    .page-stage {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(113, 31, 254, 0.10), transparent 34%),
+        linear-gradient(180deg, #06040e 0%, #05020d 100%);
+    }
+
+    .page-canvas {
+      position: absolute;
+      top: 0;
+      left: var(--page-left);
+      width: var(--canvas-width);
+      transform: scale(var(--page-scale));
+      transform-origin: top left;
+      will-change: transform;
+    }
+
+    .container {
+      width: 1920px;
+      margin: 0 auto;
+      padding: 0 200px;
+    }
+
+    .section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      position: absolute;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      background: transparent;
+      border-bottom: 0;
+      backdrop-filter: none;
+    }
+
+    .header .container {
+      padding: 0 200px;
+    }
+
+    .header-inner {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 0 0 auto;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+    }
+
+    .brand span {
+      font-weight: 330;
+      font-size: 20px;
+      line-height: 40px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 40px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+      opacity: 0.5;
+      font-weight: 200;
+      transition: opacity 0.2s ease, font-weight 0.2s ease;
+    }
+
+    .nav-links a:hover { opacity: 0.76; }
+
+    .nav-links a.active {
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: #fff;
+      border-radius: 999px;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 5px 5px 20px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(255,255,255,1);
+      font-size: 20px;
+      color: #fff;
+      background: transparent;
+      line-height: 40px;
+    }
+
+    .btn-contact > span:first-child {
+      font-weight: 305;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .btn-contact .dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #0e0a21;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .product-menu {
+      position: absolute;
+      top: 92px;
+      left: 0;
+      width: 1920px;
+      z-index: 35;
+      opacity: 0;
+      transform: translateY(-12px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .product-menu[hidden] { display: none; }
+
+    .product-menu.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .product-menu-panel {
+      min-height: 236px;
+      padding: 22px 120px 28px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255,255,255,0.24);
+      box-shadow: none;
+    }
+
+    .product-menu-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .product-menu-item {
+      width: 144px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .product-menu-thumb {
+      width: 144px;
+      height: 108px;
+      display: block;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.9);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .product-menu-item:hover .product-menu-thumb,
+    .product-menu-item:focus-visible .product-menu-thumb {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(22, 14, 56, 0.08);
+    }
+
+    .product-menu-name {
+      margin-top: 16px;
+      width: 100%;
+      min-height: 42px;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    .product-menu-type {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    .hero-section {
+      height: 960px;
+      background: #05020d;
+    }
+
+    .hero-section img {
+      width: 1920px;
+      height: 960px;
+      object-fit: cover;
+      object-position: center top;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .cooperation-section {
+      background: var(--page-deep);
+      padding: 112px 0 0;
+    }
+
+    .section-title {
+      margin: 0;
+      color: #fff;
+      font-size: 76px;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .cooperation-grid {
+      margin-top: 92px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
+      align-items: start;
+    }
+
+    .cooperation-card {
+      color: #fff;
+    }
+
+    .cooperation-card-media {
+      width: 100%;
+      height: 650px;
+      background: #d9d9d9;
+      object-fit: cover;
+      border-radius: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .cooperation-card-title {
+      margin: 22px 0 0;
+      font-size: 34px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .cooperation-card-desc {
+      margin: 18px 0 0;
+      max-width: 470px;
+      color: rgba(255,255,255,0.88);
+      font-size: 18px;
+      line-height: 1.82;
+      font-weight: 300;
+    }
+
+    .visual-band {
+      background: var(--page-deep);
+      padding: 168px 0 112px;
+    }
+
+    .visual-band-image {
+      width: 1520px;
+      height: auto;
+      margin: 0 auto;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .workflow-section {
+      background: var(--page-deep);
+      padding: 126px 0 124px;
+    }
+
+    .workflow-banner {
+      width: 1520px;
+      height: auto;
+      margin: 0 auto;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .workflow-intro {
+      margin-top: 96px;
+      text-align: center;
+    }
+
+    .workflow-intro .section-title {
+      font-size: 74px;
+    }
+
+    .section-subtitle {
+      margin: 20px auto 0;
+      max-width: 1280px;
+      color: rgba(255,255,255,0.78);
+      font-size: 18px;
+      line-height: 1.9;
+      font-weight: 300;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .workflow-steps {
+      position: relative;
+      margin-top: 84px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 34px;
+      align-items: start;
+    }
+
+    .workflow-steps::before {
+      content: "";
+      position: absolute;
+      left: 110px;
+      right: 110px;
+      top: 160px;
+      height: 1px;
+      background: rgba(255,255,255,0.22);
+    }
+
+    .workflow-step {
+      position: relative;
+      text-align: center;
+      min-height: 312px;
+    }
+
+    .workflow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 154px;
+      right: -22px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid rgba(255,255,255,0.22);
+    }
+
+    .workflow-step-number {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 200;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.02em;
+    }
+
+    .workflow-step-icon {
+      width: 92px;
+      height: 92px;
+      margin: 26px auto 0;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .workflow-step-title {
+      margin: 38px 0 0;
+      font-size: 34px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .detail-section {
+      background: var(--page-deep);
+      padding: 144px 0 260px;
+    }
+
+    .detail-head {
+      text-align: center;
+    }
+
+    .detail-head .section-title {
+      font-size: 76px;
+    }
+
+    .detail-list {
+      margin-top: 86px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 470px) minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+      padding: 34px 0 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-index {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      min-width: 0;
+      color: #fff;
+    }
+
+    .detail-number {
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      flex: 0 0 auto;
+    }
+
+    .detail-name {
+      font-size: 31px;
+      line-height: 1.28;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .detail-summary,
+    .detail-notes {
+      color: rgba(255,255,255,0.92);
+      font-size: 22px;
+      line-height: 1.68;
+      font-weight: 300;
+    }
+
+    .detail-summary {
+      padding-top: 4px;
+    }
+
+    .detail-notes {
+      white-space: pre-line;
+    }
+
+    .page-end-spacer {
+      height: 460px;
+      background: var(--page-deep);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-stage" data-page-stage>
+    <div class="page-canvas" data-page-canvas>
+      <header class="header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html#home" aria-label="返回首页">
+            <img src="首页/img_xy_logo.png" alt="形意智能标志" />
+            <span>形意</span>
+          </a>
+
+          <nav class="nav" aria-label="主导航">
+            <div class="nav-links" role="list">
+              <a href="index.html">首页</a>
+              <a href="index.html#products" data-product-menu-trigger aria-haspopup="true" aria-expanded="false" aria-controls="productMenu">产品中心</a>
+              <a href="skill.html">技术能力</a>
+              <a class="active" href="service.html">服务支持</a>
+              <a href="index.html#about">关于我们</a>
+              <a href="index.html#contact">App下载</a>
+              <a href="index.html#contact">开发者</a>
+            </div>
+          </nav>
+
+          <a class="btn-contact" href="index.html#contact">
+            <span>联系我们</span>
+            <span class="dot" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="product-menu" id="productMenu" data-product-menu hidden>
+        <div class="product-menu-panel" aria-label="产品列表">
+          <div class="product-menu-grid">
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Mimosa AR99</span>
+              <span class="product-menu-type">AI音频眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意 C100</span>
+              <span class="product-menu-type">AI拍摄眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意 K900</span>
+              <span class="product-menu-type">AR增强现实眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意知音</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Birdbath智能眼镜</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Birdbath智能眼镜</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section class="section hero-section" id="home">
+          <img src="服务支持/img_service_bg_top.png" alt="全方位ODM服务，为您量身打造" />
+        </section>
+
+        <section class="section cooperation-section">
+          <div class="container">
+            <h2 class="section-title">灵活多样的合作模式</h2>
+
+            <div class="cooperation-grid">
+              <article class="cooperation-card">
+                <img class="cooperation-card-media" src="服务支持/img_service_1.png" alt="来图定制/OEM 示意图" />
+                <h3 class="cooperation-card-title">来图定制 / OEM</h3>
+                <p class="cooperation-card-desc">您提供产品外观或创意构想，形意负责结构落地、硬件选型及量产制造，将您的设计高效转化为稳定可靠的量产产品。</p>
+              </article>
+
+              <article class="cooperation-card">
+                <img class="cooperation-card-media" src="服务支持/img_service_2.png" alt="选款定制/ODM 示意图" />
+                <h3 class="cooperation-card-title">选款定制/ODM</h3>
+                <p class="cooperation-card-desc">基于形意丰富的公模产品库，可灵活调整前框颜色、丝印Logo、定制软件UI及包装，快速打造符合您品牌调性的专属方案。</p>
+              </article>
+
+              <article class="cooperation-card">
+                <img class="cooperation-card-media" src="服务支持/img_service_3.png" alt="联合开发/JDM 示意图" />
+                <h3 class="cooperation-card-title">联合开发/JDM</h3>
+                <p class="cooperation-card-desc">从产品定义阶段即深度介入，与您共享技术平台与研发资源，共同定义需求、优化方案，打造更具竞争力的行业定制化产品。</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section visual-band" aria-label="服务支持视觉区">
+          <div class="container">
+            <img class="visual-band-image" src="服务支持/img_service_plan_bg.png" alt="" />
+          </div>
+        </section>
+
+        <section class="section workflow-section">
+          <div class="container">
+            <img class="workflow-banner" src="服务支持/img_service_step.png" alt="服务流程展示" />
+
+            <div class="workflow-intro">
+              <h2 class="section-title">从概念到量产的全流程规范服务</h2>
+              <p class="section-subtitle">我们为 AI/AR 智能眼镜项目提供标准化合作流程，确保项目高效推进与可靠交付</p>
+            </div>
+
+            <div class="workflow-steps" aria-label="合作流程">
+              <article class="workflow-step">
+                <div class="workflow-step-number">01</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_con.png" alt="" />
+                <div class="workflow-step-title">前期沟通</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">02</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_design.png" alt="" />
+                <div class="workflow-step-title">概念设计</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">03</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_model.png" alt="" />
+                <div class="workflow-step-title">工程打样</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">04</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_pay.png" alt="" />
+                <div class="workflow-step-title">试产验证</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">05</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_produce.png" alt="" />
+                <div class="workflow-step-title">量产交付</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section detail-section">
+          <div class="container">
+            <div class="detail-head">
+              <h2 class="section-title">从概念到量产的全流程规范服务</h2>
+              <p class="section-subtitle">我们为 AI/AR 智能眼镜项目提供标准化合作流程，确保项目高效推进与可靠交付</p>
+            </div>
+
+            <div class="detail-list" aria-label="服务流程明细">
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">01</span>
+                  <span class="detail-name">前期沟通</span>
+                </div>
+                <p class="detail-summary">从概念到落地，塑造产品差异化形象与用户体验</p>
+                <div class="detail-notes">创意构思： 产品概念与外观草图设计
+三维建模： 高精度3D建模与渲染
+工艺设计： CMF（色彩、材料、工艺）方案建议</div>
+              </article>
+
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">02</span>
+                  <span class="detail-name">结构设计</span>
+                </div>
+                <p class="detail-summary">兼顾性能、可靠性与可制造性，确保产品稳定量产</p>
+                <div class="detail-notes">堆叠设计： 精密结构堆叠与空间布局优化
+防护设计： 防水、防尘、防跌落等可靠性设计
+寿命验证： 转轴、铰链等关键部件寿命测试与验证</div>
+              </article>
+
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">03</span>
+                  <span class="detail-name">软硬件开发</span>
+                </div>
+                <p class="detail-summary">提供从硬件到云端的一体化智能产品解决方案</p>
+                <div class="detail-notes">硬件开发： 硬件原理图、PCB Layout 及嵌入式系统开发
+驱动与系统： 底层驱动移植与系统适配
+移动应用： Android / iOS 原生App开发
+云端服务： 后台管理系统、云平台及接口开发</div>
+              </article>
+
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">04</span>
+                  <span class="detail-name">试产打版</span>
+                </div>
+                <p class="detail-summary">快速验证设计可行性，打通从图纸到样机的关键环节</p>
+                <div class="detail-notes">手板制作： CNC手板、3D打印快速样机制作
+模具开发： 注塑、压铸等模具设计与制造
+试产支持： 小批量试产与工艺优化建议</div>
+              </article>
+
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">05</span>
+                  <span class="detail-name">测试认证</span>
+                </div>
+                <p class="detail-summary">确保产品品质，助您顺利进入全球市场</p>
+                <div class="detail-notes">可靠性测试： 整机高低温、振动、跌落等可靠性试验
+合规认证： BQB、FCC、CE、SRRC等国内外认证支持</div>
+              </article>
+
+              <article class="detail-row">
+                <div class="detail-index">
+                  <span class="detail-number">06</span>
+                  <span class="detail-name">生产制造</span>
+                </div>
+                <p class="detail-summary">一站式制造服务，让产品从样品稳定走向批量交付</p>
+                <div class="detail-notes">核心工艺： SMT贴片、DIP插件、整机组装
+质量控制： 在线测试、功能测试、老化测试
+交付管理： 成品包装、仓储及全球物流配送</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <div class="page-end-spacer" aria-hidden="true"></div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const baseWidth = 1920;
+    const pageStage = document.querySelector("[data-page-stage]");
+    const pageCanvas = document.querySelector("[data-page-canvas]");
+
+    function updateScale() {
+      if (!pageStage || !pageCanvas) return;
+      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+      const scale = viewportWidth / baseWidth;
+      const leftOffset = Math.max(0, (viewportWidth - baseWidth * scale) / 2);
+      const canvasHeight = pageCanvas.scrollHeight;
+      document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
+      document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
+      pageStage.style.height = `${canvasHeight * scale}px`;
+    }
+
+    window.addEventListener("resize", updateScale, { passive: true });
+    window.addEventListener("load", updateScale, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateScale);
+    if ("ResizeObserver" in window && pageCanvas) {
+      new ResizeObserver(() => updateScale()).observe(pageCanvas);
+    }
+    requestAnimationFrame(updateScale);
+
+    const productMenuTrigger = document.querySelector("[data-product-menu-trigger]");
+    const productMenu = document.querySelector("[data-product-menu]");
+    const productMenuItems = Array.from(document.querySelectorAll("[data-close-product-menu]"));
+    let productMenuCloseTimer = 0;
+    let productMenuRestoreHref = "";
+
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const setActiveNavLink = (href) => {
+      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === href));
+    };
+
+    function openProductMenu() {
+      if (!productMenu || !productMenuTrigger) return;
+      window.clearTimeout(productMenuCloseTimer);
+      productMenuRestoreHref = document.querySelector(".nav-links a.active")?.getAttribute("href") || "";
+      setActiveNavLink("index.html#products");
+      productMenu.hidden = false;
+      requestAnimationFrame(() => productMenu.classList.add("is-open"));
+      productMenuTrigger.setAttribute("aria-expanded", "true");
+    }
+
+    function closeProductMenu() {
+      if (!productMenu || !productMenuTrigger) return;
+      productMenu.classList.remove("is-open");
+      productMenuTrigger.setAttribute("aria-expanded", "false");
+      if (productMenuRestoreHref) {
+        setActiveNavLink(productMenuRestoreHref);
+      }
+      productMenuRestoreHref = "";
+      window.clearTimeout(productMenuCloseTimer);
+      productMenuCloseTimer = window.setTimeout(() => {
+        if (!productMenu.classList.contains("is-open")) {
+          productMenu.hidden = true;
+        }
+      }, 220);
+    }
+
+    if (productMenuTrigger && productMenu) {
+      productMenuTrigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (productMenu.hidden || !productMenu.classList.contains("is-open")) {
+          openProductMenu();
+        } else {
+          closeProductMenu();
+        }
+      });
+
+      productMenuItems.forEach((item) => {
+        item.addEventListener("click", () => closeProductMenu());
+      });
+
+      document.addEventListener("click", (event) => {
+        if (productMenu.hidden) return;
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+        if (productMenu.contains(target) || productMenuTrigger.contains(target)) return;
+        closeProductMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !productMenu.hidden) {
+          closeProductMenu();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
