@@ -285,8 +285,8 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 120px;
+      justify-content: flex-start;
+      padding-top: 100px;
     }
     .intro-card {
       max-width: 920px;
@@ -300,19 +300,20 @@
       letter-spacing: -0.02em;
     }
     .intro-desc {
-      margin-top: 18px;
+      margin-top: 24px;
       font-size: 18px;
       line-height: 1.85;
       color: #1f3a5f;
       font-weight: 300;
     }
+    .intro-desc + .intro-desc { margin-top: 28px; }
     .intro-stats {
-      margin-top: 44px;
+      margin-top: 210px;
       display: inline-flex;
       align-items: center;
-      gap: 70px;
+      gap: 95px;
       background: rgba(255,255,255,0.98);
-      padding: 26px 64px;
+      padding: 22px 72px;
       border-radius: 999px;
     }
     .intro-stat {
@@ -327,15 +328,17 @@
       line-height: 1;
     }
     .intro-stat-num span {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 500;
       margin-left: 2px;
-      vertical-align: text-top;
+      vertical-align: 4px;
     }
     .intro-stat-num sup {
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 500;
       margin-left: 2px;
+      vertical-align: 6px;
+      line-height: 1;
     }
     .intro-stat-label {
       font-size: 18px;
@@ -893,7 +896,7 @@
             <div class="intro-card">
               <h2 class="intro-title">关于我们</h2>
               <p class="intro-desc">形意智能成立于2019年，是一家集人工智能与可穿戴设备研发生产为一体的企业，致力于成为国际一流AR+AI一站式解决方案提供商。</p>
-              <p class="intro-desc">5000m²万级净化智慧工厂，构筑AI眼镜全链路垂直整合闭环。依托8条全自动智能产线与前沿算法自研能力，实现从硬件创新设计到精密组装的端到端管控。在保障良率与成本极致可控的前提下，工厂具备&gt;40万台/年的稳定产能输出，为大规模商业化交付提供坚实的供应链保障。</p>
+              <p class="intro-desc">5000m² 万级净化智慧工厂，构筑AI眼镜全链路垂直整合闭环。依托8条全自动智能产线与前沿算法自研能力，实现从硬件创新设计到精密组装的端到端管控。在保障良率与成本极致可控的前提下，工厂具备 &gt;40 万台/年的稳定产能输出，为大规模商业化交付提供坚实的供应链保障。</p>
               <div class="intro-stats">
                 <div class="intro-stat">
                   <div class="intro-stat-num">8<span>年</span></div>
