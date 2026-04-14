@@ -263,14 +263,26 @@
     .hero-section {
       height: 960px;
       background: #05020d;
+      display: flex;
+      align-items: center;
     }
-    .hero-section img {
-      width: 1920px;
-      height: 960px;
-      object-fit: cover;
-      object-position: center top;
-      user-select: none;
-      pointer-events: none;
+    .hero-content {
+      color: #fff;
+    }
+    .hero-title {
+      margin: 0;
+      font-size: 96px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      margin: 24px 0 0;
+      font-size: 24px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      max-width: 900px;
     }
 
     /* Intro */
@@ -888,7 +900,10 @@
 
       <main>
         <section class="section hero-section" id="home">
-          <img src="关于我们/img_about_bg_top.png" alt="科技创造未来美好生活" />
+          <div class="container hero-content">
+            <h1 class="hero-title">科技创造未来美好生活</h1>
+            <p class="hero-subtitle">核心技术包括2D/3D视觉算法、数字人及人机交互服务等，提供全栈式人工智能解决方案。</p>
+          </div>
         </section>
 
         <section class="section intro-section" aria-label="关于我们">
