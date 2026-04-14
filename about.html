@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>形意智能 - 关于我们</title>
+  <meta name="description" content="形意智能关于我们页面，采用 1920 画布整体等比缩放展示。">
+  <style>
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Light.woff2") format("woff2");
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Normal.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "MiSans";
+      src: url("./fonts/MiSans-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root {
+      --canvas-width: 1920px;
+      --page-scale: 1;
+      --page-left: 0px;
+      --page-bg: #05020d;
+      --page-deep: #05031a;
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.74);
+      --line: rgba(255, 255, 255, 0.16);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: var(--page-bg);
+      overflow-x: hidden;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      color: var(--text);
+      font-family: "MiSans", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; }
+
+    .page-stage {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(113, 31, 254, 0.10), transparent 34%),
+        linear-gradient(180deg, #06040e 0%, #05020d 100%);
+    }
+    .page-canvas {
+      position: absolute;
+      top: 0;
+      left: var(--page-left);
+      width: var(--canvas-width);
+      transform: scale(var(--page-scale));
+      transform-origin: top left;
+      will-change: transform;
+    }
+    .container {
+      width: 1920px;
+      margin: 0 auto;
+      padding: 0 200px;
+    }
+    .section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      position: absolute;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      background: transparent;
+      border-bottom: 0;
+      backdrop-filter: none;
+    }
+    .header .container { padding: 0 200px; }
+    .header-inner {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 0 0 auto;
+    }
+    .brand img { width: 40px; height: 40px; flex: 0 0 auto; }
+    .brand span {
+      font-weight: 330;
+      font-size: 20px;
+      line-height: 40px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      min-width: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: #ffffff;
+      font-size: 20px;
+      line-height: 40px;
+      white-space: nowrap;
+    }
+    .nav-links a {
+      position: relative;
+      padding: 6px 0;
+      opacity: 0.5;
+      font-weight: 200;
+      transition: opacity 0.2s ease, font-weight 0.2s ease;
+    }
+    .nav-links a:hover { opacity: 0.76; }
+    .nav-links a.active {
+      font-weight: 600;
+      opacity: 1;
+    }
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: #fff;
+      border-radius: 999px;
+    }
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 5px 5px 20px;
+      border-radius: 999px;
+      border: 0.5px solid rgba(255,255,255,1);
+      font-size: 20px;
+      color: #fff;
+      background: transparent;
+      line-height: 40px;
+    }
+    .btn-contact > span:first-child {
+      font-weight: 305;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .btn-contact .dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #0e0a21;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    /* Product menu */
+    .product-menu {
+      position: absolute;
+      top: 92px;
+      left: 0;
+      width: 1920px;
+      z-index: 35;
+      opacity: 0;
+      transform: translateY(-12px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+    .product-menu[hidden] { display: none; }
+    .product-menu.is-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .product-menu-panel {
+      min-height: 236px;
+      padding: 22px 120px 28px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255,255,255,0.24);
+      box-shadow: none;
+    }
+    .product-menu-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+    }
+    .product-menu-item {
+      width: 144px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .product-menu-thumb {
+      width: 144px;
+      height: 108px;
+      display: block;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.9);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .product-menu-item:hover .product-menu-thumb,
+    .product-menu-item:focus-visible .product-menu-thumb {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(22, 14, 56, 0.08);
+    }
+    .product-menu-name {
+      margin-top: 16px;
+      width: 100%;
+      min-height: 42px;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    .product-menu-type {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.82);
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero-section {
+      height: 960px;
+      background: #05020d;
+    }
+    .hero-section img {
+      width: 1920px;
+      height: 960px;
+      object-fit: cover;
+      object-position: center top;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Intro */
+    .intro-section {
+      position: relative;
+      height: 1080px;
+      background: url("关于我们/img_about_introd_bg.png") center / cover no-repeat;
+    }
+    .intro-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 140px;
+    }
+    .intro-card {
+      max-width: 920px;
+    }
+    .intro-title {
+      margin: 0;
+      font-size: 64px;
+      font-weight: 700;
+      color: #0a1a33;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .intro-desc {
+      margin-top: 24px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: #1f3a5f;
+      font-weight: 300;
+    }
+    .intro-stats {
+      margin-top: 60px;
+      display: flex;
+      align-items: flex-start;
+      gap: 80px;
+    }
+    .intro-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .intro-stat-num {
+      font-size: 52px;
+      font-weight: 700;
+      color: #0a1a33;
+      line-height: 1;
+    }
+    .intro-stat-num sup {
+      font-size: 28px;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+    .intro-stat-label {
+      font-size: 18px;
+      color: #3a5a8a;
+      font-weight: 300;
+    }
+
+    /* Factory */
+    .factory-section {
+      position: relative;
+      height: 1080px;
+      background: url("关于我们/img_about_factory_bg.png") center / cover no-repeat;
+    }
+    .factory-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .factory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 340px));
+      gap: 70px 60px;
+    }
+    .factory-item {
+      color: #fff;
+    }
+    .factory-icon {
+      width: 64px;
+      height: 64px;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+    .factory-item-title {
+      margin-top: 18px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .factory-item-desc {
+      margin-top: 12px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+    }
+
+    /* Honour */
+    .honour-section {
+      position: relative;
+      height: 960px;
+      background: url("关于我们/img_about_honour_bg.png") center / cover no-repeat;
+    }
+    .honour-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .honour-title {
+      margin: 0;
+      font-size: 56px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+    }
+    .honour-subtitle {
+      margin-top: 16px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+    }
+    .honour-list {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .honour-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 300;
+    }
+    .honour-item::before {
+      content: "🏆";
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* Partners */
+    .partners-section {
+      background: var(--page-deep);
+      padding: 100px 0 120px;
+    }
+    .partners-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .partners-image {
+      width: 1520px;
+      height: auto;
+      margin: 60px auto 0;
+      display: block;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* News */
+    .news-section {
+      background: var(--page-deep);
+      padding: 80px 0 100px;
+    }
+    .news-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .news-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .news-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      font-size: 16px;
+      color: #fff;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+    .news-more:hover { background: rgba(255,255,255,0.08); }
+    .news-more img { width: 20px; height: 20px; }
+    .news-carousel {
+      margin-top: 50px;
+      width: 1520px;
+    }
+    .news-viewport {
+      position: relative;
+      width: 1520px;
+      overflow: hidden;
+    }
+    .news-track {
+      display: flex;
+      gap: 25px;
+      transform: translateX(0);
+      transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    .news-slide {
+      flex: 0 0 490px;
+      width: 490px;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .news-card-media {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #f5f5f5;
+    }
+    .news-card-body {
+      padding: 24px;
+    }
+    .news-card-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 500;
+      color: #0a1a33;
+      line-height: 1.4;
+    }
+    .news-card-desc {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #5a6a8a;
+      font-weight: 300;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .news-card-foot {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .news-card-date {
+      font-size: 14px;
+      color: #9aa8c8;
+      font-weight: 300;
+    }
+    .news-card-link {
+      font-size: 14px;
+      color: #0a1a33;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .news-card-link img { width: 14px; height: 14px; }
+    .news-controls {
+      margin-top: 40px;
+      width: 1520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    .news-pager {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .news-pager-item {
+      padding: 0;
+      border: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: width 0.35s ease, background-color 0.35s ease;
+    }
+    .news-pager-item.is-active {
+      width: 40px;
+      background: #fff;
+    }
+    .news-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .news-arrow {
+      padding: 0;
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent;
+      cursor: pointer;
+    }
+    .news-arrow img { width: 20px; height: 20px; }
+    .news-arrow:disabled { opacity: 0.42; cursor: default; }
+
+    /* Contact */
+    .contact-section {
+      background: var(--page-deep);
+      padding: 80px 0 60px;
+    }
+    .contact-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .contact-body {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contact-map {
+      background: #e8eaf0;
+      border-radius: 20px;
+      min-height: 520px;
+      overflow: hidden;
+      position: relative;
+    }
+    .contact-map iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .contact-form-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .contact-form-title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #0a1a33;
+    }
+    .contact-form {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-row label {
+      font-size: 15px;
+      color: #1f3a5f;
+      font-weight: 400;
+    }
+    .form-row label span { color: #ff4d4f; margin-right: 2px; }
+    .form-row input,
+    .form-row textarea {
+      padding: 14px 16px;
+      border: 1px solid #e0e4ee;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #f8f9fc;
+      color: #0a1a33;
+      outline: none;
+    }
+    .form-row input::placeholder,
+    .form-row textarea::placeholder { color: #aab4c8; }
+    .form-row textarea { min-height: 110px; resize: none; }
+    .btn-submit {
+      margin-top: 10px;
+      padding: 16px 24px;
+      border-radius: 999px;
+      border: 0;
+      background: #6a3cee;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-submit:hover { background: #5a2cde; }
+    .contact-form-hint {
+      margin-top: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #9aa8c8;
+      font-weight: 300;
+    }
+    .contact-info {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px;
+    }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-info-label {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+    }
+    .contact-info-value {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .contact-info-row {
+      margin-top: 30px;
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .contact-info-row .contact-info-item { flex: 1 1 auto; }
+
+    /* Footer */
+    .footer {
+      background: #050216;
+      padding: 82px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr)) 1.3fr;
+      gap: 26px;
+      align-items: start;
+      padding-top: 12px;
+      padding-left: 100px;
+      padding-right: 100px;
+      border-top: none;
+    }
+    .footer-col h4 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      margin: 0 0 10px;
+      color: rgba(255,255,255,0.68);
+      font-size: 20px;
+      line-height: 1.7;
+      font-weight: 200;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-address {
+      display: grid;
+      gap: 12px;
+    }
+    .footer-address p:first-of-type { width: 360px; }
+    .footer-qr {
+      width: 96px;
+      height: 96px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(223,223,223,0.78));
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+      margin-top: 10px;
+    }
+    .footer-legal {
+      min-height: 84px;
+      padding: 24px 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: rgba(255,255,255,0.6);
+      font-size: 20px;
+      text-align: center;
+      background-image: url("首页/img_annotate_bg.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+    .footer-police {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-police img {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-stage" data-page-stage>
+    <div class="page-canvas" data-page-canvas>
+      <header class="header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html#home" aria-label="返回首页">
+            <img src="首页/img_xy_logo.png" alt="形意智能标志" />
+            <span>形意</span>
+          </a>
+          <nav class="nav" aria-label="主导航">
+            <div class="nav-links" role="list">
+              <a href="index.html">首页</a>
+              <a href="index.html#products" data-product-menu-trigger aria-haspopup="true" aria-expanded="false" aria-controls="productMenu">产品中心</a>
+              <a href="skill.html">技术能力</a>
+              <a href="service.html">服务支持</a>
+              <a class="active" href="about.html">关于我们</a>
+              <a href="index.html#contact">App下载</a>
+              <a href="index.html#contact">开发者</a>
+            </div>
+          </nav>
+          <a class="btn-contact" href="index.html#contact">
+            <span>联系我们</span>
+            <span class="dot" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="product-menu" id="productMenu" data-product-menu hidden>
+        <div class="product-menu-panel" aria-label="产品列表">
+          <div class="product-menu-grid">
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Mimosa AR99</span>
+              <span class="product-menu-type">AI音频眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意 C100</span>
+              <span class="product-menu-type">AI拍摄眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意 K900</span>
+              <span class="product-menu-type">AR增强现实眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">形意知音</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Birdbath智能眼镜</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+            <a class="product-menu-item" href="index.html#products" data-close-product-menu>
+              <span class="product-menu-thumb" aria-hidden="true"></span>
+              <span class="product-menu-name">Birdbath智能眼镜</span>
+              <span class="product-menu-type">AI+AR融合眼镜</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section class="section hero-section" id="home">
+          <img src="关于我们/img_about_bg_top.png" alt="科技创造未来美好生活" />
+        </section>
+
+        <section class="section intro-section" aria-label="关于我们">
+          <div class="container intro-content">
+            <div class="intro-card">
+              <h2 class="intro-title">关于我们</h2>
+              <p class="intro-desc">形意智能成立于2019年，是一家集人工智能与可穿戴设备研发生产为一体的企业，致力于成为国际一流AR+AI一站式解决方案提供商。</p>
+              <p class="intro-desc">5000m²万级净化智慧工厂，构筑AI眼镜全链路垂直整合闭环。依托8条全自动智能产线与前沿算法自研能力，实现从硬件创新设计到精密组装的端到端管控。在保障良率与成本极致可控的前提下，工厂具备&gt;40万台/年的稳定产能输出，为大规模商业化交付提供坚实的供应链保障。</p>
+              <div class="intro-stats">
+                <div class="intro-stat">
+                  <div class="intro-stat-num">8<span>年</span></div>
+                  <div class="intro-stat-label">行业经验</div>
+                </div>
+                <div class="intro-stat">
+                  <div class="intro-stat-num">50<sup>+</sup></div>
+                  <div class="intro-stat-label">发明专利</div>
+                </div>
+                <div class="intro-stat">
+                  <div class="intro-stat-num">5000<sup>m²</sup></div>
+                  <div class="intro-stat-label">整机工厂</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section factory-section" aria-label="形意工厂">
+          <div class="container factory-content">
+            <div class="factory-grid">
+              <article class="factory-item">
+                <img class="factory-icon" src="关于我们/icon_qz.png" alt="" />
+                <h3 class="factory-item-title">全栈自研体系</h3>
+                <p class="factory-item-desc">自研算法引擎、硬件创新设计、精密自主组装的全链路闭环。</p>
+              </article>
+              <article class="factory-item">
+                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" stroke="white" stroke-width="2" stroke-dasharray="4 4"/><circle cx="32" cy="32" r="18" stroke="white" stroke-width="2"/><circle cx="32" cy="32" r="8" fill="white"/></svg>
+                <h3 class="factory-item-title">万级净化标准</h3>
+                <p class="factory-item-desc">厂区规划科学，集成了万级无尘净化车间与智能化制造基地。</p>
+              </article>
+              <article class="factory-item">
+                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" stroke="white" stroke-width="2"/><path d="M32 18v14l10 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="white"/></svg>
+                <h3 class="factory-item-title">全自动智能产线</h3>
+                <p class="factory-item-desc">8条全自动智能产线形成规模化、集约化的超级产能引擎。</p>
+              </article>
+              <article class="factory-item">
+                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="22" width="44" height="26" rx="4" stroke="white" stroke-width="2"/><path d="M20 22v-6a12 12 0 0 1 24 0v6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="35" r="4" stroke="white" stroke-width="2"/></svg>
+                <h3 class="factory-item-title">极速精准交付</h3>
+                <p class="factory-item-desc">系统打通供应链与制造端，实现成本与交付周期的极致优化。</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section honour-section" aria-label="荣耀时刻">
+          <div class="container honour-content">
+            <h2 class="honour-title">荣耀时刻 · 行业嘉奖</h2>
+            <p class="honour-subtitle">形意智能已拥有相关专利X篇，其中发明专利X篇，外观设计专利X篇，实用新型专利X篇。</p>
+            <div class="honour-list">
+              <div class="honour-item">2020年众志成城创新抗疫</div>
+              <div class="honour-item">2021年工信部“人工智能产业创新揭榜挂帅单位”</div>
+              <div class="honour-item">2021年无障碍创新技术与产品优秀企业</div>
+              <div class="honour-item">2022深圳市增强现实技术应用协会副会长单位</div>
+              <div class="honour-item">2023广东省“无障碍创新技术与产品”优秀企业</div>
+              <div class="honour-item">2023年工信部泰尔终端实验室“端侧通用智能创新运用优秀案例”</div>
+              <div class="honour-item">2024年端侧通用智能创新应用优秀案例集</div>
+              <div class="honour-item">2025年AI好眼镜最佳方案集成商</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section partners-section" aria-label="合作伙伴">
+          <div class="container">
+            <h2 class="partners-title">合作伙伴</h2>
+            <img class="partners-image" src="关于我们/img_about_partner.png" alt="合作伙伴" />
+          </div>
+        </section>
+
+        <section class="section news-section" aria-label="新闻动态">
+          <div class="container">
+            <div class="news-header">
+              <h2 class="news-title">新闻动态</h2>
+              <a class="news-more" href="#">全部动态 <img src="关于我们/icon_about_arrow_fill_44_bla.png" alt="" /></a>
+            </div>
+            <div class="news-carousel" data-news-carousel>
+              <div class="news-viewport">
+                <div class="news-track" data-news-track>
+                  <article class="news-slide" data-slide-index="0">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="news-slide" data-slide-index="1">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="news-slide" data-slide-index="2">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="news-slide" data-slide-index="3">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="news-slide" data-slide-index="4">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="news-slide" data-slide-index="5">
+                    <div class="news-card">
+                      <img class="news-card-media" src="关于我们/img_about_new_bg.png" alt="" />
+                      <div class="news-card-body">
+                        <h3 class="news-card-title">深圳软硬复合条生产商提升产品品质与服务体验的双重追求</h3>
+                        <p class="news-card-desc">深圳软硬复合条生产商提升产品品质与服务体验的双重追求深圳软硬复合条生产商提升产品品质与服务体验的双重追求</p>
+                        <div class="news-card-foot">
+                          <span class="news-card-date">2026-03-30</span>
+                          <a class="news-card-link" href="#">More <img src="关于我们/icon_home_arrow_line_24.png" alt="" /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="news-controls">
+                <div class="news-nav">
+                  <button class="news-arrow" type="button" data-slide-prev aria-label="上一张"><img src="关于我们/icon_about_arrow_right_rigjt.png" alt="" /></button>
+                </div>
+                <div class="news-pager" aria-label="新闻轮播分页">
+                  <button class="news-pager-item is-active" type="button" data-slide-to="0" aria-current="true"><span class="sr-only">第 1 张</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="1" aria-current="false"><span class="sr-only">第 2 张</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="2" aria-current="false"><span class="sr-only">第 3 张</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="3" aria-current="false"><span class="sr-only">第 4 张</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="4" aria-current="false"><span class="sr-only">第 5 张</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="5" aria-current="false"><span class="sr-only">第 6 张</span></button>
+                </div>
+                <div class="news-nav">
+                  <button class="news-arrow" type="button" data-slide-next aria-label="下一张"><img src="关于我们/icon_about_arrow_right_left.png" alt="" /></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact" aria-label="联系我们">
+          <div class="container">
+            <h2 class="contact-title">联系我们</h2>
+            <div class="contact-body">
+              <div class="contact-map" aria-label="公司位置地图">
+                <iframe src="https://api.map.baidu.com/marker?location=22.5536,113.8833&title=稻兴环球科创中心A栋&content=深圳市宝安区新安街道稻兴环球科创中心A栋&output=html&src=xingyi" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="contact-form-wrap">
+                <h3 class="contact-form-title">免费咨询</h3>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('提交成功，我们会尽快与您联系！');">
+                  <div class="form-row">
+                    <label for="name"><span>*</span>姓名</label>
+                    <input id="name" type="text" placeholder="请输入您的姓名" required />
+                  </div>
+                  <div class="form-row">
+                    <label for="phone"><span>*</span>联系方式</label>
+                    <input id="phone" type="text" placeholder="请输入您的联系方式" required />
+                  </div>
+                  <div class="form-row">
+                    <label for="company">公司名称</label>
+                    <input id="company" type="text" placeholder="请输入您的公司名称" />
+                  </div>
+                  <div class="form-row">
+                    <label for="message"><span>*</span>需求描述</label>
+                    <textarea id="message" placeholder="请简要描述您遇到的问题" required></textarea>
+                  </div>
+                  <button class="btn-submit" type="submit">提交</button>
+                  <p class="contact-form-hint">感谢您对我们的关注与信任，我们会严格保护您的个人信息安全。同时，我们将在3个工作日内与您联系。</p>
+                </form>
+              </div>
+            </div>
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <div class="contact-info-label">地址</div>
+                <div class="contact-info-value">深圳市宝安区新安街道稻兴环球科创中心A栋901-905</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-label">电话</div>
+                <div class="contact-info-value">0755-23006866</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-label">公众号</div>
+                <div class="contact-info-value" style="width: 72px; height: 72px; background: rgba(255,255,255,0.12); border-radius: 8px;"></div>
+              </div>
+            </div>
+            <div class="contact-info-row">
+              <div class="contact-info-item">
+                <div class="contact-info-label">国内商务洽谈（谭女士）</div>
+                <div class="contact-info-value">12345678900</div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-label">海外商务洽谈（Vand女士）</div>
+                <div class="contact-info-value">12345678900</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="footer-grid">
+            <div class="footer-col"><h4>购买渠道</h4><a href="index.html#contact">京东旗舰店</a><a href="index.html#contact">天猫旗舰店</a></div>
+            <div class="footer-col"><h4>产品中心</h4><a href="index.html#products">Mimosa AR99</a><a href="index.html#products">形意 C100</a><a href="index.html#products">形意 K900</a></div>
+            <div class="footer-col"><h4>技术能力</h4><a href="skill.html">应用下载</a><a href="skill.html">解决方案</a></div>
+            <div class="footer-col"><h4>服务支持</h4><a href="service.html">应用下载</a><a href="service.html">解决方案</a></div>
+            <div class="footer-col"><h4>关于我们</h4><a href="about.html">公司介绍</a><a href="about.html">形意工厂</a></div>
+            <div class="footer-col"><h4>下载</h4><a href="index.html#contact">应用下载</a><a href="index.html#contact">开发者</a></div>
+            <div class="footer-col footer-address">
+              <p>深圳市宝安区新安街道稻兴环球科创中心A栋901-905</p>
+              <p>0755-23006866</p>
+              <div class="footer-qr" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="footer-legal">
+            <span>Copyright © 2025 形意智能. All Rights Reserved.</span>
+            <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882 号</span></span>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const baseWidth = 1920;
+    const pageStage = document.querySelector("[data-page-stage]");
+    const pageCanvas = document.querySelector("[data-page-canvas]");
+
+    function updateScale() {
+      if (!pageStage || !pageCanvas) return;
+      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+      const scale = viewportWidth / baseWidth;
+      const leftOffset = Math.max(0, (viewportWidth - baseWidth * scale) / 2);
+      const canvasHeight = pageCanvas.scrollHeight;
+      document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
+      document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
+      pageStage.style.height = `${canvasHeight * scale}px`;
+    }
+
+    window.addEventListener("resize", updateScale, { passive: true });
+    window.addEventListener("load", updateScale, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateScale);
+    if ("ResizeObserver" in window && pageCanvas) {
+      new ResizeObserver(() => updateScale()).observe(pageCanvas);
+    }
+    requestAnimationFrame(updateScale);
+
+    const productMenuTrigger = document.querySelector("[data-product-menu-trigger]");
+    const productMenu = document.querySelector("[data-product-menu]");
+    const productMenuItems = Array.from(document.querySelectorAll("[data-close-product-menu]"));
+    let productMenuCloseTimer = 0;
+    let productMenuRestoreHref = "";
+
+    const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+    const setActiveNavLink = (href) => {
+      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === href));
+    };
+
+    function openProductMenu() {
+      if (!productMenu || !productMenuTrigger) return;
+      window.clearTimeout(productMenuCloseTimer);
+      productMenuRestoreHref = document.querySelector(".nav-links a.active")?.getAttribute("href") || "";
+      setActiveNavLink("index.html#products");
+      productMenu.hidden = false;
+      requestAnimationFrame(() => productMenu.classList.add("is-open"));
+      productMenuTrigger.setAttribute("aria-expanded", "true");
+    }
+
+    function closeProductMenu() {
+      if (!productMenu || !productMenuTrigger) return;
+      productMenu.classList.remove("is-open");
+      productMenuTrigger.setAttribute("aria-expanded", "false");
+      if (productMenuRestoreHref) {
+        setActiveNavLink(productMenuRestoreHref);
+      }
+      productMenuRestoreHref = "";
+      window.clearTimeout(productMenuCloseTimer);
+      productMenuCloseTimer = window.setTimeout(() => {
+        if (!productMenu.classList.contains("is-open")) {
+          productMenu.hidden = true;
+        }
+      }, 220);
+    }
+
+    if (productMenuTrigger && productMenu) {
+      productMenuTrigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (productMenu.hidden || !productMenu.classList.contains("is-open")) {
+          openProductMenu();
+        } else {
+          closeProductMenu();
+        }
+      });
+
+      productMenuItems.forEach((item) => {
+        item.addEventListener("click", () => closeProductMenu());
+      });
+
+      document.addEventListener("click", (event) => {
+        if (productMenu.hidden) return;
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+        if (productMenu.contains(target) || productMenuTrigger.contains(target)) return;
+        closeProductMenu();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !productMenu.hidden) {
+          closeProductMenu();
+        }
+      });
+    }
+
+    const newsCarousel = document.querySelector("[data-news-carousel]");
+    if (newsCarousel) {
+      const track = newsCarousel.querySelector("[data-news-track]");
+      const slides = Array.from(track.querySelectorAll(".news-slide"));
+      const pagerButtons = Array.from(newsCarousel.querySelectorAll("[data-slide-to]"));
+      const prevButton = newsCarousel.querySelector("[data-slide-prev]");
+      const nextButton = newsCarousel.querySelector("[data-slide-next]");
+      const step = 515;
+      let visualIndex = 0;
+      const maxIndex = Math.max(0, slides.length - 3);
+
+      function syncNewsCarouselUI() {
+        const activeSlide = slides[visualIndex];
+        const activeIndex = Number(activeSlide.dataset.slideIndex || 0);
+        pagerButtons.forEach((button) => {
+          const matched = Number(button.dataset.slideTo) === activeIndex;
+          button.classList.toggle("is-active", matched);
+          button.setAttribute("aria-current", matched ? "true" : "false");
+        });
+        if (prevButton) prevButton.disabled = visualIndex === 0;
+        if (nextButton) nextButton.disabled = visualIndex === maxIndex;
+      }
+
+      function setNewsCarouselPosition(withAnimation) {
+        track.style.transition = withAnimation ? "transform 0.72s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+        track.style.transform = `translateX(-${visualIndex * step}px)`;
+      }
+
+      function moveNewsCarousel(nextIndex) {
+        const boundedIndex = Math.max(0, Math.min(maxIndex, nextIndex));
+        if (boundedIndex === visualIndex) return;
+        visualIndex = boundedIndex;
+        setNewsCarouselPosition(true);
+        syncNewsCarouselUI();
+      }
+
+      if (prevButton) {
+        prevButton.addEventListener("click", () => moveNewsCarousel(visualIndex - 1));
+      }
+      if (nextButton) {
+        nextButton.addEventListener("click", () => moveNewsCarousel(visualIndex + 1));
+      }
+
+      pagerButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetIndex = Number(button.dataset.slideTo);
+          const targetVisualIndex = slides.findIndex((slide) => Number(slide.dataset.slideIndex) === targetIndex);
+          if (targetVisualIndex === -1 || targetVisualIndex === visualIndex) return;
+          moveNewsCarousel(targetVisualIndex);
+        });
+      });
+
+      track.addEventListener("transitionend", () => {
+        syncNewsCarouselUI();
+      });
+
+      setNewsCarouselPosition(false);
+      syncNewsCarouselUI();
+    }
+  </script>
+</body>
+</html>
