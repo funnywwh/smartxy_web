@@ -372,7 +372,8 @@
 
     .visual-band-image {
       width: 1520px;
-      height: auto;
+      height: 520px;
+      object-fit: cover;
       margin: 0 auto;
       user-select: none;
       pointer-events: none;
@@ -380,24 +381,30 @@
 
     .workflow-section {
       background: var(--page-deep);
-      padding: 126px 0 124px;
+      padding: 60px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 720px;
     }
 
-    .workflow-banner {
-      width: 1520px;
-      height: auto;
-      margin: 0 auto;
-      user-select: none;
-      pointer-events: none;
+    .workflow-section .container {
+      width: 100%;
     }
 
     .workflow-intro {
-      margin-top: 96px;
+      margin-top: 0;
       text-align: center;
     }
 
     .workflow-intro .section-title {
-      font-size: 74px;
+      text-align: center;
+    }
+
+    .workflow-intro .section-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-subtitle {
@@ -413,7 +420,7 @@
 
     .workflow-steps {
       position: relative;
-      margin-top: 84px;
+      margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 34px;
@@ -425,48 +432,36 @@
       position: absolute;
       left: 110px;
       right: 110px;
-      top: 160px;
+      top: 83px;
       height: 1px;
-      background: rgba(255,255,255,0.22);
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0, rgba(255,255,255,0.22) 6px, transparent 6px, transparent 12px);
     }
 
     .workflow-step {
       position: relative;
       text-align: center;
-      min-height: 312px;
-    }
-
-    .workflow-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 154px;
-      right: -22px;
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-left: 12px solid rgba(255,255,255,0.22);
+      min-height: 200px;
     }
 
     .workflow-step-number {
-      font-size: 34px;
+      font-size: 18px;
       line-height: 1;
-      font-weight: 200;
-      color: rgba(255,255,255,0.92);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
       letter-spacing: 0.02em;
     }
 
     .workflow-step-icon {
       width: 92px;
       height: 92px;
-      margin: 26px auto 0;
+      margin: 20px auto 0;
       display: block;
       user-select: none;
       pointer-events: none;
     }
 
     .workflow-step-title {
-      margin: 38px 0 0;
+      margin: 28px 0 0;
       font-size: 34px;
       line-height: 1.25;
       font-weight: 500;
@@ -480,11 +475,17 @@
     }
 
     .detail-head {
-      text-align: center;
+      text-align: left;
+    }
+
+    .detail-head .section-subtitle {
+      text-align: left;
+      margin-left: 0;
     }
 
     .detail-head .section-title {
       font-size: 76px;
+      text-align: left;
     }
 
     .detail-list {
@@ -539,6 +540,68 @@
 
     .detail-notes {
       white-space: pre-line;
+    }
+
+    .scenario-section {
+      position: relative;
+      height: 1000px;
+      overflow: hidden;
+    }
+
+    .scenario-bg {
+      position: absolute;
+      inset: 0;
+      background: url("服务支持/img_service_plan_bg.png") center / cover no-repeat;
+    }
+
+    .scenario-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .scenario-tags {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .scenario-tag {
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: 400;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .scenario-tag .tag-num {
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    .scenario-caption {
+      max-width: 520px;
+    }
+
+    .scenario-caption-title {
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .scenario-caption-desc {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
     }
 
     .page-end-spacer {
@@ -663,58 +726,15 @@
 
         <section class="section visual-band" aria-label="服务支持视觉区">
           <div class="container">
-            <img class="visual-band-image" src="服务支持/img_service_plan_bg.png" alt="" />
-          </div>
-        </section>
-
-        <section class="section workflow-section">
-          <div class="container">
-            <img class="workflow-banner" src="服务支持/img_service_step.png" alt="服务流程展示" />
-
-            <div class="workflow-intro">
-              <h2 class="section-title">从概念到量产的全流程规范服务</h2>
-              <p class="section-subtitle">我们为 AI/AR 智能眼镜项目提供标准化合作流程，确保项目高效推进与可靠交付</p>
-            </div>
-
-            <div class="workflow-steps" aria-label="合作流程">
-              <article class="workflow-step">
-                <div class="workflow-step-number">01</div>
-                <img class="workflow-step-icon" src="服务支持/icon_ser_con.png" alt="" />
-                <div class="workflow-step-title">前期沟通</div>
-              </article>
-
-              <article class="workflow-step">
-                <div class="workflow-step-number">02</div>
-                <img class="workflow-step-icon" src="服务支持/icon_ser_design.png" alt="" />
-                <div class="workflow-step-title">概念设计</div>
-              </article>
-
-              <article class="workflow-step">
-                <div class="workflow-step-number">03</div>
-                <img class="workflow-step-icon" src="服务支持/icon_ser_model.png" alt="" />
-                <div class="workflow-step-title">工程打样</div>
-              </article>
-
-              <article class="workflow-step">
-                <div class="workflow-step-number">04</div>
-                <img class="workflow-step-icon" src="服务支持/icon_ser_pay.png" alt="" />
-                <div class="workflow-step-title">试产验证</div>
-              </article>
-
-              <article class="workflow-step">
-                <div class="workflow-step-number">05</div>
-                <img class="workflow-step-icon" src="服务支持/icon_ser_produce.png" alt="" />
-                <div class="workflow-step-title">量产交付</div>
-              </article>
-            </div>
+            <img class="visual-band-image" src="服务支持/img_service_step.png" alt="" />
           </div>
         </section>
 
         <section class="section detail-section">
           <div class="container">
             <div class="detail-head">
-              <h2 class="section-title">从概念到量产的全流程规范服务</h2>
-              <p class="section-subtitle">我们为 AI/AR 智能眼镜项目提供标准化合作流程，确保项目高效推进与可靠交付</p>
+              <h2 class="section-title">让产品从概念到量产更简单</h2>
+              <p class="section-subtitle">专注 AR+AI 智能消费电子产品 OEM/ODM，从概念到量产的一站式智造伙伴</p>
             </div>
 
             <div class="detail-list" aria-label="服务流程明细">
@@ -787,7 +807,65 @@
           </div>
         </section>
 
-        <div class="page-end-spacer" aria-hidden="true"></div>
+        <section class="section scenario-section" aria-label="应用场景">
+          <div class="scenario-bg"></div>
+          <div class="container scenario-content">
+            <div class="scenario-tags">
+              <span class="scenario-tag"><span class="tag-num">01</span> 公共事业</span>
+              <span class="scenario-tag"><span class="tag-num">02</span> 医疗健康</span>
+              <span class="scenario-tag"><span class="tag-num">03</span> 智慧教育</span>
+              <span class="scenario-tag"><span class="tag-num">04</span> 工业制造</span>
+              <span class="scenario-tag"><span class="tag-num">05</span> 残障辅助</span>
+            </div>
+            <div class="scenario-caption">
+              <div class="scenario-caption-title">人脸/车牌识别、证件核验、巡逻防控</div>
+              <div class="scenario-caption-desc">构建从前端感知、身份核验到指挥调度的闭环，提升执法效率与公共安全水平。</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section workflow-section">
+          <div class="container">
+            <div class="workflow-intro">
+              <h2 class="section-title">从概念到量产的全流程规范服务</h2>
+              <p class="section-subtitle">我们为 AI/AR 智能眼镜项目提供标准化合作流程，确保项目高效推进与可靠交付</p>
+            </div>
+
+            <div class="workflow-steps" aria-label="合作流程">
+              <article class="workflow-step">
+                <div class="workflow-step-number">01</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_con.png" alt="" />
+                <div class="workflow-step-title">前期沟通</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">02</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_design.png" alt="" />
+                <div class="workflow-step-title">概念设计</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">03</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_model.png" alt="" />
+                <div class="workflow-step-title">工程打样</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">04</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_pay.png" alt="" />
+                <div class="workflow-step-title">试产验证</div>
+              </article>
+
+              <article class="workflow-step">
+                <div class="workflow-step-number">05</div>
+                <img class="workflow-step-icon" src="服务支持/icon_ser_produce.png" alt="" />
+                <div class="workflow-step-title">量产交付</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+
       </main>
     </div>
   </div>
