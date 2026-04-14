@@ -1232,7 +1232,7 @@
     function updateScale() {
       if (!pageStage || !pageCanvas) return;
       const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-      const scale = viewportWidth / baseWidth;
+      const scale = viewportWidth >= 1920 ? 1 : viewportWidth / baseWidth;
       const leftOffset = Math.max(0, (viewportWidth - baseWidth * scale) / 2);
       const canvasHeight = pageCanvas.scrollHeight;
       document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
