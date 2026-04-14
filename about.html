@@ -494,7 +494,8 @@
     }
     .news-viewport {
       position: relative;
-      width: 1520px;
+      width: calc(1520px + 25px + 490px / 3);
+      margin-right: calc(-25px - 490px / 3);
       overflow: hidden;
     }
     .news-track {
@@ -565,8 +566,7 @@
       width: 1520px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 24px;
+      justify-content: space-between;
     }
     .news-pager {
       display: inline-flex;
@@ -595,16 +595,16 @@
     .news-arrow {
       padding: 0;
       border: 0;
-      width: 44px;
-      height: 44px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
+      overflow: hidden;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255,255,255,0.25);
       background: transparent;
       cursor: pointer;
     }
-    .news-arrow img { width: 20px; height: 20px; }
+    .news-arrow img { width: 100%; height: 100%; object-fit: cover; }
     .news-arrow:disabled { opacity: 0.42; cursor: default; }
 
     /* Contact */
@@ -622,12 +622,12 @@
     .contact-body {
       margin-top: 50px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1fr 700px;
+      gap: 0;
+      height: 1236px;
     }
     .contact-map {
       background: #e8eaf0;
-      border-radius: 20px;
       min-height: 520px;
       overflow: hidden;
       position: relative;
@@ -641,13 +641,12 @@
     }
     .contact-form-wrap {
       background: #fff;
-      border-radius: 20px;
       padding: 40px;
     }
     .contact-form-title {
       margin: 0;
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 80px;
+      font-weight: 500;
       color: #0a1a33;
     }
     .contact-form {
@@ -662,9 +661,9 @@
       gap: 8px;
     }
     .form-row label {
-      font-size: 15px;
+      font-size: 28px;
       color: #1f3a5f;
-      font-weight: 400;
+      font-weight: 300;
     }
     .form-row label span { color: #ff4d4f; margin-right: 2px; }
     .form-row input,
@@ -672,7 +671,8 @@
       padding: 14px 16px;
       border: 1px solid #e0e4ee;
       border-radius: 10px;
-      font-size: 15px;
+      font-size: 28px;
+      font-weight: 300;
       background: #f8f9fc;
       color: #0a1a33;
       outline: none;
@@ -695,10 +695,10 @@
     .btn-submit:hover { background: #5a2cde; }
     .contact-form-hint {
       margin-top: 14px;
-      font-size: 13px;
+      font-size: 24px;
       line-height: 1.6;
       color: #9aa8c8;
-      font-weight: 300;
+      font-weight: 100;
     }
     .contact-info {
       margin-top: 50px;
@@ -970,7 +970,7 @@
           <div class="container">
             <div class="news-header">
               <h2 class="news-title">新闻动态</h2>
-              <a class="news-more" href="#">全部动态 <img src="关于我们/icon_about_arrow_fill_44_bla.png" alt="" /></a>
+              <a class="news-more" href="#">全部动态 <img src="关于我们/icon_home_arrow_line_24.png" alt="" style="filter: invert(1) brightness(2);" /></a>
             </div>
             <div class="news-carousel" data-news-carousel>
               <div class="news-viewport">
@@ -1056,19 +1056,15 @@
                 </div>
               </div>
               <div class="news-controls">
-                <div class="news-nav">
-                  <button class="news-arrow" type="button" data-slide-prev aria-label="上一张"><img src="关于我们/icon_about_arrow_right_rigjt.png" alt="" /></button>
-                </div>
                 <div class="news-pager" aria-label="新闻轮播分页">
-                  <button class="news-pager-item is-active" type="button" data-slide-to="0" aria-current="true"><span class="sr-only">第 1 张</span></button>
-                  <button class="news-pager-item" type="button" data-slide-to="1" aria-current="false"><span class="sr-only">第 2 张</span></button>
-                  <button class="news-pager-item" type="button" data-slide-to="2" aria-current="false"><span class="sr-only">第 3 张</span></button>
-                  <button class="news-pager-item" type="button" data-slide-to="3" aria-current="false"><span class="sr-only">第 4 张</span></button>
-                  <button class="news-pager-item" type="button" data-slide-to="4" aria-current="false"><span class="sr-only">第 5 张</span></button>
-                  <button class="news-pager-item" type="button" data-slide-to="5" aria-current="false"><span class="sr-only">第 6 张</span></button>
+                  <button class="news-pager-item is-active" type="button" data-slide-to="0" aria-current="true"><span class="sr-only">第 1 页</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="1" aria-current="false"><span class="sr-only">第 2 页</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="2" aria-current="false"><span class="sr-only">第 3 页</span></button>
+                  <button class="news-pager-item" type="button" data-slide-to="3" aria-current="false"><span class="sr-only">第 4 页</span></button>
                 </div>
                 <div class="news-nav">
-                  <button class="news-arrow" type="button" data-slide-next aria-label="下一张"><img src="关于我们/icon_about_arrow_right_left.png" alt="" /></button>
+                  <button class="news-arrow" type="button" data-slide-prev aria-label="上一张"><img src="skill/img_skill_arrow_prev.png" alt="" /></button>
+                  <button class="news-arrow news-arrow--next" type="button" data-slide-next aria-label="下一张"><img src="关于我们/icon_about_arrow_right_left.png" alt="" /></button>
                 </div>
               </div>
             </div>
@@ -1258,10 +1254,8 @@
       const maxIndex = Math.max(0, slides.length - 3);
 
       function syncNewsCarouselUI() {
-        const activeSlide = slides[visualIndex];
-        const activeIndex = Number(activeSlide.dataset.slideIndex || 0);
         pagerButtons.forEach((button) => {
-          const matched = Number(button.dataset.slideTo) === activeIndex;
+          const matched = Number(button.dataset.slideTo) === visualIndex;
           button.classList.toggle("is-active", matched);
           button.setAttribute("aria-current", matched ? "true" : "false");
         });
@@ -1291,9 +1285,8 @@
 
       pagerButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          const targetIndex = Number(button.dataset.slideTo);
-          const targetVisualIndex = slides.findIndex((slide) => Number(slide.dataset.slideIndex) === targetIndex);
-          if (targetVisualIndex === -1 || targetVisualIndex === visualIndex) return;
+          const targetVisualIndex = Number(button.dataset.slideTo);
+          if (targetVisualIndex === visualIndex) return;
           moveNewsCarousel(targetVisualIndex);
         });
       });
