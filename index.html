@@ -4584,10 +4584,11 @@
     function updateScale() {
       if (!pageStage || !pageCanvas) return;
       const viewportWidth = window.innerWidth;
-      const scale = viewportWidth / baseWidth;
+      const scale = viewportWidth > 1920 ? 1 : viewportWidth / baseWidth;
+      const leftOffset = viewportWidth > 1920 ? Math.max(0, (viewportWidth - baseWidth * scale) / 2) : 0;
       const canvasHeight = pageCanvas.scrollHeight;
       document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
-      document.documentElement.style.setProperty("--page-left", "0px");
+      document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
       pageStage.style.height = `${canvasHeight * scale}px`;
     }
 
@@ -4723,10 +4724,11 @@
         function updateScale() {
           if (!pageStage || !pageCanvas) return;
           const viewportWidth = window.innerWidth;
-          const scale = viewportWidth / baseWidth;
+          const scale = viewportWidth > 1920 ? 1 : viewportWidth / baseWidth;
+          const leftOffset = viewportWidth > 1920 ? Math.max(0, (viewportWidth - baseWidth * scale) / 2) : 0;
           const canvasHeight = pageCanvas.scrollHeight;
           document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
-          document.documentElement.style.setProperty("--page-left", "0px");
+          document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
           pageStage.style.height = `${canvasHeight * scale}px`;
         }
     
@@ -4872,10 +4874,11 @@
         function updateScale() {
           if (!pageStage || !pageCanvas) return;
           const viewportWidth = window.innerWidth;
-          const scale = viewportWidth / baseWidth;
+          const scale = viewportWidth > 1920 ? 1 : viewportWidth / baseWidth;
+          const leftOffset = viewportWidth > 1920 ? Math.max(0, (viewportWidth - baseWidth * scale) / 2) : 0;
           const canvasHeight = pageCanvas.scrollHeight;
           document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
-          document.documentElement.style.setProperty("--page-left", "0px");
+          document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
           pageStage.style.height = `${canvasHeight * scale}px`;
         }
     
@@ -5064,10 +5067,11 @@
         function updateScale() {
           if (!pageStage || !pageCanvas) return;
           const viewportWidth = window.innerWidth;
-          const scale = viewportWidth / baseWidth;
+          const scale = viewportWidth > 1920 ? 1 : viewportWidth / baseWidth;
+          const leftOffset = viewportWidth > 1920 ? Math.max(0, (viewportWidth - baseWidth * scale) / 2) : 0;
           const canvasHeight = pageCanvas.scrollHeight;
           document.documentElement.style.setProperty("--page-scale", scale.toFixed(6));
-          document.documentElement.style.setProperty("--page-left", "0px");
+          document.documentElement.style.setProperty("--page-left", `${leftOffset}px`);
           pageStage.style.height = `${canvasHeight * scale}px`;
         }
     
