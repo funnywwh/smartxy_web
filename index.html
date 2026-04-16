@@ -36,6 +36,7 @@
 
     :root {
       --canvas-width: 1920px;
+      --section-max-width: 1200px;
       --page-scale: 1;
       --page-left: 0px;
       --page-bg: #050216;
@@ -91,9 +92,10 @@
     }
 
     .container {
-      width: 1920px;
+      width: 100%;
+      max-width: var(--section-max-width);
       margin: 0 auto;
-      padding: 0 100px;
+      padding: 0 40px;
     }
 
     .section {
@@ -231,7 +233,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 0 200px;
+      padding: 0 40px;
     }
 
     .brand {
@@ -314,7 +316,7 @@
       position: absolute;
       top: 92px;
       left: 0;
-      width: 1920px;
+      width: 100%;
       z-index: 35;
       opacity: 0;
       transform: translateY(-12px);
@@ -334,7 +336,10 @@
 
     .product-menu-panel {
       min-height: 236px;
-      padding: 22px 120px 28px;
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
+      padding: 22px 40px 28px;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: none;
       border: 1px solid rgba(255,255,255,0.24);
@@ -681,7 +686,8 @@
       z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      width: 1520px;
+      width: 100%;
+      max-width: var(--section-max-width);
       height: 100px;
       border-radius: 0;
       overflow: hidden;
@@ -740,14 +746,14 @@
       background-image: url("首页/img_product_bg.png");
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 1920px auto;
+      background-size: cover;
       padding-top: 100px;
     }
 
     .cases-head {
       text-align: center;
       margin: 0 auto 48px;
-      max-width: 1280px;
+      max-width: var(--section-max-width);
     }
 
     .cases-head .section-title {
@@ -847,7 +853,7 @@
       background-image: url("首页/img_xy_bg.png");
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 1920px auto;
+      background-size: cover;
       padding-top: 86px;
       padding-bottom: 0;
     }
@@ -857,13 +863,13 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 28px;
-      max-width: 1560px;
-      margin: 100px 0 26px 100px;
+      max-width: var(--section-max-width);
+      margin: 100px auto 26px;
     }
 
     .about-copy {
       flex: 1 1 auto;
-      max-width: 1330px;
+      max-width: 900px;
       padding: 0;
       border: 0;
       background: transparent;
@@ -896,7 +902,7 @@
 
     .about-panel {
       position: relative;
-      max-width: 1560px;
+      max-width: var(--section-max-width);
       margin: 0 auto;
       min-height: 1120px;
       overflow: visible;
@@ -919,7 +925,8 @@
       gap: 0;
       align-items: start;
       margin: 0;
-      width: 1280px;
+      width: 100%;
+      max-width: var(--section-max-width);
       padding: 0;
       border: 0;
       background: transparent;
@@ -971,7 +978,7 @@
       background-image: url("首页/img_consult_bg.png");
       background-repeat: no-repeat;
       background-position: center top;
-      background-size: 1920px 800px;
+      background-size: cover;
       min-height: 800px;
       margin-top: 1px;
       padding-top: 0;
@@ -981,7 +988,7 @@
 
     .cta-panel {
       position: relative;
-      max-width: 1560px;
+      max-width: var(--section-max-width);
       margin: 0 auto;
       margin-top: -182px;
       min-height: 520px;
@@ -1042,6 +1049,9 @@
       grid-template-columns: repeat(6, minmax(0, 1fr)) 1.3fr;
       gap: 26px;
       align-items: start;
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
       padding-top: 12px;
       padding-left: 100px;
       padding-right: 100px;
@@ -1092,6 +1102,9 @@
       min-height: 84px;
       padding: 24px 32px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -1103,7 +1116,7 @@
       background-image: url("首页/img_annotate_bg.png");
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: 100% 100%;
+      background-size: cover;
     }
 
     .footer-police {
@@ -1200,9 +1213,10 @@
       will-change: transform;
     }
  #view-about .container{
-      width: 1920px;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 200px;
+      padding: 0 40px;
     }
  #view-about .section{
       position: relative;
@@ -1218,7 +1232,7 @@
       border-bottom: 0;
       backdrop-filter: none;
     }
- #view-about .header .container{ padding: 0 200px; }
+ #view-about .header .container{ padding: 0 40px; }
  #view-about .header-inner{
       height: 92px;
       display: flex;
@@ -1314,7 +1328,7 @@
       position: absolute;
       top: 92px;
       left: 0;
-      width: 1920px;
+      width: 100%;
       z-index: 35;
       opacity: 0;
       transform: translateY(-12px);
@@ -1329,7 +1343,10 @@
     }
  #view-about .product-menu-panel{
       min-height: 236px;
-      padding: 22px 120px 28px;
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
+      padding: 22px 40px 28px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255,255,255,0.24);
       box-shadow: none;
@@ -1401,7 +1418,8 @@
       font-weight: 300;
       color: rgba(255,255,255,0.85);
       line-height: 1.6;
-      max-width: 900px;
+      max-width: none;
+      white-space: nowrap;
     }
 
     /* Intro */
@@ -1561,9 +1579,13 @@
       font-weight: 300;
     }
  #view-about .honour-item::before{
-      content: "🏆";
-      font-size: 16px;
-      opacity: 0.9;
+      content: "";
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      background: url("关于我们/icon_about_hon_fill_28.png") center / contain no-repeat;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
     }
 
     /* Partners */
@@ -1580,7 +1602,8 @@
       line-height: 1.2;
     }
  #view-about .partners-image{
-      width: 1520px;
+      width: 100%;
+      max-width: 1200px;
       height: auto;
       margin: 60px auto 0;
       display: block;
@@ -1621,11 +1644,12 @@
  #view-about .news-more img{ width: 20px; height: 20px; }
  #view-about .news-carousel{
       margin-top: 50px;
-      width: 1520px;
+      width: 100%;
+      max-width: 1200px;
     }
  #view-about .news-viewport{
       position: relative;
-      width: calc(1520px + 25px + 490px / 3);
+      width: calc(100% + 25px + 490px / 3);
       margin-right: calc(-25px - 490px / 3);
       overflow: hidden;
     }
@@ -1694,7 +1718,8 @@
  #view-about .news-card-link img{ width: 14px; height: 14px; }
  #view-about .news-controls{
       margin-top: 40px;
-      width: 1520px;
+      width: 100%;
+      max-width: 1200px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1742,6 +1767,8 @@
  #view-about .contact-section{
       background: var(--page-deep);
       padding: 80px 0 60px;
+      padding-bottom: 260px;
+      margin-top: 561px;
     }
  #view-about .contact-title{
       margin: 0;
@@ -1763,12 +1790,13 @@
       overflow: hidden;
       position: relative;
     }
- #view-about .contact-map iframe{
+ #view-about .contact-map img{
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      object-fit: cover;
     }
  #view-about .contact-form-wrap{
       background: #fff;
@@ -1831,16 +1859,46 @@
       color: #9aa8c8;
       font-weight: 100;
     }
- #view-about .contact-info{
+ #view-about .contact-info-stack{
       margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--page-deep);
+    }
+ #view-about .contact-info{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 25px;
+    }
+ #view-about .contact-info-main{
+      min-width: 0;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+ #view-about .contact-info-secondary,
+ #view-about .contact-info-row{
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 40px;
+      padding-right: 64px;
+      padding-top: 25px;
+    }
+ #view-about .contact-info-secondary{
+      padding-bottom: 25px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+ #view-about .contact-info-row{
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
  #view-about .contact-info-item{
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
     }
  #view-about .contact-info-label{
       font-size: 15px;
@@ -1853,13 +1911,35 @@
       font-weight: 400;
       line-height: 1.5;
     }
- #view-about .contact-info-row{
-      margin-top: 30px;
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
+ #view-about .contact-info-main .contact-info-value{
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.2;
+      white-space: nowrap;
     }
- #view-about .contact-info-row .contact-info-item{ flex: 1 1 auto; }
+ #view-about .contact-info-main .contact-info-label{
+      font-size: 24px;
+      font-weight: 100;
+      line-height: 1.2;
+    }
+ #view-about .contact-info-secondary .contact-info-label,
+ #view-about .contact-info-secondary .contact-info-value,
+ #view-about .contact-info-row .contact-info-label,
+ #view-about .contact-info-row .contact-info-value{
+      font-size: 10px;
+      line-height: 1.4;
+    }
+ #view-about .contact-map-pin{
+      width: 30px;
+      height: 30px;
+      flex: 0 0 auto;
+      margin-top: 4px;
+      object-fit: contain;
+    }
+ #view-about .contact-info-row{
+      align-items: start;
+    }
+ #view-about .contact-info-row .contact-info-item{ flex: 0 0 auto; }
 
     /* Footer */
  #view-about .footer{
@@ -1872,8 +1952,8 @@
       gap: 26px;
       align-items: start;
       padding-top: 12px;
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: 40px;
+      padding-right: 40px;
       border-top: none;
     }
  #view-about .footer-col h4{
@@ -1923,7 +2003,7 @@
       background-image: url("首页/img_annotate_bg.png");
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: 100% 100%;
+      background-size: cover;
     }
  #view-about .footer-police{
       display: inline-flex;
@@ -2042,9 +2122,10 @@
  #view-skill img{ display: block; max-width: 100%; }
 
  #view-skill .container{
-      width: 1920px;
+      width: 100%;
+      max-width: var(--section-max-width);
       margin: 0 auto;
-      padding: 0 100px;
+      padding: 0 40px;
     }
 
  #view-skill .header{
@@ -2057,7 +2138,7 @@
     }
 
  #view-skill .header .container{
-      padding: 0 200px;
+      padding: 0 40px;
     }
 
  #view-skill .header-inner{
@@ -2172,7 +2253,7 @@
       position: absolute;
       top: 92px;
       left: 0;
-      width: 1920px;
+      width: 100%;
       z-index: 35;
       opacity: 0;
       transform: translateY(-12px);
@@ -2192,7 +2273,10 @@
 
  #view-skill .product-menu-panel{
       min-height: 236px;
-      padding: 22px 120px 28px;
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
+      padding: 22px 40px 28px;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: none;
       border: 1px solid rgba(255,255,255,0.24);
@@ -2260,7 +2344,7 @@
 
  #view-skill .hero{
       height: 960px;
-      background: #05020d url("skill/img_skill_bg_top.png") center top / 1920px 960px no-repeat;
+      background: #05020d url("skill/img_skill_bg_top.png") center top / cover no-repeat;
     }
 
  #view-skill .hero-inner{
@@ -2339,24 +2423,26 @@
 
  #view-skill #optics .section-heading{
       position: absolute;
-      left: 200px;
+      left: 0;
       top: 100px;
       margin: 0;
-      width: 1294px;
+      width: 100%;
+      max-width: var(--section-max-width);
       height: 106px;
     }
 
  #view-skill .showcase-card{
       position: absolute;
-      left: 200px;
+      left: 0;
       top: 306px;
       margin: 0;
-      width: 1520px;
+      width: 100%;
+      max-width: var(--section-max-width);
     }
 
  #view-skill .showcase-viewport{
       position: relative;
-      width: 1520px;
+      width: 100%;
       height: 820px;
       overflow: visible;
     }
@@ -2371,8 +2457,8 @@
 
  #view-skill .showcase-slide{
       position: relative;
-      flex: 0 0 1520px;
-      width: 1520px;
+      flex: 0 0 100%;
+      width: 100%;
       height: 820px;
       overflow: visible;
       background: #0b0a14;
@@ -2414,7 +2500,7 @@
 
  #view-skill .showcase-controls{
       margin-top: 44px;
-      width: 1520px;
+      width: 100%;
       padding: 0;
       display: flex;
       align-items: center;
@@ -2498,7 +2584,7 @@
       position: absolute;
       left: 960px;
       top: 200px;
-      width: 1750px;
+      width: var(--section-max-width);
       height: 400px;
       margin: 0;
       color: #fff;
@@ -2554,7 +2640,7 @@
       position: absolute;
       left: 960px;
       top: 200px;
-      width: 1750px;
+      width: var(--section-max-width);
       height: 400px;
       margin: 0;
       color: #fff;
@@ -3041,9 +3127,10 @@
     }
 
  #view-service .container{
-      width: 1920px;
+      width: 100%;
+      max-width: var(--section-max-width);
       margin: 0 auto;
-      padding: 0 200px;
+      padding: 0 40px;
     }
 
  #view-service .section{
@@ -3061,7 +3148,7 @@
     }
 
  #view-service .header .container{
-      padding: 0 200px;
+      padding: 0 40px;
     }
 
  #view-service .header-inner{
@@ -3174,7 +3261,7 @@
       position: absolute;
       top: 92px;
       left: 0;
-      width: 1920px;
+      width: 100%;
       z-index: 35;
       opacity: 0;
       transform: translateY(-12px);
@@ -3192,7 +3279,10 @@
 
  #view-service .product-menu-panel{
       min-height: 236px;
-      padding: 22px 120px 28px;
+      width: 100%;
+      max-width: var(--section-max-width);
+      margin: 0 auto;
+      padding: 22px 40px 28px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255,255,255,0.24);
       box-shadow: none;
@@ -3253,8 +3343,8 @@
     }
 
  #view-service .hero-section img{
-      width: 1920px;
-      height: 960px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center top;
       user-select: none;
@@ -3323,7 +3413,8 @@
     }
 
  #view-service .visual-band-image{
-      width: 1520px;
+      width: 100%;
+      max-width: var(--section-max-width);
       height: 520px;
       object-fit: cover;
       margin: 0 auto;
@@ -3361,7 +3452,7 @@
 
  #view-service .section-subtitle{
       margin: 20px auto 0;
-      max-width: 1280px;
+      max-width: var(--section-max-width);
       color: rgba(255,255,255,0.78);
       font-size: 18px;
       line-height: 1.9;
@@ -3945,17 +4036,17 @@
                 <p class="factory-item-desc">自研算法引擎、硬件创新设计、精密自主组装的全链路闭环。</p>
               </article>
               <article class="factory-item">
-                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" stroke="white" stroke-width="2" stroke-dasharray="4 4"/><circle cx="32" cy="32" r="18" stroke="white" stroke-width="2"/><circle cx="32" cy="32" r="8" fill="white"/></svg>
+                <img class="factory-icon" src="关于我们/icon_jh.png" alt="" />
                 <h3 class="factory-item-title">万级净化标准</h3>
                 <p class="factory-item-desc">厂区规划科学，集成了万级无尘净化车间与智能化制造基地。</p>
               </article>
               <article class="factory-item">
-                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" stroke="white" stroke-width="2"/><path d="M32 18v14l10 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="white"/></svg>
+                <img class="factory-icon" src="关于我们/icon_factory_net.png" alt="" />
                 <h3 class="factory-item-title">全自动智能产线</h3>
                 <p class="factory-item-desc">8条全自动智能产线形成规模化、集约化的超级产能引擎。</p>
               </article>
               <article class="factory-item">
-                <svg class="factory-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="22" width="44" height="26" rx="4" stroke="white" stroke-width="2"/><path d="M20 22v-6a12 12 0 0 1 24 0v6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="35" r="4" stroke="white" stroke-width="2"/></svg>
+                <img class="factory-icon" src="关于我们/Bytedance-mini-app (应用程序).png" alt="" />
                 <h3 class="factory-item-title">极速精准交付</h3>
                 <p class="factory-item-desc">系统打通供应链与制造端，实现成本与交付周期的极致优化。</p>
               </article>
@@ -4097,7 +4188,7 @@
             <h2 class="contact-title">联系我们</h2>
             <div class="contact-body">
               <div class="contact-map" aria-label="公司位置地图">
-                <iframe src="https://api.map.baidu.com/marker?location=22.5536,113.8833&title=稻兴环球科创中心A栋&content=深圳市宝安区新安街道稻兴环球科创中心A栋&output=html&src=xingyi" allowfullscreen loading="lazy"></iframe>
+                <img src="关于我们/img_about_map.png" alt="公司位置地图" />
               </div>
               <div class="contact-form-wrap">
                 <h3 class="contact-form-title">免费咨询</h3>
@@ -4123,28 +4214,33 @@
                 </form>
               </div>
             </div>
-            <div class="contact-info">
-              <div class="contact-info-item">
-                <div class="contact-info-label">地址</div>
-                <div class="contact-info-value">深圳市宝安区新安街道稻兴环球科创中心A栋901-905</div>
+            <div class="contact-info-stack">
+              <div class="contact-info">
+                <div class="contact-info-main">
+                  <div class="contact-info-label">地址：</div>
+                  <div class="contact-info-value">深圳市宝安区新安街道稻兴环球科创中心A栋901-905</div>
+                </div>
+                <img class="contact-map-pin" src="关于我们/icon_about_position.png" alt="" />
               </div>
-              <div class="contact-info-item">
-                <div class="contact-info-label">电话</div>
-                <div class="contact-info-value">0755-23006866</div>
+              <div class="contact-info-secondary">
+                <div class="contact-info-item">
+                  <div class="contact-info-label">电话：</div>
+                  <div class="contact-info-value">0755-23006866</div>
+                </div>
+                <div class="contact-info-item">
+                  <div class="contact-info-label">公众号：</div>
+                  <div class="contact-info-value" style="width: 72px; height: 72px; background: rgba(255,255,255,0.12); border-radius: 8px;"></div>
+                </div>
               </div>
-              <div class="contact-info-item">
-                <div class="contact-info-label">公众号</div>
-                <div class="contact-info-value" style="width: 72px; height: 72px; background: rgba(255,255,255,0.12); border-radius: 8px;"></div>
-              </div>
-            </div>
-            <div class="contact-info-row">
-              <div class="contact-info-item">
-                <div class="contact-info-label">国内商务洽谈（谭女士）</div>
-                <div class="contact-info-value">12345678900</div>
-              </div>
-              <div class="contact-info-item">
-                <div class="contact-info-label">海外商务洽谈（Vand女士）</div>
-                <div class="contact-info-value">12345678900</div>
+              <div class="contact-info-row">
+                <div class="contact-info-item">
+                  <div class="contact-info-label">国内商务洽谈（谭女士）</div>
+                  <div class="contact-info-value">12345678900</div>
+                </div>
+                <div class="contact-info-item">
+                  <div class="contact-info-label">海外商务洽谈（Vand女士）</div>
+                  <div class="contact-info-value">12345678900</div>
+                </div>
               </div>
             </div>
           </div>
@@ -4963,9 +5059,17 @@
           const pagerButtons = Array.from(opticsCarousel.querySelectorAll("[data-slide-to]"));
           const prevButton = opticsCarousel.querySelector("[data-slide-prev]");
           const nextButton = opticsCarousel.querySelector("[data-slide-next]");
-          const step = 1570;
           let visualIndex = 0;
-    
+
+          const getCarouselStep = () => {
+            const firstSlide = slides[0];
+            if (!firstSlide) return 0;
+            const slideWidth = firstSlide.offsetWidth;
+            const trackStyle = getComputedStyle(track);
+            const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
+            return slideWidth + gap;
+          };
+
           function syncCarouselUI() {
             const activeSlide = slides[visualIndex];
             const activeIndex = Number(activeSlide.dataset.slideIndex || 0);
@@ -4977,10 +5081,10 @@
             prevButton.disabled = visualIndex === 0;
             nextButton.disabled = visualIndex === slides.length - 1;
           }
-    
+
           function setCarouselPosition(withAnimation) {
             track.style.transition = withAnimation ? "transform 0.72s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
-            track.style.transform = `translateX(-${visualIndex * step}px)`;
+            track.style.transform = `translateX(-${visualIndex * getCarouselStep()}px)`;
           }
     
           function moveCarousel(nextIndex) {
