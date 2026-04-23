@@ -688,7 +688,8 @@
 
     .product-shell {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+      isolation: isolate;
       width: 100%;
       min-height: 1080px;
       border-radius: 0;
@@ -700,7 +701,11 @@
     .product-shell::after {
       content: "";
       position: absolute;
-      inset: 0;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: max(100%, calc(100vw / var(--page-canvas-scale-current, 1)));
+      transform: translateX(-50%);
       background:
         linear-gradient(180deg, rgba(5, 2, 22, 0.06) 0%, transparent 26%, transparent 76%, rgba(5, 2, 22, 0.24) 100%),
         linear-gradient(90deg, rgba(5, 2, 22, 0.03) 0%, transparent 56%, rgba(5, 2, 22, 0.16) 100%);
@@ -711,15 +716,22 @@
     .product-backdrop {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 1080px;
+      overflow: visible;
       pointer-events: none;
     }
 
     .product-backdrop img {
-      width: 100%;
-      height: 1080px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: max(100%, calc(100vw / var(--page-canvas-scale-current, 1)));
+      max-width: none;
+      height: 100%;
       object-fit: cover;
       object-position: center center;
+      transform: translateX(-50%);
       transition: opacity 0.24s ease;
     }
 
@@ -4155,7 +4167,7 @@
         min-height: 0;
       }
 
-      .product-backdrop img {
+      .product-backdrop {
         height: 760px;
       }
 
