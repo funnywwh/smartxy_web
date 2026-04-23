@@ -38,6 +38,7 @@
       --canvas-width: 1920px;
       --section-max-width: 1200px;
       --desktop-canvas-scale: 0.6;
+      --page-canvas-scale-current: 0.6;
       --content-start: calc((var(--canvas-width) - var(--section-max-width)) / 2);
       --page-gutter: clamp(16px, 3.5vw, 40px);
       --page-bg: #050216;
@@ -545,8 +546,24 @@
     }
 
     .advantage {
+      position: relative;
       padding-top: 0;
-      background: #050216;
+      background: rgb(0 0 24 / 100%);
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .advantage::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: max(100%, calc(100vw / var(--page-canvas-scale-current, 1)));
+      transform: translateX(-50%);
+      background: rgb(0 0 24 / 100%);
+      pointer-events: none;
+      z-index: -1;
     }
 
     .adv-stage {
@@ -589,7 +606,7 @@
 
     .adv-panel {
       border: 1px solid var(--line);
-      background: #050216;
+      background: rgb(0 0 24 / 100%);
     }
 
     .adv-grid {
@@ -5453,6 +5470,7 @@
       if (mobileCanvasQuery.matches) {
         pageCanvas.style.transform = "";
         pageStage.style.height = "auto";
+        document.documentElement.style.setProperty("--page-canvas-scale-current", "1");
         return;
       }
 
@@ -5465,6 +5483,7 @@
 
       pageCanvas.style.transform = `translateX(-50%) scale(${nextScale})`;
       pageStage.style.height = `${pageCanvas.scrollHeight * nextScale}px`;
+      document.documentElement.style.setProperty("--page-canvas-scale-current", String(nextScale));
     }
 
     function updateScale() {
