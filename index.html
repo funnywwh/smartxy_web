@@ -1532,13 +1532,45 @@
     }
  #view-about .container{
       width: 100%;
-      max-width: 1200px;
+      max-width: 1520px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0;
     }
  #view-about .section{
       position: relative;
       overflow: hidden;
+    }
+
+ #view-about .about-hero-section,
+ #view-about .about-image-section{
+      overflow: visible;
+    }
+
+ #view-about .about-hero-section{
+      background: #05020d;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+      overflow: visible;
+    }
+
+ #view-about .about-image-section{
+      background: #05020d;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+      overflow: visible;
+    }
+
+ #view-about .about-hero-section img,
+ #view-about .about-image-section img{
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+      user-select: none;
+      pointer-events: none;
     }
 
     /* Header */
@@ -1952,23 +1984,19 @@
       line-height: 1.2;
     }
  #view-about .news-more{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 24px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      font-size: 16px;
-      color: #fff;
-      background: transparent;
-      transition: background 0.2s ease;
+      display: inline-block;
+      cursor: pointer;
+      line-height: 0;
     }
- #view-about .news-more:hover{ background: rgba(255,255,255,0.08); }
- #view-about .news-more img{ width: 20px; height: 20px; }
+ #view-about .news-more img{
+      display: block;
+      width: 200px;
+      height: 64px;
+    }
  #view-about .news-carousel{
       margin-top: 50px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1520px;
     }
  #view-about .news-viewport{
       position: relative;
@@ -2042,7 +2070,7 @@
  #view-about .news-controls{
       margin-top: 40px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1520px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2091,7 +2119,6 @@
       background: var(--page-deep);
       padding: 80px 0 60px;
       padding-bottom: 260px;
-      margin-top: 561px;
     }
  #view-about .contact-title{
       margin: 0;
@@ -2101,29 +2128,35 @@
       line-height: 1.2;
     }
  #view-about .contact-body{
-      margin-top: 50px;
-      display: grid;
-      grid-template-columns: 1fr 700px;
+      margin-top: 0;
+      display: flex;
       gap: 0;
       height: 1236px;
     }
  #view-about .contact-map{
       background: #e8eaf0;
-      min-height: 520px;
       overflow: hidden;
       position: relative;
+      flex: 1 1 auto;
+      height: 1236px;
     }
  #view-about .contact-map img{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      object-fit: cover;
-    }
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: -14px;
+       bottom: 0;
+       width: 100%;
+       height: calc(100% + 14px);
+       border: 0;
+       object-fit: cover;
+       object-position: center top;
+     }
  #view-about .contact-form-wrap{
       background: #fff;
       padding: 40px;
+      flex: 0 0 700px;
+      height: 1236px;
     }
  #view-about .contact-form-title{
       margin: 0;
@@ -2229,13 +2262,13 @@
       font-weight: 300;
     }
  #view-about .contact-info-value{
-      font-size: 18px;
+      font-size: 26px;
       color: #fff;
       font-weight: 400;
       line-height: 1.5;
     }
  #view-about .contact-info-main .contact-info-value{
-      font-size: 32px;
+      font-size: 26px;
       font-weight: 500;
       line-height: 1.2;
       white-space: nowrap;
@@ -2249,14 +2282,14 @@
  #view-about .contact-info-secondary .contact-info-value,
  #view-about .contact-info-row .contact-info-label,
  #view-about .contact-info-row .contact-info-value{
-      font-size: 10px;
+      font-size: 26px;
       line-height: 1.4;
     }
  #view-about .contact-map-pin{
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       flex: 0 0 auto;
-      margin-top: 4px;
+      margin-top: 8px;
       object-fit: contain;
     }
  #view-about .contact-info-row{
@@ -2267,17 +2300,10 @@
     /* Footer */
  #view-about .footer{
       background: #050216;
-      padding: 82px 0 28px;
+      padding: 28px 0;
     }
  #view-about .footer-grid{
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr)) 1.3fr;
-      gap: 26px;
-      align-items: start;
-      padding-top: 12px;
-      padding-left: clamp(16px, 3.5vw, 40px);
-      padding-right: clamp(16px, 3.5vw, 40px);
-      border-top: none;
+      display: none;
     }
  #view-about .footer-col h4{
       margin: 0 0 14px;
@@ -2312,21 +2338,16 @@
       margin-top: 10px;
     }
  #view-about .footer-legal{
-      min-height: 84px;
-      padding: 24px clamp(16px, 3vw, 32px) 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      min-height: 60px;
+      padding: 20px 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 24px;
       color: rgba(255,255,255,0.6);
-      font-size: 20px;
+      font-size: 16px;
       text-align: center;
-      background-image: url("首页/img_annotate_bg.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
     }
  #view-about .footer-police{
       display: inline-flex;
@@ -3996,6 +4017,32 @@
       box-shadow: 0 18px 40px rgba(16, 22, 47, 0.08);
     }
 
+    body.route-about .header {
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(15, 22, 49, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    body.route-about .brand img {
+      filter: brightness(0) saturate(100%) invert(6%) sepia(16%) saturate(1713%) hue-rotate(205deg) brightness(93%) contrast(98%);
+    }
+
+    body.route-about .brand span,
+    body.route-about .nav-links a {
+      color: #10162f;
+    }
+
+    body.route-about .nav-links a.active::after {
+      background: linear-gradient(90deg, #10162f, #6f1ffe);
+    }
+
+    body.route-about .btn-contact {
+      color: #10162f;
+      border-color: rgba(16, 22, 47, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(16, 22, 47, 0.08);
+    }
+
     #view-product-c100 {
       color: #0f1631;
       background: linear-gradient(180deg, #ffffff 0%, #f7f8fc 42%, #ffffff 100%);
@@ -4626,12 +4673,14 @@
       }
 
       #view-about .contact-body {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         height: auto;
       }
 
       #view-about .contact-map {
         min-height: 360px;
+        height: auto;
+        flex: none;
       }
 
       #view-about .contact-info-secondary,
@@ -6413,93 +6462,26 @@
       </div>
 
       <main>
-        <section class="section hero-section section-bg-center" id="home">
-          <div class="container hero-content">
-            <h1 class="hero-title">科技创造未来美好生活</h1>
-            <p class="hero-subtitle">核心技术包括2D/3D视觉算法、数字人及人机交互服务等，提供全栈式人工智能解决方案。</p>
-          </div>
+        <section class="section about-hero-section" id="home">
+          <img src="关于我们/img_about_top.png" alt="关于我们" />
         </section>
 
-        <section class="section intro-section section-bg-center" aria-label="关于我们">
-          <div class="container intro-content">
-            <div class="intro-card">
-              <h2 class="intro-title">关于我们</h2>
-              <p class="intro-desc">形意智能成立于2019年，是一家集人工智能与可穿戴设备研发生产为一体的企业，致力于成为国际一流AR+AI一站式解决方案提供商。</p>
-              <p class="intro-desc">5000m² 万级净化智慧工厂，构筑AI眼镜全链路垂直整合闭环。依托8条全自动智能产线与前沿算法自研能力，实现从硬件创新设计到精密组装的端到端管控。在保障良率与成本极致可控的前提下，工厂具备 &gt;40 万台/年的稳定产能输出，为大规模商业化交付提供坚实的供应链保障。</p>
-              <div class="intro-stats">
-                <div class="intro-stat">
-                  <div class="intro-stat-num">8<span>年</span></div>
-                  <div class="intro-stat-label">行业经验</div>
-                </div>
-                <div class="intro-stat">
-                  <div class="intro-stat-num">50<sup>+</sup></div>
-                  <div class="intro-stat-label">发明专利</div>
-                </div>
-                <div class="intro-stat">
-                  <div class="intro-stat-num">5000<sup>m²</sup></div>
-                  <div class="intro-stat-label">整机工厂</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <section class="section about-image-section" id="intro">
+          <img src="关于我们/img_about_jj.png" alt="公司介绍" />
         </section>
 
-        <section class="section factory-section section-bg-center" aria-label="形意工厂">
-          <div class="container factory-content">
-            <div class="factory-grid">
-              <article class="factory-item">
-                <img class="factory-icon" src="关于我们/icon_qz.png" alt="" />
-                <h3 class="factory-item-title">全栈自研体系</h3>
-                <p class="factory-item-desc">自研算法引擎、硬件创新设计、精密自主组装的全链路闭环。</p>
-              </article>
-              <article class="factory-item">
-                <img class="factory-icon" src="关于我们/icon_jh.png" alt="" />
-                <h3 class="factory-item-title">万级净化标准</h3>
-                <p class="factory-item-desc">厂区规划科学，集成了万级无尘净化车间与智能化制造基地。</p>
-              </article>
-              <article class="factory-item">
-                <img class="factory-icon" src="关于我们/icon_factory_net.png" alt="" />
-                <h3 class="factory-item-title">全自动智能产线</h3>
-                <p class="factory-item-desc">8条全自动智能产线形成规模化、集约化的超级产能引擎。</p>
-              </article>
-              <article class="factory-item">
-                <img class="factory-icon" src="关于我们/Bytedance-mini-app (应用程序).png" alt="" />
-                <h3 class="factory-item-title">极速精准交付</h3>
-                <p class="factory-item-desc">系统打通供应链与制造端，实现成本与交付周期的极致优化。</p>
-              </article>
-            </div>
-          </div>
+        <section class="section about-image-section" id="factory">
+          <img src="关于我们/img_about_zz.png" alt="形意工厂" />
         </section>
-
-        <section class="section honour-section section-bg-center" aria-label="荣耀时刻">
-          <div class="container honour-content">
-            <h2 class="honour-title">荣耀时刻 · 行业嘉奖</h2>
-            <p class="honour-subtitle">形意智能已拥有相关专利X篇，其中发明专利X篇，外观设计专利X篇，实用新型专利X篇。</p>
-            <div class="honour-list">
-              <div class="honour-item">2020年众志成城创新抗疫</div>
-              <div class="honour-item">2021年工信部“人工智能产业创新揭榜挂帅单位”</div>
-              <div class="honour-item">2021年无障碍创新技术与产品优秀企业</div>
-              <div class="honour-item">2022深圳市增强现实技术应用协会副会长单位</div>
-              <div class="honour-item">2023广东省“无障碍创新技术与产品”优秀企业</div>
-              <div class="honour-item">2023年工信部泰尔终端实验室“端侧通用智能创新运用优秀案例”</div>
-              <div class="honour-item">2024年端侧通用智能创新应用优秀案例集</div>
-              <div class="honour-item">2025年AI好眼镜最佳方案集成商</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section partners-section" aria-label="合作伙伴">
-          <div class="container">
-            <h2 class="partners-title">合作伙伴</h2>
-            <img class="partners-image" src="关于我们/img_about_partner.png" alt="合作伙伴" />
-          </div>
+        <section class="section about-image-section" id="honour">
+          <img src="关于我们/img_about_hb.png" alt="荣誉资质" />
         </section>
 
         <section class="section news-section" aria-label="新闻动态">
           <div class="container">
             <div class="news-header">
               <h2 class="news-title">新闻动态</h2>
-              <a class="news-more" href="#">全部动态 <img src="关于我们/icon_home_arrow_line_24.png" alt="" style="filter: invert(1) brightness(2);" /></a>
+              <a class="news-more" href="#"><img src="关于我们/img_but.png" alt="全部动态" /></a>
             </div>
             <div class="news-carousel" data-news-carousel>
               <div class="news-viewport">
@@ -6592,8 +6574,8 @@
                   <button class="news-pager-item" type="button" data-slide-to="3" aria-current="false"><span class="sr-only">第 4 页</span></button>
                 </div>
                 <div class="news-nav">
-                  <button class="news-arrow" type="button" data-slide-prev aria-label="上一张"><img src="skill/img_skill_arrow_prev.png" alt="" /></button>
-                  <button class="news-arrow news-arrow--next" type="button" data-slide-next aria-label="下一张"><img src="关于我们/icon_about_arrow_right_left.png" alt="" /></button>
+                  <button class="news-arrow" type="button" data-slide-prev aria-label="上一张"><img src="关于我们/icon_about_arrow_left.png" alt="" /></button>
+                  <button class="news-arrow news-arrow--next" type="button" data-slide-next aria-label="下一张"><img src="关于我们/icon_about_arrow_right_right.png" alt="" /></button>
                 </div>
               </div>
             </div>
@@ -6662,7 +6644,6 @@
             </div>
           </div>
         </section>
-
         <footer class="footer">
           <div class="footer-grid">
             <div class="footer-col"><h4>购买渠道</h4><a href="#/contact">京东旗舰店</a><a href="#/contact">天猫旗舰店</a></div>
@@ -6678,12 +6659,14 @@
             </div>
           </div>
           <div class="footer-legal">
-            <span>Copyright © 2025 形意智能. All Rights Reserved.</span>
-            <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882 号</span></span>
+            <span>Copyright © 深圳形意智能科技有限公司版权所有</span>
+            <span>粤ICP备20029301号</span>
+            <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882号</span></span>
           </div>
         </footer>
       </main>
     </about>
+
     <skill id="view-skill" class="page-view">
 
       <div class="product-menu" id="productMenu" data-product-menu hidden>
@@ -7833,6 +7816,7 @@
       document.body.classList.toggle('route-product-ar99', canonicalHash === '#/products/ar99');
       document.body.classList.toggle('route-product-c100', canonicalHash === '#/products/c100');
       document.body.classList.toggle('route-service', canonicalHash === '#/service');
+      document.body.classList.toggle('route-about', canonicalHash === '#/about');
 
       const title = viewTitles[canonicalHash] || viewTitles['#/'];
       if (title) document.title = title;
