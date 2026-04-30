@@ -2663,45 +2663,29 @@
       overflow: hidden;
     }
 
- #view-skill .hero{
-      height: 960px;
-      background-color: #05020d;
-      --bg-center-image: url("skill/img_skill_bg_top.png");
-      --bg-center-position: center top;
+ #view-skill .hero-section,
+ #view-skill .smart-section,
+ #view-skill .stage-section,
+ #view-skill .manufacturing-stage{
       overflow: visible;
     }
 
- #view-skill .hero-inner{
-      position: relative;
-      height: 960px;
-      padding: 0 100px;
+ #view-skill .hero-section{
+      background: #05020d;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+      overflow: visible;
     }
 
- #view-skill .hero-copy{
-      position: absolute;
-      top: 408px;
-      left: 38px;
-      z-index: 1;
-      width: 860px;
-    }
-
- #view-skill .hero h1{
-      margin: 0;
+ #view-skill .hero-section img{
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
       max-width: none;
-      font-size: 48px;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
- #view-skill .hero p{
-      margin: 22px 0 0;
-      max-width: 620px;
-      color: rgba(255,255,255,0.78);
-      font-size: 16px;
-      line-height: 1.9;
-      font-weight: 300;
+      height: auto;
+      user-select: none;
+      pointer-events: none;
     }
 
  #view-skill .section-heading{
@@ -2932,20 +2916,21 @@
       position: relative;
       flex: 0 0 auto;
       width: 100%;
-      max-width: 100%;
-      aspect-ratio: 1920 / 980;
-      height: auto;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+      overflow: visible;
       z-index: 1;
     }
 
  #view-skill .smart-visual img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      pointer-events: none;
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
       user-select: none;
+      pointer-events: none;
     }
 
  #view-skill .stage-section{
@@ -2989,121 +2974,39 @@
  #view-skill .stage-visual{
       position: relative;
       width: 100%;
-      max-width: 100%;
-      aspect-ratio: 1920 / 980;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+      overflow: visible;
       background: rgba(0, 0, 24, 1);
     }
 
  #view-skill .stage-visual img{
-      width: 100%;
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
       height: auto;
-      pointer-events: none;
       user-select: none;
+      pointer-events: none;
     }
 
  #view-skill .manufacturing-stage{
       background: rgba(0, 0, 24, 1);
-    }
-
- #view-skill .manufacturing-shell{
-      position: relative;
-      min-height: 1128px;
-      padding: 116px 0 96px;
-      background: rgba(0, 0, 24, 1);
-    }
-
- #view-skill .manufacturing-copy{
-      width: 100%;
-      max-width: var(--section-max-width);
-      margin: 0 auto;
-      padding: 0 clamp(16px, 6vw, 112px);
-    }
-
- #view-skill .manufacturing-title{
-      margin: 0;
-      color: #fff;
-      font-size: 72px;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
- #view-skill .manufacturing-lead{
-      margin: 26px 0 0;
-      max-width: 1700px;
-      color: rgba(255,255,255,0.76);
-      font-size: 18px;
-      line-height: 1.82;
-      font-weight: 300;
-    }
-
- #view-skill .process-rings{
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
-      height: auto;
-      margin-top: 96px;
-    }
-
- #view-skill .process-ring{
-      position: relative;
-      top: auto;
-      width: 100%;
-      max-width: 282px;
-      aspect-ratio: 1 / 1;
-      height: auto;
-      margin: 0 auto;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.32);
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: #fff;
-      text-align: center;
+      line-height: 0;
+      overflow: visible;
     }
 
- #view-skill .process-ring .badge{
-      position: absolute;
-      left: 28px;
-      top: 28px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #fff;
-      color: #05020d;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
- #view-skill .process-ring-content{
-      width: 262px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
- #view-skill .process-ring h3{
-      margin: 0;
-      font-size: 27px;
-      line-height: 1.35;
-      font-weight: 500;
-      letter-spacing: -0.03em;
-    }
-
- #view-skill .process-ring p{
-      margin: 22px 0 0;
-      color: rgba(255,255,255,0.82);
-      font-size: 17px;
-      line-height: 1.78;
-      font-weight: 300;
+ #view-skill .manufacturing-stage img{
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+      user-select: none;
+      pointer-events: none;
     }
 
  #view-skill .smart-features{
@@ -6795,13 +6698,8 @@
       </div>
 
       <main class="main">
-    <section class="section hero section-bg-center" id="overview">
-      <div class="container hero-inner">
-        <div class="hero-copy fade-up">
-          <h1>全栈自研技术体系，构筑智能眼镜护城河</h1>
-          <p>形意智能是一家专注于人工智能增强现实领域的技术公司。核心技术包括 2D/3D 视觉算法、数字人及人机交互服务等，提供全栈式人工智能解决方案。</p>
-        </div>
-      </div>
+    <section class="section hero-section" id="overview">
+      <img src="技术能力/img_skill_top.png" alt="全栈自研技术体系" />
     </section>
 
     <section class="section light-band" id="optics">
@@ -6871,7 +6769,7 @@
           </div>
 
           <div class="smart-visual">
-            <img src="skill/img_skill_smart.png" alt="AI 感知与交互示意" />
+            <img src="技术能力/img_skill_smart.png" alt="AI 感知与交互示意" />
           </div>
 
         </div>
@@ -6884,7 +6782,7 @@
           <h2 class="stage-heading">让硬件兼顾“性能”和“舒适”</h2>
         </div>
         <div class="stage-visual">
-          <img src="skill/img_skill_good.png" alt="硬件架构与模组设计示意" />
+          <img src="技术能力/img_skill_good.png" alt="硬件架构与模组设计示意" />
         </div>
       </div>
     </section>
@@ -6895,49 +6793,13 @@
           <h2 class="stage-heading">让佩戴兼顾“舒适”和“美观”</h2>
         </div>
         <div class="stage-visual">
-          <img src="skill/img_skill_pretty.png" alt="佩戴舒适与外观设计示意" />
+          <img src="技术能力/img_skill_pretty.png" alt="佩戴舒适与外观设计示意" />
         </div>
       </div>
     </section>
 
     <section class="section manufacturing-stage" id="manufacturing">
-      <div class="manufacturing-shell">
-        <div class="manufacturing-copy">
-          <h2 class="manufacturing-title">一站式精密制造，全流程品控交付</h2>
-          <p class="manufacturing-lead">我们提供从精密模具、注塑、组装到测试的一体化制造服务，依托标准化与模块化架构，有效缩短开发周期；通过跌落、高低温、湿热、ESD、EMC 等全方位可靠性验证，确保产品在各种严苛工况下稳定可靠；并以 ISO9001 质量体系为基础，实现全过程可追溯与量化管理，为客户提供长期、稳定、可预期的量产交付保障。</p>
-        </div>
-
-        <div class="process-rings" aria-label="制造交付能力">
-          <article class="process-ring">
-            <span class="badge">01</span>
-            <div class="process-ring-content">
-              <h3>全链路精密制造</h3>
-              <p>从模具到量产，一站式智造，让好产品更快、更稳、更省心。</p>
-            </div>
-          </article>
-          <article class="process-ring">
-            <span class="badge">02</span>
-            <div class="process-ring-content">
-              <h3>高效开发架构</h3>
-              <p>标准化、模块化架构，减少重复设计，缩短开发周期，助您抢占市场先机。</p>
-            </div>
-          </article>
-          <article class="process-ring">
-            <span class="badge">03</span>
-            <div class="process-ring-content">
-              <h3>全方位质量保障</h3>
-              <p>通过多种严苛可靠性测试，确保产品在复杂环境下依然稳定运行。</p>
-            </div>
-          </article>
-          <article class="process-ring">
-            <span class="badge">04</span>
-            <div class="process-ring-content">
-              <h3>稳定交付体系</h3>
-              <p>基于 ISO9001 质量体系，实施全过程质量控制与追溯，实现稳定、可预期的量产交付。</p>
-            </div>
-          </article>
-        </div>
-      </div>
+      <img src="技术能力/img_skill_lc.png" alt="一站式精密制造，全流程品控交付" />
     </section>
 
       </main>
@@ -7699,10 +7561,11 @@
           const endCenter = window.innerHeight / 2;
           const progress = clamp01((startCenter - bandCenter) / Math.max(1, startCenter - endCenter));
           const easedProgress = 1 - Math.pow(1 - progress, 2.2);
+          const scale = lerp(4, 1, easedProgress);
           const opacity = lerp(1, 0.98, easedProgress);
 
           heading.style.opacity = opacity.toFixed(3);
-          heading.style.transform = "translate(-50%, -50%)";
+          heading.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(4)})`;
         }
     
         function updateSmartSection() {
