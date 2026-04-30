@@ -130,6 +130,275 @@
       z-index: -1;
     }
 
+    #view-index .home-page {
+      position: relative;
+      overflow: visible;
+      background: #040112;
+    }
+
+    #view-index .home-image-panel {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: #040112;
+      line-height: 0;
+      overflow: visible;
+    }
+
+    #view-index .home-image-panel--light {
+      background: #c9c4df;
+    }
+
+    #view-index .home-image-panel img {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+    }
+
+    #view-index .home-product-panel {
+      position: relative;
+      background: #040112;
+      overflow: visible;
+    }
+
+    #view-index .home-product-stage {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    #view-index .home-product-stage img[data-home-product-backdrop] {
+      display: block;
+      width: 1920px;
+      height: 1080px;
+      transition: opacity 0.22s ease;
+    }
+
+    #view-index .home-product-tabs {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    #view-index .home-product-tab {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #view-index .home-product-tab img {
+      display: block;
+      width: 506px;
+      max-width: 506px;
+      height: 70px;
+    }
+
+    #view-index .home-product-tab:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 4px;
+      border-radius: 12px;
+    }
+
+    #view-index .home-hero-hotspots {
+      position: absolute;
+      inset: 0 auto auto 50%;
+      width: var(--canvas-width);
+      height: 1080px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    #view-index .home-hero-hotspot {
+      position: absolute;
+      display: block;
+      pointer-events: auto;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    #view-index .home-hero-hotspot--more {
+      left: 196px;
+      top: 483px;
+      width: 184px;
+      height: 62px;
+      border-radius: 999px;
+    }
+
+    #view-index .home-hero-hotspot--c100 {
+      left: 198px;
+      top: 700px;
+      width: 382px;
+      height: 380px;
+    }
+
+    #view-index .home-hero-hotspot--ar99 {
+      left: 610px;
+      top: 700px;
+      width: 380px;
+      height: 380px;
+    }
+
+    #view-index .home-hero-hotspot:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 4px;
+    }
+
+    #view-index .home-image-hotspots {
+      position: absolute;
+      inset: 0 auto auto 50%;
+      width: var(--canvas-width);
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    #view-index .home-image-hotspot {
+      position: absolute;
+      display: block;
+      pointer-events: auto;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    #view-index .home-image-hotspot:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 4px;
+      border-radius: 14px;
+    }
+
+    #view-index .home-image-hotspots--about {
+      height: 1200px;
+    }
+
+    #view-index .home-image-hotspot--about-more {
+      right: 247px;
+      top: 102px;
+      width: 175px;
+      height: 67px;
+      border-radius: 999px;
+    }
+
+    #view-index .home-image-hotspots--contact {
+      height: 800px;
+    }
+
+    #view-index .home-image-hotspot--contact-consult {
+      left: 864px;
+      top: 335px;
+      width: 193px;
+      height: 66px;
+      border-radius: 999px;
+    }
+
+    #view-index .home-footer-nav {
+      background: #040112;
+      padding: 94px 0 88px;
+    }
+
+    #view-index .home-footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, max-content) minmax(360px, 1fr);
+      justify-content: center;
+      gap: 56px;
+      width: min(1400px, calc(100% - 120px));
+      margin: 0 auto;
+    }
+
+    #view-index .home-footer-nav-col h4,
+    #view-index .home-footer-nav-link--title,
+    #view-index .home-footer-address h4 {
+      margin: 0 0 18px;
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    #view-index .home-footer-nav-col p,
+    #view-index .home-footer-nav-link--item,
+    #view-index .home-footer-address p,
+    #view-index .home-footer-qr-caption {
+      margin: 0 0 10px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 20px;
+      line-height: 1.65;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    #view-index .home-footer-nav-link--title,
+    #view-index .home-footer-nav-link--item {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #view-index .home-footer-nav-link--title:hover,
+    #view-index .home-footer-nav-link--item:hover {
+      color: #ffffff;
+    }
+
+    #view-index .home-footer-nav-link--title:focus-visible,
+    #view-index .home-footer-nav-link--item:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    #view-index .home-footer-address-link {
+      display: block;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    #view-index .home-footer-address-link:focus-visible,
+    #view-index .home-footer-qr-link:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.75);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    #view-index .home-footer-address {
+      justify-self: end;
+      min-width: 420px;
+    }
+
+    #view-index .home-footer-address-link p {
+      max-width: 480px;
+      white-space: normal;
+    }
+
+    #view-index .home-footer-qr-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    #view-index .home-footer-qr-box {
+      width: 124px;
+      height: 124px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    #view-index .home-footer-qr-caption {
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -5156,8 +5425,632 @@
       }
     }
 
+    body.route-product-c100,
+    body.route-product-ar99 {
+      background: #ffffff;
+      color: #0f1631;
+    }
+
+    body.route-product-c100 .page-stage,
+    body.route-product-ar99 .page-stage {
+      background:
+        radial-gradient(circle at 70% 10%, rgba(113, 31, 254, 0.08), transparent 20%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fc 30%, #ffffff 100%);
+    }
+
+    body.route-product-c100 .header,
+    body.route-product-ar99 .header {
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(15, 22, 49, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    body.route-product-c100 .header-inner,
+    body.route-product-ar99 .header-inner {
+      width: 1400px;
+      max-width: 1400px;
+    }
+
+    body.route-product-c100 .brand img,
+    body.route-product-ar99 .brand img {
+      filter: brightness(0) saturate(100%) invert(6%) sepia(16%) saturate(1713%) hue-rotate(205deg) brightness(93%) contrast(98%);
+    }
+
+    body.route-product-c100 .brand span,
+    body.route-product-c100 .nav-links a,
+    body.route-product-ar99 .brand span,
+    body.route-product-ar99 .nav-links a {
+      color: #10162f;
+    }
+
+    body.route-product-c100 .nav-links a.active::after,
+    body.route-product-ar99 .nav-links a.active::after {
+      background: linear-gradient(90deg, #10162f, #6f1ffe);
+    }
+
+    body.route-product-c100 .btn-contact,
+    body.route-product-ar99 .btn-contact {
+      color: #10162f;
+      border-color: rgba(16, 22, 47, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 40px rgba(16, 22, 47, 0.08);
+    }
+
+    body.route-product-c100 .product-menu-panel,
+    body.route-product-ar99 .product-menu-panel {
+      background: rgba(255, 255, 255, 0.94);
+      border-color: rgba(16, 22, 47, 0.08);
+      box-shadow: 0 30px 90px rgba(16, 22, 47, 0.12);
+    }
+
+    body.route-product-c100 .product-menu-thumb,
+    body.route-product-ar99 .product-menu-thumb {
+      background: linear-gradient(135deg, rgba(113, 31, 254, 0.12), rgba(113, 31, 254, 0.04));
+      border-color: rgba(113, 31, 254, 0.18);
+    }
+
+    body.route-product-c100 .product-menu-name,
+    body.route-product-ar99 .product-menu-name {
+      color: #11162f;
+    }
+
+    body.route-product-c100 .product-menu-type,
+    body.route-product-ar99 .product-menu-type {
+      color: rgba(17, 22, 47, 0.58);
+    }
+
+    #view-product-c100 {
+      color: #0f1631;
+      background: #ffffff;
+    }
+
+    #view-product-c100 .c100-page {
+      position: relative;
+      overflow: visible;
+      background:
+        radial-gradient(circle at 24% 0%, rgba(113, 31, 254, 0.05), transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #f8f9fc 74%, #ffffff 100%);
+    }
+
+    #view-product-c100 .c100-image-panel {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: #ffffff;
+      line-height: 0;
+      overflow: visible;
+    }
+
+    #view-product-c100 .c100-image-panel img {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+    }
+
+    #view-product-c100 .c100-shell {
+      position: relative;
+      z-index: 1;
+      width: var(--canvas-width);
+      max-width: var(--canvas-width);
+      margin: 0 auto;
+    }
+
+    #view-product-c100 .c100-scene-section {
+      position: relative;
+      padding: 132px 0 150px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(113, 31, 254, 0.06), transparent 14%),
+        linear-gradient(180deg, #ffffff 0%, #fbfbfe 100%);
+    }
+
+    #view-product-c100 .c100-scene-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 78px;
+    }
+
+    #view-product-c100 .c100-scene-head h2 {
+      margin: 0;
+      color: #0d1330;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      white-space: normal;
+    }
+
+    #view-product-c100 .c100-scene-head-adorn {
+      width: 30px;
+      height: 30px;
+      margin-top: 18px;
+      flex: 0 0 auto;
+      opacity: 0.9;
+    }
+
+    #view-product-c100 .c100-scene-body {
+      display: grid;
+      grid-template-columns: minmax(0, 360px) minmax(0, 650px);
+      justify-content: space-between;
+      align-items: end;
+      gap: 72px;
+    }
+
+    #view-product-c100 .c100-scene-copy {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+
+    #view-product-c100 .c100-scene-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      min-width: 96px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(111, 31, 254, 0.18);
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 500;
+      color: #6f1ffe;
+      background: rgba(111, 31, 254, 0.04);
+    }
+
+    #view-product-c100 .c100-scene-copy p {
+      margin: 28px 0 0;
+      max-width: 28ch;
+      font-size: 16px;
+      line-height: 1.95;
+      font-weight: 400;
+      color: rgba(15, 22, 49, 0.68);
+      white-space: normal;
+    }
+
+    #view-product-c100 .c100-scene-controls {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-top: auto;
+      padding-top: 52px;
+    }
+
+    #view-product-c100 .c100-scene-pager {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #view-product-c100 .c100-scene-tab {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 22, 49, 0.18);
+      cursor: pointer;
+      transition: width 0.24s ease, background-color 0.24s ease, opacity 0.24s ease;
+    }
+
+    #view-product-c100 .c100-scene-tab.is-active {
+      width: 34px;
+      background: #0d1330;
+    }
+
+    #view-product-c100 .c100-scene-tab:focus-visible,
+    #view-product-c100 .c100-scene-arrow:focus-visible {
+      outline: 2px solid rgba(111, 31, 254, 0.42);
+      outline-offset: 4px;
+    }
+
+    #view-product-c100 .c100-scene-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    #view-product-c100 .c100-scene-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #view-product-c100 .c100-scene-arrow img {
+      display: block;
+      width: 48px;
+      height: 48px;
+    }
+
+    #view-product-c100 .c100-scene-visual {
+      display: flex;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    #view-product-c100 .c100-scene-visual img {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+      transition: opacity 0.24s ease;
+    }
+
+    #view-product-c100 .c100-footer {
+      display: none;
+    }
+
+    #view-product-ar99 {
+      color: #0f1631;
+      background: #ffffff;
+    }
+
+    #view-product-ar99 .ar99-page {
+      position: relative;
+      overflow: visible;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(113, 31, 254, 0.04), transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #f9fafc 76%, #ffffff 100%);
+    }
+
+    #view-product-ar99 .ar99-image-panel {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: #ffffff;
+      line-height: 0;
+      overflow: visible;
+    }
+
+    #view-product-ar99 .ar99-image-panel img {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+    }
+
+    #view-product-ar99 .ar99-shell {
+      position: relative;
+      z-index: 1;
+      width: var(--canvas-width);
+      max-width: var(--canvas-width);
+      margin: 0 auto;
+    }
+
+    #view-product-ar99 .ar99-scene-section {
+      position: relative;
+      padding: 130px 0 150px;
+      background:
+        radial-gradient(circle at 76% 14%, rgba(113, 31, 254, 0.06), transparent 12%),
+        linear-gradient(180deg, #ffffff 0%, #fbfbfe 100%);
+    }
+
+    #view-product-ar99 .ar99-scene-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: min(1320px, calc(100% - 240px));
+      gap: 40px;
+      margin: 0 auto 72px;
+    }
+
+    #view-product-ar99 .ar99-scene-head h2 {
+      margin: 0;
+      color: #0d1330;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      white-space: normal;
+    }
+
+    #view-product-ar99 .ar99-scene-head-adorn {
+      width: 30px;
+      height: 30px;
+      margin-top: 18px;
+      flex: 0 0 auto;
+      opacity: 0.9;
+    }
+
+    #view-product-ar99 .ar99-scene-body {
+      display: grid;
+      grid-template-columns: minmax(0, 360px) minmax(0, 650px);
+      width: min(1320px, calc(100% - 240px));
+      justify-content: space-between;
+      align-items: end;
+      gap: 72px;
+      margin: 0 auto;
+    }
+
+    #view-product-ar99 .ar99-scene-copy {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+
+    #view-product-ar99 .ar99-scene-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      min-width: 122px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(111, 31, 254, 0.18);
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 500;
+      color: #6f1ffe;
+      background: rgba(111, 31, 254, 0.04);
+    }
+
+    #view-product-ar99 .ar99-scene-copy p {
+      margin: 28px 0 0;
+      max-width: 30ch;
+      font-size: 16px;
+      line-height: 1.95;
+      font-weight: 400;
+      color: rgba(15, 22, 49, 0.68);
+      white-space: normal;
+    }
+
+    #view-product-ar99 .ar99-scene-controls {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-top: auto;
+      padding-top: 52px;
+    }
+
+    #view-product-ar99 .ar99-scene-pager {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #view-product-ar99 .ar99-scene-tab {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 22, 49, 0.18);
+      cursor: pointer;
+      transition: width 0.24s ease, background-color 0.24s ease, opacity 0.24s ease;
+    }
+
+    #view-product-ar99 .ar99-scene-tab.is-active {
+      width: 34px;
+      background: #0d1330;
+    }
+
+    #view-product-ar99 .ar99-scene-tab:focus-visible,
+    #view-product-ar99 .ar99-scene-arrow:focus-visible {
+      outline: 2px solid rgba(111, 31, 254, 0.42);
+      outline-offset: 4px;
+    }
+
+    #view-product-ar99 .ar99-scene-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    #view-product-ar99 .ar99-scene-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #view-product-ar99 .ar99-scene-arrow img {
+      display: block;
+      width: 48px;
+      height: 48px;
+    }
+
+    #view-product-ar99 .ar99-scene-visual {
+      display: flex;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    #view-product-ar99 .ar99-scene-visual img {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      height: auto;
+      transition: opacity 0.24s ease;
+    }
+
+    @media (max-width: 1320px) {
+      #view-product-c100 .c100-scene-head {
+        margin-bottom: 56px;
+      }
+
+      #view-product-c100 .c100-scene-body {
+        grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+        gap: 48px;
+      }
+
+      #view-product-ar99 .ar99-scene-head {
+        margin-bottom: 56px;
+      }
+
+      #view-product-ar99 .ar99-scene-body {
+        grid-template-columns: minmax(0, 320px) minmax(0, 650px);
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      #view-product-c100 .c100-shell,
+      #view-product-ar99 .ar99-shell {
+        width: 100%;
+        max-width: 100%;
+        padding-left: var(--page-gutter);
+        padding-right: var(--page-gutter);
+      }
+
+      #view-product-c100 .c100-scene-section,
+      #view-product-ar99 .ar99-scene-section {
+        padding: 88px 0 100px;
+      }
+
+      #view-product-c100 .c100-scene-head {
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      #view-product-c100 .c100-scene-head h2 {
+        font-size: 52px;
+      }
+
+      #view-product-c100 .c100-scene-body {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      #view-product-c100 .c100-scene-copy {
+        min-height: 0;
+        max-width: 520px;
+      }
+
+      #view-product-c100 .c100-scene-copy p {
+        max-width: none;
+      }
+
+      #view-product-c100 .c100-scene-controls {
+        margin-top: 32px;
+        padding-top: 0;
+      }
+
+      #view-product-c100 .c100-scene-visual img {
+        width: auto;
+        max-width: none;
+      }
+
+      #view-product-ar99 .ar99-scene-head {
+        width: min(1180px, calc(100% - 120px));
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      #view-product-ar99 .ar99-scene-head h2 {
+        font-size: 52px;
+      }
+
+      #view-product-ar99 .ar99-scene-body {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 36px;
+      }
+
+      #view-product-ar99 .ar99-scene-copy {
+        min-height: 0;
+        max-width: 540px;
+      }
+
+      #view-product-ar99 .ar99-scene-copy p {
+        max-width: none;
+      }
+
+      #view-product-ar99 .ar99-scene-controls {
+        margin-top: 32px;
+        padding-top: 0;
+      }
+
+      #view-product-ar99 .ar99-scene-visual img {
+        width: auto;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+      body.route-product-c100 .header-inner,
+      body.route-product-ar99 .header-inner {
+        width: 100%;
+        max-width: var(--section-max-width);
+        padding: 0 var(--page-gutter);
+      }
+    }
+
+    @media (max-width: 640px) {
+      #view-product-c100 .c100-scene-section,
+      #view-product-ar99 .ar99-scene-section {
+        padding: 72px 0 84px;
+      }
+
+      #view-product-c100 .c100-scene-head,
+      #view-product-ar99 .ar99-scene-head {
+        width: 100%;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      #view-product-c100 .c100-scene-head h2,
+      #view-product-ar99 .ar99-scene-head h2 {
+        font-size: 42px;
+        line-height: 1.12;
+      }
+
+      #view-product-c100 .c100-scene-head-adorn,
+      #view-product-ar99 .ar99-scene-head-adorn {
+        margin-top: 0;
+      }
+
+      #view-product-c100 .c100-scene-copy p,
+      #view-product-ar99 .ar99-scene-copy p {
+        font-size: 15px;
+        line-height: 1.85;
+      }
+
+      #view-product-c100 .c100-scene-controls,
+      #view-product-ar99 .ar99-scene-controls {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      #view-product-c100 .c100-scene-tab.is-active,
+      #view-product-ar99 .ar99-scene-tab.is-active {
+        width: 28px;
+      }
+
+      #view-product-c100 .c100-scene-nav,
+      #view-product-ar99 .ar99-scene-nav {
+        margin-left: 0;
+      }
+
+      #view-product-c100 .c100-scene-visual img[data-c100-scene-image],
+      #view-product-ar99 .ar99-scene-visual img[data-ar99-scene-image] {
+        width: auto;
+        max-width: none;
+      }
+    }
+
     /* SPA Views */
-    index, about, skill, service, product-c100 { display: block; }
+    index, about, skill, service, product-c100, product-ar99 { display: block; }
     .page-view { display: none; }
     .page-view.active { display: block; }
 
@@ -5193,7 +6086,7 @@
       <div class="product-menu" id="globalProductMenu" data-product-menu hidden>
         <div class="product-menu-panel" aria-label="产品列表">
           <div class="product-menu-grid">
-            <a class="product-menu-item" href="#products" data-close-product-menu>
+            <a class="product-menu-item" href="#/products/ar99" data-close-product-menu>
               <span class="product-menu-thumb" aria-hidden="true"></span>
               <span class="product-menu-name">Mimosa AR99</span>
               <span class="product-menu-type">AI音频眼镜</span>
@@ -5231,7 +6124,7 @@
       <div class="product-menu" id="productMenu" data-product-menu hidden>
         <div class="product-menu-panel" aria-label="产品列表">
           <div class="product-menu-grid">
-            <a class="product-menu-item" href="#products" data-close-product-menu>
+            <a class="product-menu-item" href="#/products/ar99" data-close-product-menu>
               <span class="product-menu-thumb" aria-hidden="true"></span>
               <span class="product-menu-name">Mimosa AR99</span>
               <span class="product-menu-type">AI音频眼镜</span>
@@ -5265,499 +6158,290 @@
         </div>
       </div>
 
-      <main>
-        <section class="section hero section-bg-center" id="home">
-          <div class="hero-copy">
-            <h1 class="hero-title">智造视界触手可及</h1>
-            <p class="hero-lead">全球首选 AI / AR 眼镜全栈 ODM 合作伙伴</p>
+      <main class="home-page">
+        <section class="section home-image-panel home-image-panel--light" id="home">
+          <img src="首页/img_home_top.png" alt="首页主视觉：智造视界触手可及" />
+          <div class="home-hero-hotspots" aria-hidden="false">
+            <a class="home-hero-hotspot home-hero-hotspot--more" href="#products" aria-label="查看更多产品"></a>
+            <a class="home-hero-hotspot home-hero-hotspot--c100" href="#/products/c100" aria-label="查看形意 C100 详情"></a>
+            <a class="home-hero-hotspot home-hero-hotspot--ar99" href="#/products/ar99" aria-label="查看 Mimosa AR99 详情"></a>
           </div>
-
-          <div class="hero-rail">
-            <a class="btn btn-more btn-dark" href="#products"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-          </div>
-
-          <div class="hero-cards">
-            <article class="hero-card">
-              <div class="hero-card-top"><span>形意</span><img src="首页/icon_home_arrow_line_48.png" alt="" /></div>
-              <img class="hero-card-media" src="首页/img_glass_c100.png" alt="形意 C100" />
-              <div class="hero-card-bottom">C100</div>
-            </article>
-            <article class="hero-card">
-              <div class="hero-card-top"><span>Mimosa</span><img src="首页/icon_home_arrow_line_48.png" alt="" /></div>
-              <img class="hero-card-media" src="首页/img_glass_ar99.png" alt="Mimosa AR99" />
-              <div class="hero-card-bottom">AR99</div>
-            </article>
-          </div>
-
-          <p class="hero-note">深耕光显、算法、算力全栈核心技术<br />打造高效整合与一站式交付能力</p>
         </section>
 
-        <section class="section advantage" id="advantages">
-          <div class="adv-stage">
-            <img src="首页/img_home_good_bg.png" alt="AI+AR 核心优势背景" />
-          </div>
-          <div class="adv-copy">
-            <h2 class="section-title">全栈自研 AI+AR 核心优势</h2>
-            <p class="section-subtitle">整合光学显示、算法交互、硬件算力与供应链，提供从一站式服务</p>
-          </div>
-          <div class="container" style="margin-top:-1060px;">
-            <div class="adv-panel">
-              <div class="adv-grid">
-                <article class="adv-card">
-                  <img src="首页/icon_light_80.png" alt="" />
-                  <h3>光学显示</h3>
-                  <p>覆盖 BB、阵列光波导、衍射光波导、自由曲面四大技术路径，兼顾显示效果与量产可行性。</p>
-                </article>
-                <article class="adv-card">
-                  <img src="首页/icon_byt_80.png" alt="" />
-                  <h3>硬件算力</h3>
-                  <p>持 MTK / RK / 高通等主流平台，实现移动端高效稳定实时运算。</p>
-                </article>
-                <article class="adv-card">
-                  <img src="首页/icon__80.png" alt="" />
-                  <h3>算法交互</h3>
-                  <p>提供从行业大模型到专属 AI 算法的端到端定制，形成精准、智能的交互体验。</p>
-                </article>
-                <article class="adv-card">
-                  <img src="首页/icon_coop_80.png" alt="" />
-                  <h3>软件生态</h3>
-                  <p>独家战略合作全球顶级开发者机构，坐拥百万级应用储备，扩展场景更高效。</p>
-                </article>
-                <article class="adv-card">
-                  <img src="首页/icon_team_80.png" alt="" />
-                  <h3>全链路自研团队</h3>
-                  <p>建从爆品设计、研发测试到量产落地的完整自研体系，让需求交付更顺畅。</p>
-                </article>
-                <article class="adv-card">
-                  <img src="首页/icon_hard_80.png" alt="" />
-                  <h3>硬件微型化</h3>
-                  <p>采用非美系芯片方案，全方位保障供应链安全稳定，并在体积和功耗上持续优化。</p>
-                </article>
-              </div>
-              <div class="section-action">
-                <a class="btn btn-more btn-purple" href="#/skill"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-              </div>
+        <section class="section home-image-panel" id="advantages">
+          <img src="首页/img_home_ys.png" alt="全栈自研 AI+AR 核心优势展示" loading="lazy" />
+        </section>
+
+        <section class="section home-product-panel" id="products">
+          <div class="home-product-stage">
+            <img src="首页/img_home_product_bg_c100.png" alt="AR+AI 全能智能眼镜产品展示" data-home-product-backdrop loading="lazy" />
+            <div class="home-product-tabs" aria-label="首页产品切换">
+              <button class="home-product-tab is-active" type="button" aria-pressed="true" aria-label="切换到形意 C100"
+                data-home-product-image="首页/img_home_product_bg_c100.png"
+                data-home-product-selected="首页/img_c100_sel.png"
+                data-home-product-default="首页/img_c100_not.png">
+                <img src="首页/img_c100_sel.png" alt="形意 C100" />
+              </button>
+              <button class="home-product-tab" type="button" aria-pressed="false" aria-label="切换到 Mimosa AR99"
+                data-home-product-image="首页/img_home_product_bg_ar99.png"
+                data-home-product-selected="首页/img_ar99_sel.png"
+                data-home-product-default="首页/img_ar99_not.png">
+                <img src="首页/img_ar99_not.png" alt="Mimosa AR99" />
+              </button>
+              <button class="home-product-tab" type="button" aria-pressed="false" aria-label="切换到形意 K900"
+                data-home-product-image="首页/img_home_product_bg_k900.png"
+                data-home-product-selected="首页/img_k900_sel.png"
+                data-home-product-default="首页/img_k900_not.png">
+                <img src="首页/img_k900_not.png" alt="形意 K900" />
+              </button>
             </div>
           </div>
         </section>
 
-        <section class="section product" id="products">
-          <div class="container">
-            <div class="product-shell" aria-roledescription="carousel" aria-label="产品轮播">
-              <div class="product-backdrop" aria-hidden="true">
-                <img id="productBackdrop" src="首页/img_home_product_bg_c100.png" alt="" />
-              </div>
+        <section class="section home-image-panel" id="cases">
+          <img src="首页/img_home_fw.png" alt="让产品从概念到量产更简单，一站式服务展示" loading="lazy" />
+        </section>
 
-              <div class="product-tabs" role="tablist" aria-label="产品选择">
-                <button class="product-tab active" type="button" role="tab" aria-selected="true"
-                  data-image="首页/img_home_product_bg_c100.png"
-                  data-title="形意 C100"
-                  data-desc="轻量化旗舰方案，兼顾日常佩戴舒适度与稳定续航，适合高频移动场景与品牌定制化合作。"
-                  data-stat-a="40+g" data-label-a="轻盈佩戴" data-stat-b="260mAh" data-label-b="可换电源">
-                  <span><strong>形意 C100</strong></span>
-                  <img src="首页/icon_home_arrow_fill_44_bla.png" alt="" />
-                </button>
-                <button class="product-tab" type="button" role="tab" aria-selected="false"
-                  data-image="首页/img_home_product_bg_ar99.png"
-                  data-title="Mimosa AR99"
-                  data-desc="面向沉浸式 AR 交互与 AI 助理体验，强调显示、识别与佩戴舒适的综合平衡。"
-                  data-stat-a="双目显示" data-label-a="增强感知" data-stat-b="AI助手" data-label-b="智能交互">
-                  <span><strong>Mimosa AR99</strong></span>
-                  <img src="首页/icon_home_arrow_line_44.png" alt="" />
-                </button>
-                <button class="product-tab" type="button" role="tab" aria-selected="false"
-                  data-image="首页/img_home_product_bg_c100.png"
-                  data-title="形意 K900"
-                  data-desc="概念与量产兼容的平台型产品，适合验证外观语言、模组布局和定制化功能拓展。"
-                  data-stat-a="模组化" data-label-a="快速验证" data-stat-b="高适配" data-label-b="场景扩展">
-                  <span><strong>形意 K900</strong></span>
-                  <img src="首页/icon_home_arrow_line_44.png" alt="" />
-                </button>
-              </div>
+        <section class="section home-image-panel" id="about">
+          <img src="首页/img_home_jj.png" alt="走进形意智能，探索AI+AR新境" loading="lazy" />
+          <div class="home-image-hotspots home-image-hotspots--about">
+            <a class="home-image-hotspot home-image-hotspot--about-more" href="#/about" aria-label="查看更多关于我们内容"></a>
+          </div>
+        </section>
+
+        <section class="section home-image-panel" id="contact">
+          <img src="首页/img_home_lx.png" alt="共启智能穿戴新时代，产品咨询入口" loading="lazy" />
+          <div class="home-image-hotspots home-image-hotspots--contact">
+            <a class="home-image-hotspot home-image-hotspot--contact-consult" href="tel:075523006866" aria-label="产品咨询"></a>
+          </div>
+        </section>
+
+        <section class="section home-footer-nav">
+          <div class="home-footer-nav-grid" aria-label="首页底部导航与公司信息">
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#contact">购买渠道</a>
+              <a class="home-footer-nav-link--item" href="#contact">京东旗舰店</a>
+              <a class="home-footer-nav-link--item" href="#contact">天猫旗舰店</a>
+            </div>
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#products">产品中心</a>
+              <a class="home-footer-nav-link--item" href="#/products/ar99">Mimosa AR99</a>
+              <a class="home-footer-nav-link--item" href="#/products/c100">形意 C100</a>
+              <a class="home-footer-nav-link--item" href="#products">形意 K900</a>
+            </div>
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#/skill">技术能力</a>
+              <a class="home-footer-nav-link--item" href="#/skill">应用下载</a>
+              <a class="home-footer-nav-link--item" href="#/skill">解决方案</a>
+            </div>
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#/service">服务支持</a>
+              <a class="home-footer-nav-link--item" href="#/service">应用下载</a>
+              <a class="home-footer-nav-link--item" href="#/service">解决方案</a>
+            </div>
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#/about">关于我们</a>
+              <a class="home-footer-nav-link--item" href="#/about">公司介绍</a>
+              <a class="home-footer-nav-link--item" href="#/about">形意工厂</a>
+            </div>
+            <div class="home-footer-nav-col">
+              <a class="home-footer-nav-link--title" href="#contact">下载</a>
+              <a class="home-footer-nav-link--item" href="#contact">应用下载</a>
+              <a class="home-footer-nav-link--item" href="#contact">开发者</a>
+            </div>
+            <div class="home-footer-address">
+              <a class="home-footer-address-link" href="#/about" aria-label="查看公司地址">
+                <h4>公司地址</h4>
+                <p>深圳市宝安区新安街道稻兴环球科创中心A栋901-905</p>
+                <p>0755-23006866</p>
+              </a>
+              <a class="home-footer-qr-link" href="#contact" aria-label="获得实时资讯">
+                <div class="home-footer-qr-box" aria-hidden="true"></div>
+                <p class="home-footer-qr-caption">获得实时资讯</p>
+              </a>
             </div>
           </div>
         </section>
 
-        <section class="section cases section-bg-center" id="cases">
-          <div class="container">
-            <div class="cases-head">
-              <div>
-                <h2 class="section-title">让产品从概念到量产更简单</h2>
-                <p class="section-subtitle">专注 AI+AR 智能消费电子硬件 OEM/ODM，从概念到量产的一站式智造伙伴</p>
-              </div>
-            </div>
-
-            <div class="cases-grid">
-              <article class="case-card">
-                <div class="case-top">
-                  <h3>灵活合作模式</h3>
-                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-                </div>
-                <div class="case-media">
-                  <img src="首页/img_product_1.png" alt="灵活合作模式" />
-                </div>
-              </article>
-              <article class="case-card bottom-title">
-                <div class="case-top">
-                  <h3>一站式服务范围</h3>
-                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-                </div>
-                <div class="case-media">
-                  <img src="首页/img_product_2.png" alt="一站式服务范围" />
-                </div>
-              </article>
-              <article class="case-card">
-                <div class="case-top">
-                  <h3>清晰合作流程</h3>
-                  <a class="case-link" href="#contact"><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-                </div>
-                <div class="case-media">
-                  <img src="首页/img_product_3.png" alt="清晰合作流程" />
-                </div>
-              </article>
-            </div>
-          </div>
+        <section class="section home-image-panel">
+          <img src="首页/img_home_ba.png" alt="版权与备案信息" loading="lazy" />
+        </section>
+      </main>
+    </index>
+    <product-ar99 id="view-product-ar99" class="page-view">
+      <main class="ar99-page">
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_top.png" alt="Mimosa AR99 主视觉：AI 智能眼镜" />
         </section>
 
-        <section class="section about section-bg-center" id="about">
-          <div class="container">
-            <div class="about-head section-head left">
-              <div class="about-copy">
-                <h2>走进形意智能，探索AI+AR 新境</h2>
-                <p>立足中国，面向全球，我们以创新精神和务实态度深耕 AI+AR 赛道，持续打磨国际化的产品、服务与品牌。为客户，我们创造价值，携手共赢；为行业，我们推动发展、引领风向；对消费者，我们坚守品质、带来“高、尖、新”的智能体验。</p>
-              </div>
-              <a class="btn btn-more btn-purple" href="#contact"><span>More</span><img src="首页/icon_home_arrow_fill_44_bla.png" alt="" /></a>
-            </div>
-
-            <div class="about-panel">
-              <div class="about-stats">
-                <div class="about-stat"><strong><span class="about-stat-number">2019</span><span class="about-stat-unit">年</span></strong><span class="about-stat-label">公司创始于</span></div>
-                <div class="about-stat"><strong><span class="about-stat-number">300</span><span class="about-stat-unit">人</span></strong><span class="about-stat-label">现团队规模</span></div>
-                <div class="about-stat"><strong><span class="about-stat-number">100</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">服务行业</span></div>
-                <div class="about-stat"><strong><span class="about-stat-number">2000</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">合作用户</span></div>
-                <div class="about-stat"><strong><span class="about-stat-number">60</span><span class="about-stat-unit">+</span></strong><span class="about-stat-label">技术专利</span></div>
-              </div>
-            </div>
-          </div>
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_design.png" alt="Mimosa AR99 轻盈佩戴体验介绍" loading="lazy" />
         </section>
 
-        <section class="section cta section-bg-center" id="contact">
-          <div class="container">
-            <div class="cta-panel">
-              <div class="cta-content">
-                <h2>共启智能穿戴新时代</h2>
-                <p>从概念到量产，赋能品牌重塑智能穿戴未来。</p>
-                <a class="btn btn-white" href="tel:075523006866">产品咨询</a>
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_cam.png" alt="Mimosa AR99 科技外观与无扰设计介绍" loading="lazy" />
+        </section>
+
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_bdp.png" alt="Mimosa AR99 多元视觉显示能力介绍" loading="lazy" />
+        </section>
+
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_ys.png" alt="Mimosa AR99 时尚造型与镜框系列介绍" loading="lazy" />
+        </section>
+
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_jh.png" alt="Mimosa AR99 交互体验介绍" loading="lazy" />
+        </section>
+
+        <section class="ar99-image-panel">
+          <img src="产品/AR99/img_produ_ar99_dj.png" alt="Mimosa AR99 个性化定制服务介绍" loading="lazy" />
+        </section>
+
+        <section class="ar99-scene-section">
+          <div class="ar99-shell">
+            <div class="ar99-scene-head">
+              <h2>强大的AI智能助理功能</h2>
+              <img src="产品/AR99/img_adorn_sphere.png" alt="" class="ar99-scene-head-adorn" />
+            </div>
+
+            <div class="ar99-scene-body">
+              <div class="ar99-scene-copy">
+                <span class="ar99-scene-badge" data-ar99-scene-badge>01 AI出游规划</span>
+                <p data-ar99-scene-desc>行程建议、城市玩法与多日路线抬眼可得，出发前的规划和出行中的临场决策都能更轻松自然。</p>
+
+                <div class="ar99-scene-controls">
+                  <div class="ar99-scene-pager" aria-label="Mimosa AR99 AI 助手场景轮播">
+                    <button class="ar99-scene-tab is-active" type="button" aria-pressed="true" aria-label="查看 AI 出游规划场景"
+                      data-scene-badge="01 AI出游规划"
+                      data-scene-desc="行程建议、城市玩法与多日路线抬眼可得，出发前的规划和出行中的临场决策都能更轻松自然。"
+                      data-scene-image="产品/AR99/img_produ_ar99_2.png"
+                      data-scene-alt="Mimosa AR99 AI出游规划场景"></button>
+                    <button class="ar99-scene-tab" type="button" aria-pressed="false" aria-label="查看对话翻译场景"
+                      data-scene-badge="02 对话翻译"
+                      data-scene-desc="面对面交流时把译文实时投射到视野中，减少低头查看手机的打断感，让跨语种沟通更顺畅。"
+                      data-scene-image="产品/AR99/img_produ_ar99_1.png"
+                      data-scene-alt="Mimosa AR99 对话翻译场景"></button>
+                    <button class="ar99-scene-tab" type="button" aria-pressed="false" aria-label="查看提词演讲场景"
+                      data-scene-badge="03 提词演讲"
+                      data-scene-desc="会议、培训和演讲场景中把重点内容悬浮在眼前，帮助表达更连贯，呈现更从容。"
+                      data-scene-image="产品/AR99/img_produ_ar99_3.png"
+                      data-scene-alt="Mimosa AR99 提词演讲场景"></button>
+                    <button class="ar99-scene-tab" type="button" aria-pressed="false" aria-label="查看 AR 导航场景"
+                      data-scene-badge="04 AR导航"
+                      data-scene-desc="目的地、距离与方向信息直接叠加在真实视野中，步行逛街或陌生城市出行都更直观。"
+                      data-scene-image="产品/AR99/img_produ_ar99_4.png"
+                      data-scene-alt="Mimosa AR99 AR导航场景"></button>
+                    <button class="ar99-scene-tab" type="button" aria-pressed="false" aria-label="查看会议转写场景"
+                      data-scene-badge="05 会议转写"
+                      data-scene-desc="语音转文字与重点内容整理同步进行，会中记录更高效，会后回看也更省时。"
+                      data-scene-image="产品/AR99/img_produ_ar99_5.png"
+                      data-scene-alt="Mimosa AR99 会议转写场景"></button>
+                  </div>
+
+                  <div class="ar99-scene-nav">
+                    <button class="ar99-scene-arrow" type="button" aria-label="上一张场景图" data-ar99-scene-prev>
+                      <img src="产品/AR99/icon_arrow_right_left.png" alt="" />
+                    </button>
+                    <button class="ar99-scene-arrow" type="button" aria-label="下一张场景图" data-ar99-scene-next>
+                      <img src="产品/AR99/icon_arrow_right_rigjt.png" alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ar99-scene-visual">
+                <img src="产品/AR99/img_produ_ar99_2.png" alt="Mimosa AR99 AI出游规划场景" data-ar99-scene-image />
               </div>
             </div>
           </div>
         </section>
       </main>
-
-      <footer class="footer">
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-col"><h4>购买渠道</h4><a href="#contact">京东旗舰店</a><a href="#contact">天猫旗舰店</a></div>
-            <div class="footer-col"><h4>产品中心</h4><a href="#products">Mimosa AR99</a><a href="#/products/c100">形意 C100</a><a href="#products">形意 K900</a></div>
-            <div class="footer-col"><h4>技术能力</h4><a href="#advantages">应用下载</a><a href="#advantages">解决方案</a></div>
-            <div class="footer-col"><h4>服务支持</h4><a href="#/service">应用下载</a><a href="#/service">解决方案</a></div>
-            <div class="footer-col"><h4>关于我们</h4><a href="#about">公司介绍</a><a href="#about">形意工厂</a></div>
-            <div class="footer-col"><h4>下载</h4><a href="#contact">应用下载</a><a href="#contact">开发者</a></div>
-            <div class="footer-col footer-address">
-              <h4>公司地址</h4>
-              <p>深圳市宝安区新安街道稻兴环球科创中心A栋901-905</p>
-              <p>0755-23006866</p>
-              <div class="footer-qr" aria-hidden="true"></div>
-              <p>获得实时资讯</p>
-            </div>
-          </div>
-          <div class="footer-legal">
-            <span>Copyright © 深圳形意智能科技有限公司版权所有</span>
-            <span>粤ICP备20029730号</span>
-            <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882 号</span></span>
-          </div>
-        </div>
-      </footer>
-    </index>
+    </product-ar99>
     <product-c100 id="view-product-c100" class="page-view">
       <main class="c100-page">
-        <section class="c100-story-panel c100-hero-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_top.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-hero-shell">
-            <div class="c100-copy">
-              <p class="c100-kicker">AR+AI 全能视界</p>
-              <h1>SmartXY C100</h1>
-              <p>集增强现实显示与人工智能大模型于一体的智能穿戴设备，让信息获取、感知增强与场景记录自然发生。</p>
-              <div class="c100-hero-card">
-                <img src="产品/c100/img_produ_c100.png" alt="SmartXY C100 产品渲染图" />
-                <span>轻盈机身，随手开启全天候智能视界</span>
-              </div>
-            </div>
-            <div class="c100-hero-note">
-              <img src="产品/c100/img_adorn_sphere.png" alt="" />
-              <p>让每一次抬眼，都成为与智能世界的无界对话。</p>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_top.png" alt="SmartXY C100 主视觉：AR+AI 全能视界" />
         </section>
 
-        <section class="c100-story-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_design.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-comfort-shell">
-            <div class="c100-copy c100-copy-wide">
-              <p class="c100-kicker">Comfort Design</p>
-              <h2>每一次接触，<br />只为更舒适的佩戴体验</h2>
-              <p>40g 羽量机身搭配航空级 TR90 与钛合金骨架，自适应鼻托与镜腿布局兼顾稳固支撑和全天候无感佩戴。</p>
-            </div>
-
-            <div class="c100-feature-grid">
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_feather.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">极致轻盈</h3>
-                  <p>40g 航空骨架与自适应叶托，长时间佩戴依旧轻松自然。</p>
-                </div>
-              </article>
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_diamond.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">奢品质感</h3>
-                  <p>航空 TR90 与钛合金材质结合，兼顾耐用性与高级触感。</p>
-                </div>
-              </article>
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_glasses.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">自适应佩戴</h3>
-                  <p>记忆鼻托与智能贴耳设计贴合不同脸型，稳定佩戴不压迫。</p>
-                </div>
-              </article>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_design.png" alt="SmartXY C100 佩戴设计介绍" loading="lazy" />
         </section>
 
-        <section class="c100-story-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_cam.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-world-shell">
-            <div class="c100-copy c100-copy-wide">
-              <p class="c100-kicker">Immersive Vision</p>
-              <h2>把世界，装进感官里</h2>
-              <p>VHG+Micro-LED 显示打造更清晰的增强现实体验，搭配第一视角影像记录与定向声学系统，让佩戴者在真实场景中获得即时增强的信息反馈。</p>
-            </div>
-
-            <div class="c100-world-features">
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_pz.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">高清摄像</h3>
-                  <p>1200 万像素 SONY 传感器，第一视角高清记录，所见即所得。</p>
-                </div>
-              </article>
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_quality.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">清晰画质</h3>
-                  <p>30° 视场角配合 Micro-LED 双目显示，信息叠加自然可视。</p>
-                </div>
-              </article>
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_sound.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">声学系统</h3>
-                  <p>骨传导协同降噪方案，即使在嘈杂环境中也能清晰通话。</p>
-                </div>
-              </article>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_cam.png" alt="SmartXY C100 显示、影像与声学能力介绍" loading="lazy" />
         </section>
 
-        <section class="c100-story-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_gn.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-hardware-shell">
-            <div class="c100-copy c100-copy-wide">
-              <p class="c100-kicker">Power & Durability</p>
-              <h2>硬核藏于内，<br />从容显于外</h2>
-              <p>270mAh 可换电池、蓝牙 5.4 与 Wi-Fi 5 的稳定连接能力，再加上 IPX4 防护涂层，让 C100 在全天候使用环境中依旧可靠。</p>
-            </div>
-
-            <div class="c100-hardware-features">
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_electri.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">续航与连接</h3>
-                  <p>可换电设计配合 8 米稳定连接，支持全天候持续使用与快速补能。</p>
-                </div>
-              </article>
-              <article class="c100-feature-card">
-                <img src="产品/c100/icon_eye.png" alt="" />
-                <div>
-                  <h3 class="c100-feature-title">坚韧品质</h3>
-                  <p>IPX4 防水防尘与宽温域防护能力，适应通勤、户外与多场景切换。</p>
-                </div>
-              </article>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_gn.png" alt="SmartXY C100 续航、连接与品质介绍" loading="lazy" />
         </section>
 
-        <section class="c100-story-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_js.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-ai-shell">
-            <div class="c100-copy c100-copy-wide">
-              <p class="c100-kicker">AI Native</p>
-              <h2>给眼镜装个“最强大脑”</h2>
-              <p>内置多模态 AI 能力与双系统协同架构，支持个性化推荐、实时辅助和云端持续升级，不止是一副眼镜，更像是一位持续进化的智能伙伴。</p>
-            </div>
-
-            <div class="c100-ai-grid">
-              <article class="c100-ai-card">
-                <strong><span>01</span> 真人大模型</strong>
-                <p>亿级大模型驱动，懂你所说、明你所想，对话与反馈更自然。</p>
-              </article>
-              <article class="c100-ai-card">
-                <strong><span>02</span> 双系统丝滑协同</strong>
-                <p>双系统协作配合 2G+32G 存储，操作流畅，关键任务更稳定。</p>
-              </article>
-              <article class="c100-ai-card">
-                <strong><span>03</span> 比你更懂你自己</strong>
-                <p>适应使用习惯，精准推送导航、翻译、提醒等场景化服务。</p>
-              </article>
-              <article class="c100-ai-card">
-                <strong><span>04</span> 常用常新不过时</strong>
-                <p>支持云端升级与持续优化，一副眼镜即可获得长期进化能力。</p>
-              </article>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_js.png" alt="SmartXY C100 AI 能力介绍" loading="lazy" />
         </section>
 
-        <section class="c100-story-panel">
-          <figure class="c100-panel-art" aria-hidden="true">
-            <img src="产品/c100/img_produ_c100_jh.png" alt="" />
-          </figure>
-          <div class="c100-shell c100-interaction-shell">
-            <div class="c100-copy c100-copy-wide">
-              <p class="c100-kicker">Natural Interaction</p>
-              <h2>指尖起舞，耳畔低语</h2>
-              <p>支持触控滑动调节、语音助手唤醒与佩戴状态感知，让每一次靠近都变成更轻松的智能交互体验。</p>
-            </div>
-
-            <div class="c100-interaction-grid">
-              <article class="c100-interaction-chip">
-                <img src="产品/c100/icon_slide.png" alt="" />
-                <strong>滑动触控</strong>
-                <p>轻触镜腿即可完成切换、调节与快速操作。</p>
-              </article>
-              <article class="c100-interaction-chip">
-                <img src="产品/c100/icon_sound.png" alt="" />
-                <strong>语音唤醒</strong>
-                <p>抬眼之间即可调用助手，信息、翻译和提醒快速响应。</p>
-              </article>
-              <article class="c100-interaction-chip">
-                <img src="产品/c100/icon_wear.png" alt="" />
-                <strong>佩戴检测</strong>
-                <p>感知佩戴状态并自动进入合适模式，体验更流畅自然。</p>
-              </article>
-            </div>
-          </div>
+        <section class="c100-image-panel">
+          <img src="产品/c100/img_produ_c100_jh.png" alt="SmartXY C100 交互方式介绍" loading="lazy" />
         </section>
 
         <section class="c100-scene-section">
           <div class="c100-shell">
             <div class="c100-scene-head">
-              <p class="c100-kicker">Scene Modes</p>
               <h2>虚实相生处，方见真章时</h2>
+              <img src="产品/c100/img_adorn_sphere.png" alt="" class="c100-scene-head-adorn" />
             </div>
 
             <div class="c100-scene-body">
               <div class="c100-scene-copy">
                 <span class="c100-scene-badge" data-c100-scene-badge>01 拍照录像</span>
-                <h3 data-c100-scene-title>第一视角记录，让灵感与生活同步存档。</h3>
                 <p data-c100-scene-desc>轻抬视线即可拍照录像，旅途、运动、会议与通勤中的关键瞬间都能以佩戴者视角自然记录，留下更沉浸的回忆与素材。</p>
+
+                <div class="c100-scene-controls">
+                  <div class="c100-scene-pager" aria-label="SmartXY C100 场景轮播">
+                    <button class="c100-scene-tab is-active" type="button" aria-pressed="true" aria-label="查看拍照录像场景"
+                      data-scene-badge="01 拍照录像"
+                      data-scene-desc="轻抬视线即可拍照录像，旅途、运动、会议与通勤中的关键瞬间都能以佩戴者视角自然记录，留下更沉浸的回忆与素材。"
+                      data-scene-image="产品/c100/img_produ_c100_cj_pic.png"
+                      data-scene-alt="SmartXY C100 拍照录像场景"></button>
+                    <button class="c100-scene-tab" type="button" aria-pressed="false" aria-label="查看 AI 识物场景"
+                      data-scene-badge="02 AI识物"
+                      data-scene-desc="面对食材、商品或地标时，AI 识物能力可以快速补充背景信息、卡路里与使用建议，让信息获取更自然高效。"
+                      data-scene-image="产品/c100/img_produ_c100_cj_shi.png"
+                      data-scene-alt="SmartXY C100 AI识物场景"></button>
+                    <button class="c100-scene-tab" type="button" aria-pressed="false" aria-label="查看提词器场景"
+                      data-scene-badge="03 提词器"
+                      data-scene-desc="提词器模式将关键信息投射到视线内，帮助演讲、直播、培训与会议发言保持顺畅节奏，减少视线切换。"
+                      data-scene-image="产品/c100/img_produ_c100_cj_ti.png"
+                      data-scene-alt="SmartXY C100 提词器场景"></button>
+                    <button class="c100-scene-tab" type="button" aria-pressed="false" aria-label="查看 AR 导航场景"
+                      data-scene-badge="04 AR导航"
+                      data-scene-desc="AR 导航把转向、距离和提醒直接叠加在真实路面上，让骑行、步行与陌生城市出行更安全，也更具未来感。"
+                      data-scene-image="产品/c100/img_produ_c100_cj_navi.png"
+                      data-scene-alt="SmartXY C100 AR导航场景"></button>
+                    <button class="c100-scene-tab" type="button" aria-pressed="false" aria-label="查看同声翻译场景"
+                      data-scene-badge="05 同声翻译"
+                      data-scene-desc="同声翻译支持出境游、跨国商务与国际协作场景，把翻译结果实时呈现在视野中，让交流节奏保持自然顺滑。"
+                      data-scene-image="产品/c100/img_produ_c100_cj_trans.png"
+                      data-scene-alt="SmartXY C100 同声翻译场景"></button>
+                  </div>
+
+                  <div class="c100-scene-nav">
+                    <button class="c100-scene-arrow" type="button" aria-label="上一张场景图" data-c100-scene-prev>
+                      <img src="产品/c100/icon_arrow_right_left.png" alt="" />
+                    </button>
+                    <button class="c100-scene-arrow" type="button" aria-label="下一张场景图" data-c100-scene-next>
+                      <img src="产品/c100/icon_arrow_right_rigjt.png" alt="" />
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div class="c100-scene-visual">
-                <img src="产品/c100/img_adorn_sphere.png" alt="" class="c100-scene-adorn" />
                 <img src="产品/c100/img_produ_c100_cj_pic.png" alt="SmartXY C100 拍照录像场景" data-c100-scene-image />
               </div>
             </div>
-
-            <div class="c100-scene-tabs" role="tablist" aria-label="SmartXY C100 场景功能">
-              <button class="c100-scene-tab is-active" type="button" role="tab" aria-selected="true"
-                data-scene-badge="01 拍照录像"
-                data-scene-title="第一视角记录，让灵感与生活同步存档。"
-                data-scene-desc="轻抬视线即可拍照录像，旅途、运动、会议与通勤中的关键瞬间都能以佩戴者视角自然记录，留下更沉浸的回忆与素材。"
-                data-scene-image="产品/c100/img_produ_c100_cj_pic.png"
-                data-scene-alt="SmartXY C100 拍照录像场景">
-                <span>01</span>拍照录像
-              </button>
-              <button class="c100-scene-tab" type="button" role="tab" aria-selected="false"
-                data-scene-badge="02 AI识物"
-                data-scene-title="抬眼识别世界，知识与信息即时浮现。"
-                data-scene-desc="面对食材、商品或地标时，AI 识物能力可以快速补充背景信息、卡路里与使用建议，让信息获取更自然高效。"
-                data-scene-image="产品/c100/img_produ_c100_cj_shi.png"
-                data-scene-alt="SmartXY C100 AI识物场景">
-                <span>02</span>AI识物
-              </button>
-              <button class="c100-scene-tab" type="button" role="tab" aria-selected="false"
-                data-scene-badge="03 提词器"
-                data-scene-title="重要表达不忘词，演讲与直播更从容。"
-                data-scene-desc="提词器模式将关键信息投射到视线内，帮助演讲、直播、培训与会议发言保持顺畅节奏，减少视线切换。"
-                data-scene-image="产品/c100/img_produ_c100_cj_ti.png"
-                data-scene-alt="SmartXY C100 提词器场景">
-                <span>03</span>提词器
-              </button>
-              <button class="c100-scene-tab" type="button" role="tab" aria-selected="false"
-                data-scene-badge="04 AR导航"
-                data-scene-title="路线浮现在眼前，探索城市不再低头。"
-                data-scene-desc="AR 导航把转向、距离和提醒直接叠加在真实路面上，让骑行、步行与陌生城市出行更安全，也更具未来感。"
-                data-scene-image="产品/c100/img_produ_c100_cj_navi.png"
-                data-scene-alt="SmartXY C100 AR导航场景">
-                <span>04</span>AR导航
-              </button>
-              <button class="c100-scene-tab" type="button" role="tab" aria-selected="false"
-                data-scene-badge="05 同声翻译"
-                data-scene-title="跨语种沟通自然发生，让对话没有边界。"
-                data-scene-desc="同声翻译支持出境游、跨国商务与国际协作场景，把翻译结果实时呈现在视野中，让交流节奏保持自然顺滑。"
-                data-scene-image="产品/c100/img_produ_c100_cj_trans.png"
-                data-scene-alt="SmartXY C100 同声翻译场景">
-                <span>05</span>同声翻译
-              </button>
-            </div>
           </div>
         </section>
-
-        <footer class="footer c100-footer">
-          <div class="c100-shell">
-            <div class="footer-grid">
-              <div class="footer-col"><h4>购买渠道</h4><a href="#contact">京东旗舰店</a><a href="#contact">天猫旗舰店</a></div>
-              <div class="footer-col"><h4>产品中心</h4><a href="#products">Mimosa AR99</a><a href="#/products/c100">形意 C100</a><a href="#products">形意 K900</a></div>
-              <div class="footer-col"><h4>技术能力</h4><a href="#/skill">应用下载</a><a href="#/skill">解决方案</a></div>
-              <div class="footer-col"><h4>服务支持</h4><a href="#/service">应用下载</a><a href="#/service">解决方案</a></div>
-              <div class="footer-col"><h4>关于我们</h4><a href="#/about">公司介绍</a><a href="#/about">形意工厂</a></div>
-              <div class="footer-col"><h4>下载</h4><a href="#contact">应用下载</a><a href="#contact">开发者</a></div>
-              <div class="footer-col footer-address">
-                <h4>公司地址</h4>
-                <p>深圳市宝安区新安街道稻兴环球科创中心A栋901-905</p>
-                <p>0755-23006866</p>
-                <div class="footer-qr" aria-hidden="true"></div>
-                <p>获得实时资讯</p>
-              </div>
-            </div>
-            <div class="footer-legal">
-              <span>Copyright © 深圳形意智能科技有限公司版权所有</span>
-              <span>粤ICP备20029730号</span>
-              <span class="footer-police"><img src="首页/img_police.png" alt="" /><span>粤公网安备 44030002010882 号</span></span>
-            </div>
-          </div>
-        </footer>
       </main>
     </product-c100>
     <about id="view-about" class="page-view">
@@ -5765,7 +6449,7 @@
       <div class="product-menu" id="productMenu" data-product-menu hidden>
         <div class="product-menu-panel" aria-label="产品列表">
           <div class="product-menu-grid">
-            <a class="product-menu-item" href="#/products" data-close-product-menu>
+            <a class="product-menu-item" href="#/products/ar99" data-close-product-menu>
               <span class="product-menu-thumb" aria-hidden="true"></span>
               <span class="product-menu-name">Mimosa AR99</span>
               <span class="product-menu-type">AI音频眼镜</span>
@@ -6053,7 +6737,7 @@
         <footer class="footer">
           <div class="footer-grid">
             <div class="footer-col"><h4>购买渠道</h4><a href="#/contact">京东旗舰店</a><a href="#/contact">天猫旗舰店</a></div>
-            <div class="footer-col"><h4>产品中心</h4><a href="#/products">Mimosa AR99</a><a href="#/products/c100">形意 C100</a><a href="#/products">形意 K900</a></div>
+            <div class="footer-col"><h4>产品中心</h4><a href="#/products/ar99">Mimosa AR99</a><a href="#/products/c100">形意 C100</a><a href="#/products">形意 K900</a></div>
             <div class="footer-col"><h4>技术能力</h4><a href="#/skill">应用下载</a><a href="#/skill">解决方案</a></div>
             <div class="footer-col"><h4>服务支持</h4><a href="#/service">应用下载</a><a href="#/service">解决方案</a></div>
             <div class="footer-col"><h4>关于我们</h4><a href="#/about">公司介绍</a><a href="#/about">形意工厂</a></div>
@@ -6076,7 +6760,7 @@
       <div class="product-menu" id="productMenu" data-product-menu hidden>
         <div class="product-menu-panel" aria-label="产品列表">
           <div class="product-menu-grid">
-            <a class="product-menu-item" href="#/products" data-close-product-menu>
+            <a class="product-menu-item" href="#/products/ar99" data-close-product-menu>
               <span class="product-menu-thumb" aria-hidden="true"></span>
               <span class="product-menu-name">Mimosa AR99</span>
               <span class="product-menu-type">AI音频眼镜</span>
@@ -6264,7 +6948,7 @@
       <div class="product-menu" id="productMenu" data-product-menu hidden>
         <div class="product-menu-panel" aria-label="产品列表">
           <div class="product-menu-grid">
-            <a class="product-menu-item" href="#/products" data-close-product-menu>
+            <a class="product-menu-item" href="#/products/ar99" data-close-product-menu>
               <span class="product-menu-thumb" aria-hidden="true"></span>
               <span class="product-menu-name">Mimosa AR99</span>
               <span class="product-menu-type">AI音频眼镜</span>
@@ -6518,6 +7202,41 @@
       mobileCanvasQuery.addListener(updateScale);
     }
     requestAnimationFrame(updateScale);
+
+    const homeProductBackdrop = document.querySelector("[data-home-product-backdrop]");
+    const homeProductTabs = Array.from(document.querySelectorAll(".home-product-tab"));
+
+    function setHomeProduct(tab) {
+      if (!tab) return;
+
+      homeProductTabs.forEach((item) => {
+        const active = item === tab;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+        const img = item.querySelector("img");
+        if (img) {
+          img.src = active ? item.dataset.homeProductSelected || img.src : item.dataset.homeProductDefault || img.src;
+        }
+      });
+
+      if (!homeProductBackdrop) return;
+      homeProductBackdrop.style.opacity = "0.38";
+      window.setTimeout(() => {
+        homeProductBackdrop.src = tab.dataset.homeProductImage || homeProductBackdrop.src;
+        homeProductBackdrop.style.opacity = "1";
+      }, 120);
+    }
+
+    homeProductTabs.forEach((tab) => {
+      tab.addEventListener("click", () => setHomeProduct(tab));
+      tab.addEventListener("mouseenter", () => setHomeProduct(tab));
+      tab.addEventListener("pointerenter", () => setHomeProduct(tab));
+      tab.addEventListener("focus", () => setHomeProduct(tab));
+    });
+
+    if (homeProductTabs.length) {
+      setHomeProduct(homeProductTabs.find((tab) => tab.classList.contains("is-active")) || homeProductTabs[0]);
+    }
 
     const productBackdrop = document.getElementById("productBackdrop");
     const productMenuTrigger = document.querySelector("[data-product-menu-trigger]");
@@ -7086,32 +7805,90 @@
 
     const c100SceneTabs = Array.from(document.querySelectorAll(".c100-scene-tab"));
     const c100SceneBadge = document.querySelector("[data-c100-scene-badge]");
-    const c100SceneTitle = document.querySelector("[data-c100-scene-title]");
     const c100SceneDesc = document.querySelector("[data-c100-scene-desc]");
     const c100SceneImage = document.querySelector("[data-c100-scene-image]");
+    const c100ScenePrev = document.querySelector("[data-c100-scene-prev]");
+    const c100SceneNext = document.querySelector("[data-c100-scene-next]");
+    let c100SceneIndex = 0;
 
-    function setC100Scene(tab) {
-      if (!tab || !c100SceneBadge || !c100SceneTitle || !c100SceneDesc || !c100SceneImage) return;
+    function setC100Scene(nextIndex) {
+      if (!c100SceneTabs.length || !c100SceneBadge || !c100SceneDesc || !c100SceneImage) return;
+
+      c100SceneIndex = (nextIndex + c100SceneTabs.length) % c100SceneTabs.length;
+      const activeTab = c100SceneTabs[c100SceneIndex];
+      if (!activeTab) return;
 
       c100SceneTabs.forEach((item) => {
-        const active = item === tab;
+        const active = item === activeTab;
         item.classList.toggle("is-active", active);
-        item.setAttribute("aria-selected", String(active));
+        item.setAttribute("aria-pressed", String(active));
       });
 
-      c100SceneBadge.textContent = tab.dataset.sceneBadge || "";
-      c100SceneTitle.textContent = tab.dataset.sceneTitle || "";
-      c100SceneDesc.textContent = tab.dataset.sceneDesc || "";
-      c100SceneImage.src = tab.dataset.sceneImage || c100SceneImage.src;
-      c100SceneImage.alt = tab.dataset.sceneAlt || "";
+      c100SceneBadge.textContent = activeTab.dataset.sceneBadge || "";
+      c100SceneDesc.textContent = activeTab.dataset.sceneDesc || "";
+      c100SceneImage.src = activeTab.dataset.sceneImage || c100SceneImage.src;
+      c100SceneImage.alt = activeTab.dataset.sceneAlt || "";
     }
 
-    c100SceneTabs.forEach((tab) => {
-      tab.addEventListener("click", () => setC100Scene(tab));
+    c100SceneTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => setC100Scene(index));
     });
 
     if (c100SceneTabs.length) {
-      setC100Scene(c100SceneTabs.find((tab) => tab.classList.contains("is-active")) || c100SceneTabs[0]);
+      const initialIndex = Math.max(0, c100SceneTabs.findIndex((tab) => tab.classList.contains("is-active")));
+      setC100Scene(initialIndex);
+    }
+
+    if (c100ScenePrev) {
+      c100ScenePrev.addEventListener("click", () => setC100Scene(c100SceneIndex - 1));
+    }
+
+    if (c100SceneNext) {
+      c100SceneNext.addEventListener("click", () => setC100Scene(c100SceneIndex + 1));
+    }
+
+    const ar99SceneTabs = Array.from(document.querySelectorAll(".ar99-scene-tab"));
+    const ar99SceneBadge = document.querySelector("[data-ar99-scene-badge]");
+    const ar99SceneDesc = document.querySelector("[data-ar99-scene-desc]");
+    const ar99SceneImage = document.querySelector("[data-ar99-scene-image]");
+    const ar99ScenePrev = document.querySelector("[data-ar99-scene-prev]");
+    const ar99SceneNext = document.querySelector("[data-ar99-scene-next]");
+    let ar99SceneIndex = 0;
+
+    function setAr99Scene(nextIndex) {
+      if (!ar99SceneTabs.length || !ar99SceneBadge || !ar99SceneDesc || !ar99SceneImage) return;
+
+      ar99SceneIndex = (nextIndex + ar99SceneTabs.length) % ar99SceneTabs.length;
+      const activeTab = ar99SceneTabs[ar99SceneIndex];
+      if (!activeTab) return;
+
+      ar99SceneTabs.forEach((item) => {
+        const active = item === activeTab;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+
+      ar99SceneBadge.textContent = activeTab.dataset.sceneBadge || "";
+      ar99SceneDesc.textContent = activeTab.dataset.sceneDesc || "";
+      ar99SceneImage.src = activeTab.dataset.sceneImage || ar99SceneImage.src;
+      ar99SceneImage.alt = activeTab.dataset.sceneAlt || "";
+    }
+
+    ar99SceneTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => setAr99Scene(index));
+    });
+
+    if (ar99SceneTabs.length) {
+      const initialIndex = Math.max(0, ar99SceneTabs.findIndex((tab) => tab.classList.contains("is-active")));
+      setAr99Scene(initialIndex);
+    }
+
+    if (ar99ScenePrev) {
+      ar99ScenePrev.addEventListener("click", () => setAr99Scene(ar99SceneIndex - 1));
+    }
+
+    if (ar99SceneNext) {
+      ar99SceneNext.addEventListener("click", () => setAr99Scene(ar99SceneIndex + 1));
     }
 
     // ===== SPA Router =====
@@ -7120,6 +7897,7 @@
       '#/about': '形意智能 - 关于我们',
       '#/skill': '形意智能 - AI/AR 眼镜二级详情页',
       '#/service': '形意智能 - 服务支持',
+      '#/products/ar99': 'Mimosa AR99 - AI 智能眼镜产品详情',
       '#/products/c100': '形意 C100 - SmartXY C100 产品详情'
     };
 
@@ -7163,6 +7941,7 @@
         a.classList.toggle('active', href === canonicalHash || isIndexHome || isProductActive);
       });
 
+      document.body.classList.toggle('route-product-ar99', canonicalHash === '#/products/ar99');
       document.body.classList.toggle('route-product-c100', canonicalHash === '#/products/c100');
 
       const title = viewTitles[canonicalHash] || viewTitles['#/'];
@@ -7171,7 +7950,7 @@
 
     function handleRoute() {
       const hash = getCanonicalHash(window.location.hash);
-      const map = {'#/':'index','#/about':'about','#/skill':'skill','#/service':'service','#/products/c100':'product-c100'};
+      const map = {'#/':'index','#/about':'about','#/skill':'skill','#/service':'service','#/products/ar99':'product-ar99','#/products/c100':'product-c100'};
       showView(map[hash] || 'index', hash);
     }
 
